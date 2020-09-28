@@ -1,10 +1,10 @@
-# Freshers Portal App
+# Freshers Portal Website
 
 
 ## Problems Addressed:
 
 * Students of every semester requires notes and previous year question<br />
-* Students dont know how to start preparing for placement,or what to do different tostand out.
+* Students dont know how to start preparing for placement,or what to do different to stand out from crowd.
 
 ## Overview:
 
@@ -16,7 +16,7 @@ Creating an website for Student of NitP for them for reading blog written by sen
 * To Help Student in knowing more about our college.<br />
 
 ## Scalability
-
+* It will help students in knowing how to get started.
 * It will help every semester student (as we are providing notes and semester wise question  paper)
 
 ## Tech Stacks Required:

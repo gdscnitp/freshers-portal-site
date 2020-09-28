@@ -33,4 +33,5 @@ Creating an website for Student of NitP for them for reading blog written by sen
 * First time interval – 30 Sept-30 Oct, 2020 – Target(Reading Blogs and Uploading Notes will be done by here)<br />
 * Second time interval – 30 Oct -20 Nov, 2020 – Target(Previous Year Paper Will be included Here) <br />
 
-
+## Total Contributors Required:
+5 Students

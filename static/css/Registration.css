@@ -17,7 +17,7 @@ float:left;
 width:38%; height:100%;
 background-color:#26324a;
 color:white;
-
+height:100%;
 }
 .butt{ background-color:#26324a;
 border-color:#26324a;
@@ -26,11 +26,13 @@ margin-top:100px;
 .butt1{ background-color:#26324a;
 border-color:#26324a;
 margin-top:30px;
+margin-top:30px;
 }
 .butt2{ background-color:#26324a;
 border:1px solid white;
 }
-#right1{ width:400px;
+#right1{
+width:400px;
 position : absolute;
 top:100px;
 left:68%;
@@ -39,6 +41,6 @@ padding:20px;
 }
 #mycarousel{
 position:absolute;
-top: 100px;}
+}
 img{width:800px;
-height:400px;}
+height:380px;}

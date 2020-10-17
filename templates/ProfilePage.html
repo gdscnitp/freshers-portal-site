@@ -1,17 +1,18 @@
-<!DOCTYPE html>
+{% load static %}
+
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet"  type="text/css" href="profile.css">
+    <link rel='stylesheet' href="{% static '/css/ProfilePage.css' %}">
 </head>
 <body>
  <nav class="navbar navbar1"><div id="butt">
- <a href="#" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">HOME</a>
-  <a href="#" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">BLOGS</a>
- <a href="#" class="btn btn-primary butt1" onClick="parent.location='Nav.html'">LOGOUT</a> </div>
+ <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">HOME</a>
+  <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">BLOGS</a>
+ <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav.html'">LOGOUT</a> </div>
  </nav><br /><br /><br />
 
  <div id="first1">
@@ -52,7 +53,7 @@ galley of type and scrambled it to </li></ul>
  
  <div id="third1">
 <div id="image">
-<img src="profile.jpg"></div>
+<img src="{% static 'images/logo.png' %}"></div>
 <div id="ema"><h3>
 &nbsp &nbsp &nbsp &nbsp 1906168<br /><br />
 <span class="glyphicon glyphicon-envelope"></span>&nbsp &nbsp lavanyas.ug19.cs@nitp.ac.in</h3></div>

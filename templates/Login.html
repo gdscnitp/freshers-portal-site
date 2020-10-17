@@ -5,10 +5,19 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet"  type="text/css" href="login.css">
+    <link rel='stylesheet' href="{% static '/css/Login.css' %}">
 <head>
 <body>
-<img src="back1.jpg">
+<nav class="navbar navbar1">
+   <h1 class="nit">National Institue Of Technology, Patna</h1>
+   <div id="nav">
+   <a href="/" class="btn btn-primary buttn">HOME</a>
+   <a href="/" class="btn btn-primary buttn">ABOUT OUR COLLEGE</a>
+   <a href="/signUp" class="btn btn-primary buttn" onClick="parent.location='reg.html'">REGISTER</a>
+   <a href="/signIn" class="btn btn-primary buttn" onClick="parent.location='login.html'">LOGIN</a> </div>
+   </nav>
+
+<img src="{% static 'images/logo.png' %}">
 <div id="log"> 
 <form role="form">
 <div class="form-group"><br />

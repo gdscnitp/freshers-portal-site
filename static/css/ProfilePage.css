@@ -3,7 +3,7 @@ height:120px;
 }
 
 #butt{position:absolute;
-right:500px;
+right:300px;
 }
 
 .butt1{
@@ -26,7 +26,7 @@ right:60px;
 color:#26324a;}
 
 #first1{ float:left;
-width:35%;
+width:50%;
 margin-left:50px;
 margin-right:80px;
 border: 1px solid transparent;
@@ -36,11 +36,11 @@ height:300px;
 padding-right:30px;
 padding-top:15px;}
 
-#second1{float:left;
-width:25%;
-border: 1px solid transparent;
-padding:15px;}
 
-.head1{ color:#7f7d7c;}
+.head1{
+color:#7f7d7c;
+}
 
-.icon_image{width:50px;height:50px;}
+.icon_image{
+width:50px;height:50px;
+}

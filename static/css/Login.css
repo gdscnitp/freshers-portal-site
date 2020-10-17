@@ -1,0 +1,25 @@
+body{
+color:#bdbdbd;
+}
+#log{
+background-color:black;
+position: absolute;
+top:25%;
+left:40%;
+width:300px;
+height:400px;
+-webkit-box-shadow: 0 10px 6px -6px #777;
+-moz-box-shadow: 0 10px 6px -6px #777;
+box-shadow: 0 10px 6px -6px #777;
+}
+.box{ 
+width:210px;
+}
+img{width:100%; height:100%;}
+
+#margin{margin-left:45px;}
+
+.butt{background-color:black;
+border-color:white;
+margin-left:60px;
+}

@@ -1,0 +1,15 @@
+.navbar1{ background-color:#26324a;
+height:120px;}
+.butt{ background-color:#26324a;
+border-color:#26324a;
+margin-right:15px;}
+#nav{float:left; 
+margin:0 0 0 0%; }
+.nit{ 
+margin-left:-100px;
+display:inline;
+font-family:pangolin;
+letter-spacing:1px; word-spacing: 2px; 
+color:white;}
+img{
+margin-left:20px;}

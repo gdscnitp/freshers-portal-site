@@ -45,7 +45,7 @@ def logout(request):
         del request.session['uid']
     except:
         pass
-    return render(request,"signIn.html")
+    return render(request,"Login.html")
 
 def signUp(request):
     return render(request,"Registration.html")

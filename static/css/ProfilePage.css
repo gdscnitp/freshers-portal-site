@@ -1,10 +1,22 @@
 .navbar1{ background-color:#26324a;
-height:120px;
 }
+.butt{
+ background-color:#26324a;
+border-color:#26324a;
+margin-right:15px;
+}
+#nav{
+float:left;
+margin:0 0 0 0%; }
+.nit{
+margin-left:-100px;
+display:inline;
+font-family:pangolin;
+letter-spacing:1px; word-spacing: 2px;
+color:white;}
+img{
+margin-left:20px;}
 
-#butt{position:absolute;
-right:300px;
-}
 
 .butt1{
 margin-right:40px;
@@ -12,35 +24,41 @@ background-color:#26324a;
 border-color:#26324a;
 }
 
-img{width:250px;
+img{
+width:250px;
 height:250px;
 border-radius:50%;}
 
-#image{position:absolute;
-top:50px;
-right:60px;}
+#image{
+position:absolute;
+right:160px;}
 
 #ema{position:absolute;
 top:270px;
 right:60px;
 color:#26324a;}
 
-#first1{ float:left;
+#third1{
+float:left;
+left:10px;
+margin-left:100px;
 width:50%;
-margin-left:50px;
+}
+#first1{
+float:right;
+width:50%;
+margin-left:450px;
 margin-right:80px;
 border: 1px solid transparent;
 border-top: 1px solid #7f7d7c;
 border-right: 1px solid #7f7d7c;
 height:300px;
 padding-right:30px;
-padding-top:15px;}
-
-
+padding-top:15px;
+}
 .head1{
 color:#7f7d7c;
 }
-
 .icon_image{
 width:50px;height:50px;
 }

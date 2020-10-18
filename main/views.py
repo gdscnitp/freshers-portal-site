@@ -36,10 +36,15 @@ def postsignIn(request):
         return render(request ,"Login.html",{"messg":message})
     print(user['idToken'])
     session_id=user['idToken']
-    request.session['uid']=str(session_id)
-    
-
-    return render(request ,"ProfilePage.html",{"e":email})
+    idtoken = request.session['uid']
+    if idtoken:
+        a = authe.get_account_info(idtoken)
+        a = a['users']
+        a = a[0]
+        a = a['localId']
+        name = database.child('users').child(a).child('name').get().val()
+        request.session['uid']=str(session_id)
+        return render(request ,"ProfilePage.html",{"e":name})
 def logout(request):
     try:
         del request.session['uid']
@@ -52,6 +57,9 @@ def signUp(request):
 
 def postsignup(request):
     name=request.POST.get('name')
+    branch=request.POST.get('sel')
+    enroll=request.POST.get('enrolls')
+    roll=request.POST.get('roll')
     email=request.POST.get('email')
     passw=request.POST.get('pass')
     try:
@@ -60,8 +68,8 @@ def postsignup(request):
         messg="unable to create account try again"
         return render(request,"registration.html",{"messg":messg})
     uid = user['localId']
-    data={"name":name,"status":"1"}
-    database.child("users").child(uid).child("details").set(data)
+    data={"name":name,"USER_TYPE":"user","device_token":"","email":email,"id":roll,"imgUrl":"","branch":branch,"uid":uid,"enrollment":enroll}
+    database.child("users").child(uid).set(data)
     return render(request,"login.html")
 
 def profile(request):

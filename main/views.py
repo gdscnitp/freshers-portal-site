@@ -24,6 +24,7 @@ def signIn(request):
     return render(request,"Login.html")
 
 def signUp(request):
+
     return render(request,"Registration.html")
 
 def profile(request):

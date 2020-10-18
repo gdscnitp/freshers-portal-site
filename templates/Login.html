@@ -19,15 +19,16 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
 <img src="{% static 'images/logo.png' %}">
 <div id="log"> 
-<form role="form">
+<form action="/postsignIn/" method="POST">
+    {% csrf_token %}
 <div class="form-group"><br />
 <h1 style="text-align:center;"> WELCOME </h1><br /><br />
 <div id="margin">
 <label for="Email"> Email Address:</label>
-<input type="text" class="form-control box imput-sm" id="email" placeholder="Enter Email"><br />
+<input type="text" class="form-control box imput-sm" id="email" name="email" placeholder="Enter Email"><br />
 <label for="Pass"> Password:</label>
-<input type="text" class="form-control box imput-sm" id="pass" placeholder="Minimum 8 characters"><br />
-<a href="#" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">SUBMIT</a></div>
+<input type="text" class="form-control box imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
+<input type="submit" value="SignIn">
 </div>
 </form>
 </div>

@@ -45,14 +45,15 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
 <div id="right">
 <div id="right1">
-<form role="form">
+<form action="/postsignup/" method="POST">
+    {% csrf_token %}
 <div class="form-group">
 <label for="fname"> Full Name:</label>
-<input type="text" class="form-control input-sm" id="name" placeholder="Enter name"><br />
+<input type="text" class="form-control input-sm" id="name" name="name" placeholder="Enter name"><br />
 <label for="enroll"> Enrollment No.:</label>
-<input type="text" class="form-control" imput-sm" id="enroll" placeholder=""><br />
+<input type="text" class="form-control imput-sm" id="enrolls" name="enroll" placeholder=""><br />
 <label for="roll"> Roll No.:</label>
-<input type="text" class="form-control" imput-sm" id="enroll" placeholder=""><br />
+<input type="text" class="form-control imput-sm" id="enroll" name="roll" placeholder=""><br />
 <label for ="branch"> Branch:</label>
 <select class="form-control" id="sel">
 <option> CSE </option>
@@ -63,10 +64,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <option> IMSC </option>
 </select><br />
 <label for="Email"> Email Address:</label>
-<input type="text" class="form-control" imput-sm" id="email" placeholder="Enter Email" title="Use your college Email Id"/><br />
+<input type="text" class="form-control" imput-sm" id="email" name="email" placeholder="Enter Email" title="Use your college Email Id"/><br />
 <label for="Pass"> Password:</label>
-<input type="text" class="form-control" imput-sm" id="pass" placeholder="Minimum 8 characters"><br />
-<a href="#" class="btn btn-primary butt2" onClick="parent.location='Nav2.html'">SUBMIT</a> </div>
+<input type="text" class="form-control" imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
+<input type="submit" value="SignUp">
 </div>
 </form>
 </div>

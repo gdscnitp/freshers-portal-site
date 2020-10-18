@@ -39,7 +39,7 @@ def postsignIn(request):
     request.session['uid']=str(session_id)
     
 
-    return render(request ,"welcome.html",{"e":email})
+    return render(request ,"ProfilePage.html",{"e":email})
 def logout(request):
     try:
         del request.session['uid']

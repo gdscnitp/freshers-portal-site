@@ -13,8 +13,16 @@ border-radius: 50%;
 .navbar1{ background-color:#26324a;
 position:sticky;
 }
+.media input[type=text] {
+padding: 15px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 100%;
+  background: white;
+  }
 .dropdown {
-background-color: #818178; 
+background-color: white;
 border: none;
 color: white;
 padding: 4px 4px;

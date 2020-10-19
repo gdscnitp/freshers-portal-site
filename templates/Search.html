@@ -26,43 +26,47 @@
           <p>Pokemon</p>
           </div>
         </div>
-     <form class="form-inline w-1200" action="" style="margin:auto;max-width:1200px">
+     <form class="form-inline w-1900" action="/" style="margin:auto;max-width:2000px">
           <div class="media">
+              <div class="md-form active-pink active-pink-2 mb-3 mt-0">
+  <input class="form-control" type="text" placeholder="Search" aria-label="Search..">
+</div>
 <!-- Search form -->
-<input class="form-control" type="text" placeholder="Search" aria-label="Search">
-              <button class="btn btn-success" type="submit">Find</button>
+<!--<input class="form-control" type="text" placeholder="Search" aria-label="Search">-->
+              <button class="btn btn-primary" type="submit">Find</button>
     <ul class="nav navbar-nav navbar-left">
-   <li> <div class="container">
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle-primary" type="button" data-toggle="dropdown">Filter
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-            <li class="dropdown-submenu" role="presentation">
-                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-              <a class="test" tabindex="-1" href="#">Branch<span class="caret"></span></a></button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSE</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">ECE</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EE</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CE</a></li>
-                  </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
+<!--   <li> <div class="container">-->
+<!--        <div class="dropdown btn btn-light">-->
+<!--&lt;!&ndash;          <button class="btn btn-light" type="button" data-toggle="dropdown">Filter&ndash;&gt;-->
+<!--          <span class="caret"></span></button>-->
+<!--          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">-->
+<!--            <li class="dropdown-submenu" role="presentation">-->
+<!--                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">-->
+<!--              <a class="test" tabindex="-1" href="#">Branch<span class="caret"></span></a></button>-->
+<!--                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">-->
+<!--                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSE</a></li>-->
+<!--                    <li role="presentation" class="divider"></li>-->
+<!--                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">ECE</a></li>-->
+<!--                    <li role="presentation" class="divider"></li>-->
+<!--                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EE</a></li>-->
+<!--                    <li role="presentation" class="divider"></li>-->
+<!--                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CE</a></li>-->
+<!--                  </ul>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </li>-->
     </ul>
           </div>
   </form>
-      </div>
 
-    <div class="nav navbar-nav navbar-right">
-
-
-</div>
+    <div id="nav">
+ <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">HOME</a>
+  <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">BLOGS</a>
+  <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn btn-primary butt1">Logout</button>
+   </div>
+    </div>
 </nav>
 <br>
 

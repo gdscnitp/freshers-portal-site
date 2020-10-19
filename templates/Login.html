@@ -1,5 +1,9 @@
 {% load static %}
-
+{% if messg %}
+    <script>
+        alert('{{messg}}');
+    </script>
+{% endif %}
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,7 +12,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     <link rel='stylesheet' href="{% static '/css/Login.css' %}">
 <head>
 <body>
-<nav class="navbar navbar1">
+<nav class="navbar navbar1 sticky-top">
    <h1 class="nit">National Institue Of Technology, Patna</h1>
    <div id="nav">
    <a href="/" class="btn btn-primary buttn">HOME</a>

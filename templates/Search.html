@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+{% load static %}
+
+
 <html lang="en">
 <head>
   <title>User's List</title>
@@ -9,24 +11,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href="{% static '/css/Search.css' %}">
+
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <img src="https://i.pinimg.com/originals/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.png" class="img-circle" align="left" alt="You" width="100" height="100">
-    <div class="nav navbar-nav navbar-right">
-        <div class="txt">
-            <h4 class="media-heading">Pikachu
-            </h4>
-            <p>Pokemon</p>
-            </div>
-            <div class="everything">      
-      <form class="form-inline" action="">  
-    <input class="form-control mr-sm-2" type="text" placeholder="Username">
-    <button class="btn btn-success" type="submit">Find</button>
-    <ul class="nav navbar-nav navbar-right">
+<nav class="navbar navbar1 sticky-top">
+<div class="media txt">
+        <div class="media-left media-top">
+          <img src="https://i.pinimg.com/originals/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.png" class="media-object" style="width:80px">
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Pikachu
+          </h4>
+          <p>Pokemon</p>
+          </div>
+        </div>
+     <form class="form-inline w-1200" action="" style="margin:auto;max-width:1200px">
+          <div class="media">
+<!-- Search form -->
+<input class="form-control" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-success" type="submit">Find</button>
+    <ul class="nav navbar-nav navbar-left">
    <li> <div class="container">
         <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">FILTER
+          <button class="btn btn-primary dropdown-toggle-primary" type="button" data-toggle="dropdown">Filter
           <span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
             <li class="dropdown-submenu" role="presentation">
@@ -41,14 +49,19 @@
                     <li role="presentation" class="divider"></li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CE</a></li>
                   </ul>
-            </li>  
+            </li>
           </ul>
         </div>
       </div>
     </li>
     </ul>
+          </div>
   </form>
-</div>
+      </div>
+
+    <div class="nav navbar-nav navbar-right">
+
+
 </div>
 </nav>
 <br>

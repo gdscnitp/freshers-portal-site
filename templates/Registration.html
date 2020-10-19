@@ -1,4 +1,9 @@
 {% load static %}
+{% if messg %}
+    <script>
+        alert('{{messg}}');
+    </script>
+{% endif %}
 <html>
 <head>
 <meta charset="utf-8">
@@ -64,10 +69,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <option> IMSC </option>
 </select><br />
 <label for="Email"> Email Address:</label>
-<input type="text" class="form-control" imput-sm" id="email" name="email" placeholder="Enter Email" title="Use your college Email Id"/><br />
+<input type="text" class="form-control imput-sm" id="email" name="email" placeholder="Enter Email" title="Use your college Email Id"/><br />
 <label for="Pass"> Password:</label>
-<input type="text" class="form-control" imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
-<input type="submit" value="SignUp">
+<input type="text" class="form-control imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
+<input type="submit" value="SignUp" id="signup">
 </div>
 </form>
 </div>

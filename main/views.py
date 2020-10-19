@@ -22,6 +22,10 @@ database=firebase.database()
 def HomePage(request):
     return render(request,"Home.html")
 
+
+def search(request):
+    return render(request,"Search.html")
+
 def signIn(request):
     return render(request,"Login.html")
 

@@ -28,7 +28,7 @@
     <div class="container">
         <form action="/afterAddPost/" method="POST">
             {% csrf_token %}
-            <label for ="branch" id="branch"> Branch:</label>
+            <label for ="branch" id="branch">Select Branch</label>
             <select class="form-control" name="sel">
             <option> CSE </option>
             <option> ECE </option>
@@ -38,14 +38,14 @@
             <option> IMSC </option>
             </select>
 
-            <label id="type" > Blog Type</label>
+            <label id="type" >Select Blog Type</label>
             <select class="form-control" name="type">
             <option> Issue </option>
             <option> Opportunity </option>
             <option> Inspirational </option>
             </select>
 
-            <label id="title" >Title </label>
+            <label id="title" >Select Title </label>
             <select class="form-control" name="title">
                 <option> Coding </option>
                 <option> Gate </option>

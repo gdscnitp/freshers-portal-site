@@ -20,12 +20,6 @@ database=firebase.database()
 
 
 def HomePage(request):
-    a = authe.get_account_info(request.session['uid'])
-    print(a)
-    a = a['users']
-    a = a[0]
-    a = a['localId']
-
     time_stamps = database.child("Blogs").shallow().get().val()
     blog = [database.child("Blogs").child(time).child("Description").get().val() for time in time_stamps]
     written = [database.child("Blogs").child(time).child("Written by").get().val() for time in time_stamps]

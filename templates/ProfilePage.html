@@ -12,8 +12,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <nav class="navbar navbar1 sticky-top">
    <h1 class="nit mx-auto">National Institue Of Technology, Patna</h1>
    <div id="nav">
- <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">HOME</a>
-  <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">BLOGS</a>
+ <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">Home</a>
+  <a href="/addPost" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">Add Blog</a>
   <a href="/search/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">Search</a>
   <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn btn-primary butt1">Logout</button>
    </div>
@@ -21,7 +21,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
   <br /><br />
 
  <div id="first1 mr-10">
-<h3 style="text-align:center;">{{e}}
+<h3 style="text-align:center;">{{email}}
 <img src="{% static 'images/logo.png' %}" class="icon_image"><span class="glyphicon glyphicon-pencil"></span></h3>
 <button type="button" class="btn btn-primary" style="margin-left:auto;margin-right:auto;display:block;margin-bottom:0%">Edit Profile</button><br />
 <h5 style="text-align:center;">Software Engineer at Amazon</h5>

@@ -15,7 +15,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar1 sticky-top">
+<nav class="navbar navbar1 sticky-top" style="height: 90px;">
 <div class="media txt">
         <div class="media-left media-top">
           <img src="https://i.pinimg.com/originals/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.png" class="media-object" style="width:80px">
@@ -62,9 +62,9 @@
   </form>
 
     <div id="nav">
- <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">HOME</a>
-  <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'">BLOGS</a>
-  <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn btn-primary butt1">Logout</button>
+ <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'" style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Home</a>
+  <a href="/addPost" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'"style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Add Blog</a>
+  <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn btn-primary butt1" style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Logout</button>
    </div>
     </div>
 </nav>

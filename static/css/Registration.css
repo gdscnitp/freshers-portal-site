@@ -31,6 +31,9 @@ margin-top:30px;
 .butt2{ background-color:#26324a;
 border:1px solid white;
 }
+#signup{
+text-color:black;
+}
 #right1{
 width:400px;
 position : absolute;

@@ -21,7 +21,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
  <div id="first1 mr-10">
 <h3 style="text-align:center;">{{e}}
 <img src="{% static 'images/logo.png' %}" class="icon_image"><span class="glyphicon glyphicon-pencil"></span></h3>
-<button type="button" class="btn btn-primary" style="margin-left:auto;margin-right:auto;display:block;margin-bottom:0%">Edit Profile</button><br />
+<div style="margin-left:50vw;margin-right:auto; transform: translateX(-8vw);">
+  <button type="button" class="btn btn-primary" style="display:inline-block; ">Edit Profile</button>
+  <button type="button" onclick= "location.href = '{% url 'addPost' %}' "class="btn btn-primary" style="display:inline-block; ">Add Blogs</button><br>
+</div>
 <h5 style="text-align:center;">Software Engineer at Amazon</h5>
 <h5 style="text-align:center;">Your Blogs</h5><br />
 <ul>

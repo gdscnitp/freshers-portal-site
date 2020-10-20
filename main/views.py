@@ -1,7 +1,7 @@
 # viewsfile
 from django.shortcuts import render
-
 import pyrebase
+
 config={
     "apiKey": "AIzaSyA1_TbZc_DAJVAosBsBXHKVnANss0_220U",
     "authDomain": "freshers-portal.firebaseapp.com",
@@ -20,7 +20,23 @@ database=firebase.database()
 
 
 def HomePage(request):
-    return render(request,"Home.html")
+    a = authe.get_account_info(request.session['uid'])
+    print(a)
+    a = a['users']
+    a = a[0]
+    a = a['localId']
+
+    time_stamps = database.child("Blogs").shallow().get().val()
+    blog = [database.child("Blogs").child(time).child("Description").get().val() for time in time_stamps]
+    written = [database.child("Blogs").child(time).child("Written by").get().val() for time in time_stamps]
+    names = [database.child("users").child(x).child('name').get().val() for x in written]
+    comb_lis = list(zip(blog,names))
+    for a,b in comb_lis:
+        print(a)
+        print(b)
+    return render(request,"Home.html",{"comb":comb_lis})
+    
+    
 
 def signIn(request):
     return render(request,"Login.html")
@@ -36,15 +52,14 @@ def postsignIn(request):
         return render(request ,"Login.html",{"messg":message})
     print(user['idToken'])
     session_id=user['idToken']
-    idtoken = request.session['uid']
-    if idtoken:
-        a = authe.get_account_info(idtoken)
-        a = a['users']
-        a = a[0]
-        a = a['localId']
-        name = database.child('users').child(a).child('name').get().val()
-        request.session['uid']=str(session_id)
-        return render(request ,"ProfilePage.html",{"e":name})
+    request.session['uid'] = str(session_id)
+    a = authe.get_account_info(request.session['uid'])
+    a = a['users']
+    a = a[0]
+    a = a['localId']
+    name = database.child('users').child(a).child('name').get().val()
+    return render(request ,"ProfilePage.html",{"e":name})
+
 def logout(request):
     try:
         del request.session['uid']
@@ -74,3 +89,44 @@ def postsignup(request):
 
 def profile(request):
     return render(request,"ProfilePage.html")
+
+def addPost(request):
+    return render(request,"AddPost.html")
+
+def afteraAddPost(request):
+    from datetime import datetime, timezone
+    import time
+    import pytz
+
+    idToken = request.session['uid']
+    if idToken:
+        tz = pytz.timezone('Asia/Kolkata')
+        Currenttime = datetime.now(timezone.utc).astimezone(tz).strftime("%H%M%S")
+        millis = int(Currenttime)
+        tyype = request.POST.get('type')
+        title = request.POST.get('title')
+        description = request.POST.get('desc')
+        branch=request.POST.get('sel')
+    
+        a = authe.get_account_info(idToken)
+        a = a['users']
+        a = a[0]
+        a = a['localId']
+        print(str(a))
+       
+
+        data ={
+            "Type":tyype,
+            "Title":title,
+            "Description":description,
+            "Written by":a,
+            "Time":Currenttime,
+            "Department":branch,
+        }
+
+        database.child('Blogs').child(millis).set(data)
+        
+       
+        return render(request,"ProfilePage.html")
+    
+

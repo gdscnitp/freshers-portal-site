@@ -1,0 +1,46 @@
+.container{
+    max-width: 800px;
+    background-color:#26324a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+    min-height: 86vh;
+}
+
+.heading{
+    border:2px solid #26324a;
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.container #sel{
+    
+    border-radius: 0px;
+}
+
+.container #type,
+.container #title,
+.container #desc,
+.container #branch{
+    padding: 8px 15px;
+    background-color: #151e30;
+    margin: 15px auto;
+    
+}
+
+.container textarea{
+    color: black;
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+.container #submit{
+    padding: 5px 15px;
+    margin: 15px auto;
+    border-radius: 5px;
+}
+
+

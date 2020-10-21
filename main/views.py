@@ -71,7 +71,7 @@ def postsignIn(request):
         a = a[0]
         a = a['localId']
         name = database.child('users').child(a).child('name').get().val()
-        return render(request, "ProfilePage.html", {"email": name})
+        return render(request, "ProfilePage.html", {"name": name})
 def logout(request):
     try:
         del request.session['uid']

@@ -1,7 +1,7 @@
 {% load static %}
-{% if messg %}
+{% if message %}
     <script>
-        alert('{{messg}}');
+        alert('{{message}}');
     </script>
 {% endif %}
 <html lang="en">
@@ -31,7 +31,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <label for="Email" > Email Address:</label>
 <input type="text" class="form-control box imput-sm" id="email" name="email" placeholder="Enter Email"><br />
 <label for="Pass"> Password:</label>
-<input type="text" class="form-control box imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
+<input type="password" class="form-control box imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
 <input type="submit" value="SignIn">
 </div>
 </form>

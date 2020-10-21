@@ -4,50 +4,37 @@
 <head> <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel='stylesheet' href="{% static '/css/Home.css' %}">
-
 </head>
 <body>
-   <nav class="navbar navbar1 sticky-top">
-   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">
-   <h1 class="nit">National Institue Of Technology, Patna</h1>
+   <nav class="navbar navbar1 sticky-top" style="height: 90px;">
+<!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
+   <h4 class="nit" style="margin-left: 30px;">National Institue Of Technology, Patna</h4>
    <div id="nav">
    <a href="/" class="btn btn-primary butt">HOME</a>
    <a href="/" class="btn btn-primary butt">ABOUT OUR COLLEGE</a>
    <a href="/signUp" class="btn btn-primary butt" onClick="parent.location='reg.html'">REGISTER</a>
    <a href="/signIn" class="btn btn-primary butt" onClick="parent.location='login.html'">LOGIN</a> </div>
    </nav>
-<link rel="stylesheet" type="text/css" href="../static/css/home.css">
+<link rel="stylesheet" type="text/css" href="../static/css/Home.css">
 
 <div class="tm-container">
       <div class="tm-main-content">
 
         <section class="tm-section tm-section-small">
-          <div class="image">
-          <img src="../static/images/nit.jpg">
-        </div>
-          <h3 class="tm-section-header">Simran kumari</h3>
-          <h1 class="tm-section-header2">Software Developer</h1>
-          <p>
-           Lorem ipsum  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+         {% for lis_time, date, Descriptions,Departments,Titles,Types,name in comb_lis %}
+            <div class="image">
+              <img src="../static/images/nit.jpg">
+                <h3 class="tm-section-header3">{{name}}</h3>
+                <h1 class="tm-section-header2">Type : {{ Types }} Titles: {{ Titles }}  </h1>
+            </div>
+            <h3 class="=tm-section-header2">{{time}}</h3>
+            <p>{{Descriptions}}</p>
 
-          </p>
+          {% endfor %}
 
 
-       <div class="image2">
-          <img src="../static/images/nit.jpg">
-        </div>
-          <h3 class="tm-section-header3">Simran kumari</h3>
-          <h1 class="tm-section-header4">Software Developer</h1>
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu
-          </p>
         </section>
-
- </div>
-
+      </div>
 </div>
-
-
- </body>
- </html>
+</body>
+</html>

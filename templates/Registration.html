@@ -48,7 +48,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
 </div>
 
-<div id="right">
+<div id="right" style="float: right;">
 <div id="right1">
 <form action="/postsignup/" method="POST">
     {% csrf_token %}
@@ -56,9 +56,9 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <label for="fname"> Full Name:</label>
 <input type="text" class="form-control input-sm" id="name" name="name" placeholder="Enter name"><br />
 <label for="enroll"> Enrollment No.:</label>
-<input type="text" class="form-control imput-sm" id="enrolls" name="enroll" placeholder=""><br />
+<input type="text" class="form-control imput-sm" id="enrolls" name="enroll" placeholder="Enter Enrollment No."><br />
 <label for="roll"> Roll No.:</label>
-<input type="text" class="form-control imput-sm" id="roll" name="roll" placeholder=""><br />
+<input type="text" class="form-control imput-sm" id="roll" name="roll" placeholder="Enter Roll No."><br />
 <label for ="branch"> Branch:</label>
 <select class="form-control" id="sel">
 <option> CSE </option>
@@ -72,7 +72,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <input type="text" class="form-control imput-sm" id="email" name="email" placeholder="Enter Email" title="Use your college Email Id"/><br />
 <label for="Pass"> Password:</label>
 <input type="text" class="form-control imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
-<input type="submit" value="SignUp" id="signup">
+<input type="submit" value="SignUp" id="signup" style="background-color:black; ">
 </div>
 </form>
 </div>

@@ -131,3 +131,50 @@ def afteraAddPost(request):
         return render(request,"ProfilePage.html")
 
 
+def gotoedit(request):
+    return render(request,'editprofile.html')
+
+def postedit(request):
+    import time
+    from datetime import datetime,timezone
+    import pytz
+    tz = pytz.timezone('Asia/Kolkata')
+    time_now = datetime.now(timezone.utc).astimezone(tz)
+    millis = int(time.mktime(time_now.timetuple()))
+
+    fname=request.POST.get('fname')
+    lname=request.POST.get('lname')
+    dname=request.POST.get('dname')
+    email=request.POST.get('email')
+    tarea=request.POST.get('tarea')
+    course=request.POST['course']
+    branch=request.POST['branch']
+    year=request.POST['year']
+    furl=request.POST.get('furl')
+    turl=request.POST.get('turl')
+    lurl=request.POST.get('lurl')
+    wurl=request.POST.get('wurl')
+
+    idtoken=request.session['uid']
+    a = authe.get_account_info(idtoken)
+    a=a['users']
+    a=a[0]
+    a=a['localId']
+
+    data={
+        "fname":fname,
+        "lname":lname,
+        "dname":dname,
+        "email":email,
+        "tarea":tarea,
+        "course":course,
+        "branch":branch,
+        "year":year,
+        "furl":furl,
+        "turl":turl,
+        "lurl":lurl,
+        "wurl":wurl
+    }
+    database.child('users').child(a).child('per_det').child(millis).set(data)
+
+    return render(request,'editprofile.html')

@@ -61,7 +61,7 @@ def postsignIn(request):
         user = authe.sign_in_with_email_and_password(email, pasw)
     except:
         message = "Invalid Credentials!!Please Chech your Data"
-        return render(request, "sigIn.html", {"message": message})
+        return render(request, "Login.html", {"message": message})
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
     return render(request, "ProfilePage.html", {"email": email})
@@ -175,6 +175,6 @@ def postedit(request):
         "lurl":lurl,
         "wurl":wurl
     }
-    database.child('users').child(a).child('per_det').child(millis).set(data)
+    database.child('users').child(a).update(data)
 
     return render(request,'editprofile.html')

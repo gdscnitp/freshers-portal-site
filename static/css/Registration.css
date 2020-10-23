@@ -10,14 +10,24 @@ background-color:/* #2196f3;*/
 white;
 float:left;
 width:30%;
-height:100%;
+height:90%;
 }
+<<<<<<< HEAD
 #right{
 float:right;
 width:38%; height:100%;
 background-color:#26324a;
 color:white;
 height:100%;
+=======
+#right {
+float: right;
+width: 38%;
+height: 100%;
+background-color: #26324a;
+color: white;
+height: 100%;
+>>>>>>> 6140f0438d4e5c53015649c185327b8cfae564f8
 }
 .butt{ background-color:#26324a;
 border-color:#26324a;
@@ -44,6 +54,7 @@ padding:20px;
 }
 #mycarousel{
 position:absolute;
+height:90%;
 }
 img{width:800px;
 height:380px;}

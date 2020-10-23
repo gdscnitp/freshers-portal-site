@@ -26,12 +26,17 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <form action="/postsignIn/" method="POST">
     {% csrf_token %}
 <div class="form-group"><br />
-<h1 style="text-align:center;"> WELCOME </h1><br /><br />
+<h1 style="text-align:center; color: white;"> WELCOME </h1><br /><br />
 <div id="margin">
-<label for="Email" > Email Address:</label>
+<label for="Email" style="color: white;"> Email Address:</label>
 <input type="text" class="form-control box imput-sm" id="email" name="email" placeholder="Enter Email"><br />
+<<<<<<< HEAD
 <label for="Pass"> Password:</label>
 <input type="password" class="form-control box imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
+=======
+<label for="Pass" style="color: white;"> Password:</label>
+<input type="text" class="form-control box imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
+>>>>>>> 6140f0438d4e5c53015649c185327b8cfae564f8
 <input type="submit" value="SignIn">
 </div>
 </form>

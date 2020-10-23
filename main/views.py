@@ -1,6 +1,8 @@
 # viewsfile
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 import pyrebase
 config={
     "apiKey": "AIzaSyA1_TbZc_DAJVAosBsBXHKVnANss0_220U",
@@ -47,24 +49,26 @@ def HomePage(request):
     comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys)
     return render(request,"Home.html",{"comb_lis":comb_lis})
 
-
+@csrf_exempt
 def search(request):
     return render(request,"Search.html")
-
 def signIn(request):
     return render(request,"Login.html")
 
 def postsignIn(request):
-    email = request.POST.get('email')
-    pasw = request.POST.get('pass')
-    try:
-        user = authe.sign_in_with_email_and_password(email, pasw)
-    except:
-        message = "Invalid Credentials!!Please Chech your Data"
-        return render(request, "Login.html", {"message": message})
-    session_id = user['idToken']
-    request.session['uid'] = str(session_id)
-    return render(request, "ProfilePage.html", {"email": email})
+    if request.method=='POST':
+        email = request.POST.get('email')
+        pasw = request.POST.get('pass')
+        try:
+            user = authe.sign_in_with_email_and_password(email, pasw)
+        except:
+            message = "Invalid Credentials!!Please Chech your Data"
+            return render(request, "Login.html", {"message": message})
+        session_id = user['idToken']
+        request.session['uid'] = str(session_id)
+        return render(request, "ProfilePage.html", {"email": email})
+    message = "Please Login In First"
+    return render(request, "Login.html", {"message": message})
 def logout(request):
     try:
         del request.session['uid']
@@ -76,105 +80,114 @@ def signUp(request):
     return render(request,"Registration.html")
 
 def postsignup(request):
-    name=request.POST.get('name')
-    branch=request.POST.get('sel')
-    enroll=request.POST.get('enrolls')
-    roll=request.POST.get('roll')
-    email=request.POST.get('email')
-    passw=request.POST.get('pass')
-    try:
-        user=authe.create_user_with_email_and_password(email,passw)
-    except:
-        messg="unable to create account try again"
-        return render(request,"registration.html",{"messg":messg})
-    uid = user['localId']
-    data={"name":name,"USER_TYPE":"user","device_token":"","email":email,"id":roll,"imgUrl":"","branch":branch,"uid":uid,"enrollment":enroll}
-    database.child("users").child(uid).set(data)
-    return render(request,"login.html")
-
-@require_http_methods(["GET", "POST"])
+    if request.method == 'POST':
+        name=request.POST.get('name')
+        branch=request.POST.get('sel')
+        enroll=request.POST.get('enrolls')
+        roll=request.POST.get('roll')
+        email=request.POST.get('email')
+        passw=request.POST.get('pass')
+        try:
+            user=authe.create_user_with_email_and_password(email,passw)
+        except:
+            messg="unable to create account try again"
+            return render(request,"registration.html",{"messg":messg})
+        uid = user['localId']
+        data={"name":name,"USER_TYPE":"user","device_token":"","email":email,"id":roll,"imgUrl":"","branch":branch,"uid":uid,"enrollment":enroll}
+        database.child("users").child(uid).set(data)
+        return render(request,"login.html")
+    message = "Please Login In First"
+    return render(request, "Login.html", {"message": message})
 def profile(request):
     return render(request,"ProfilePage.html")
 
 def addPost(request):
-    return render(request,"AddPost.html")
+        return render(request,"AddPost.html")
+
 
 def afteraAddPost(request):
-    from datetime import datetime, timezone
-    import time
-    import pytz
-    idToken = request.session['uid']
-    if idToken:
-        tz = pytz.timezone('Asia/Kolkata')
-        Currenttime = datetime.now(timezone.utc).astimezone(tz).strftime("%H%M%S")
-        millis = int(Currenttime)
-        tyype = request.POST.get('type')
-        title = request.POST.get('title')
-        description = request.POST.get('desc')
-        branch=request.POST.get('sel')
-        a = authe.get_account_info(idToken)
-        a = a['users']
-        a = a[0]
-        a = a['localId']
-        print(str(a))
+    if request.method=='POST':
+        from datetime import datetime, timezone
+        import time
+        import pytz
+        idToken = request.session['uid']
+        if idToken:
+            tz = pytz.timezone('Asia/Kolkata')
+            Currenttime = datetime.now(timezone.utc).astimezone(tz).strftime("%H%M%S")
+            millis = int(Currenttime)
+            tyype = request.POST.get('type')
+            title = request.POST.get('title')
+            description = request.POST.get('desc')
+            branch=request.POST.get('sel')
+            a = authe.get_account_info(idToken)
+            a = a['users']
+            a = a[0]
+            a = a['localId']
+            print(str(a))
 
-        data ={
-            "Type":tyype,
-            "Title":title,
-            "Description":description,
-            "Written by":a,
-            "Time":Currenttime,
-            "Department":branch,
-        }
+            data ={
+                "Type":tyype,
+                "Title":title,
+                "Description":description,
+                "Written by":a,
+                "Time":Currenttime,
+                "Department":branch,
+            }
 
-        database.child('Blogs').child(millis).set(data)
-        return render(request,"ProfilePage.html")
+            database.child('Blogs').child(millis).set(data)
+            return render(request,"ProfilePage.html")
+    message = "Please Login In First"
+    return render(request, "Login.html", {"message": message})
+
 
 
 def gotoedit(request):
-    return render(request,'editprofile.html')
+        return render(request,'editprofile.html')
 
 def postedit(request):
-    import time
-    from datetime import datetime,timezone
-    import pytz
-    tz = pytz.timezone('Asia/Kolkata')
-    time_now = datetime.now(timezone.utc).astimezone(tz)
-    millis = int(time.mktime(time_now.timetuple()))
+    if request.method=='POST':
+        import time
+        from datetime import datetime,timezone
+        import pytz
+        tz = pytz.timezone('Asia/Kolkata')
+        time_now = datetime.now(timezone.utc).astimezone(tz)
+        millis = int(time.mktime(time_now.timetuple()))
 
-    fname=request.POST.get('fname')
-    lname=request.POST.get('lname')
-    dname=request.POST.get('dname')
-    email=request.POST.get('email')
-    tarea=request.POST.get('tarea')
-    course=request.POST['course']
-    branch=request.POST['branch']
-    year=request.POST['year']
-    furl=request.POST.get('furl')
-    turl=request.POST.get('turl')
-    lurl=request.POST.get('lurl')
-    wurl=request.POST.get('wurl')
+        fname=request.POST.get('fname')
+        lname=request.POST.get('lname')
+        dname=request.POST.get('dname')
+        email=request.POST.get('email')
+        tarea=request.POST.get('tarea')
+        course=request.POST['course']
+        branch=request.POST['branch']
+        year=request.POST['year']
+        furl=request.POST.get('furl')
+        turl=request.POST.get('turl')
+        lurl=request.POST.get('lurl')
+        wurl=request.POST.get('wurl')
 
-    idtoken=request.session['uid']
-    a = authe.get_account_info(idtoken)
-    a=a['users']
-    a=a[0]
-    a=a['localId']
+        idtoken=request.session['uid']
+        a = authe.get_account_info(idtoken)
+        a=a['users']
+        a=a[0]
+        a=a['localId']
 
-    data={
-        "fname":fname,
-        "lname":lname,
-        "dname":dname,
-        "email":email,
-        "tarea":tarea,
-        "course":course,
-        "branch":branch,
-        "year":year,
-        "furl":furl,
-        "turl":turl,
-        "lurl":lurl,
-        "wurl":wurl
-    }
-    database.child('users').child(a).update(data)
+        data={
+            "fname":fname,
+            "lname":lname,
+            "dname":dname,
+            "email":email,
+            "tarea":tarea,
+            "course":course,
+            "branch":branch,
+            "year":year,
+            "furl":furl,
+            "turl":turl,
+            "lurl":lurl,
+            "wurl":wurl
+        }
+        database.child('users').child(a).update(data)
 
-    return render(request,'editprofile.html')
+        return render(request,'editprofile.html')
+    message = "Please Login In First"
+    return render(request, "Login.html", {"message": message})

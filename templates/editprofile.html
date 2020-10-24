@@ -9,13 +9,13 @@
     {% csrf_token %}
     <h1>Profile</h1><hr>
     Personal Details:<br><br>
-    First Name : <input type="text" name="fname"><br>
-    Last Name: <input type="text" name="lname"><br>
-    Display Name: <input type="text" name="dname"><br>
-    Email: <input type="email" name="email"><br>
-    About me:<br>
-    <textarea name="tarea" cols="40" rows="5" placeholder="Write Something about yourself"></textarea><br>
-    <br>
+<!--    First Name : <input type="text" name="fname"><br>-->
+<!--    Last Name: <input type="text" name="lname"><br>-->
+    Enter Your Name: <input type="text" name="dname"><br>
+    Roll: <input type="number" name="roll"><br>
+<!--    About me:<br>-->
+<!--    <textarea name="tarea" cols="40" rows="5" placeholder="Write Something about yourself"></textarea><br>-->
+<!--    <br>-->
     <hr>
     Academic Details:<br><br>
     Course:
@@ -43,12 +43,11 @@
         <option value="5">Fifth</option>
     </select><br><br>
     <hr>
-    External Links<br><br>
-    Facebook URL: <input type="url" name="furl"><br>
-    Twitter URL: <input type="url" name="turl"><br>
-    LinkedIN URL: <input type="url" name="lurl"><br>
-    Website URL: <input type="url" name="wurl"><br>
-    <br><hr>
+<!--    External Links<br><br>-->
+<!--    Facebook URL: <input type="url" name="furl"><br>-->
+<!--    Twitter URL: <input type="url" name="turl"><br>-->
+<!--    LinkedIN URL: <input type="url" name="lurl"><br>-->
+<!--    Website URL: <input type="url" name="wurl"><br>-->
     <br><br>
     <button type="submit">Save</button>
     <button type="button" onclick="location.href='{% url 'profile' %}'">Home</button>

@@ -2,18 +2,18 @@
 {% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{%static 'css/AddPost.css'%}">
     <title>Add Post</title>
 </head>
 <body>
-<nav class="navbar navbar1 sticky-top" style=" background-color:#26324a;">
+<nav class="navbar navbar1 sticky-top" style="background-color:#26324a; position: sticky;">
    <h1 class="nit mx-auto" style="color:white; margin-left:-20px;">National Institue Of Technology, Patna</h1>
    <div id="nav">
  <a href="/" class="btn btn-black butt" onClick="parent.location='Nav2.html'"style="color:white;">Home</a>
@@ -21,7 +21,6 @@
   <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn btn-black butt1" style="color:white;">Logout</button>
    </div>
 </nav>
-
     <div class="heading">
         <h1>Add Your Blogs</h1>
     </div>
@@ -55,10 +54,7 @@
             <label id="desc" >Blog Description</label><br>
             <textarea cols="100" rows="7" name="desc" required></textarea>
             <br>
-
-            <input type="submit" value="Submit" id="submit">
-
-
+            <input type="submit" value="Submit" id="submit" style="color: black;">
         </form>
     </div>
 

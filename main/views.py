@@ -129,7 +129,7 @@ def afteraAddPost(request):
                 "Type":tyype,
                 "Title":title,
                 "Description":description,
-                "Written by":a,
+                "Writtenby":a,
                 "Time":Currenttime,
                 "Department":branch,
             }

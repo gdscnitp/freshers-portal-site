@@ -7,17 +7,21 @@
     overflow-x: hidden;
     min-height: 86vh;
 }
-
+.nit{
+margin-left:70px;
+display:inline;
+font-family:pangolin;
+letter-spacing:1px; word-spacing: 2px;
+color:white;}
 .heading{
     border:2px solid #26324a;
     max-width: 800px;
     text-align: center;
     margin: 0 auto;
-    padding: 10px;
+    padding: 5px;
 }
 
 .container #sel{
-
     border-radius: 0px;
 }
 

@@ -4,6 +4,7 @@ from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 import pyrebase
+
 config={
     "apiKey": "AIzaSyA1_TbZc_DAJVAosBsBXHKVnANss0_220U",
     "authDomain": "freshers-portal.firebaseapp.com",
@@ -21,7 +22,7 @@ database=firebase.database()
 def HomePage(request):
     import datetime
     timestamp=database.child('Blogs').shallow().get().val()
-    lis_time = [];
+    lis_time = []
     for i in timestamp:
         lis_time.append(i)
     Descriptions = []

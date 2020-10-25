@@ -8,9 +8,6 @@
 
                                 /* Nav bar */
 
-
-
-
 nav{
     display: flex;
     align-items: center;
@@ -24,7 +21,6 @@ nav{
     padding: 0 10px;
     
 }
-
 
 .logo{
     color: rgba(255, 255, 255, 0.918); 

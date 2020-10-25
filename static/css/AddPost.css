@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 *{
@@ -78,13 +77,10 @@ li{
 }
 
 
-=======
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2
 .container{
     max-width: 800px;
     background-color:#26324a;
     color: white;
-<<<<<<< HEAD
     padding: 40px;
     overflow-x: hidden;
     min-height: 86vh;
@@ -152,47 +148,19 @@ li{
     color: black;
 }
 
-=======
-    text-align: center;
-    padding: 20px;
-    overflow-x: hidden;
-    min-height: 86vh;
-}
-
-.heading{
-    border:2px solid #26324a;
-    max-width: 800px;
-    text-align: center;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-.container #sel{
-    
-    border-radius: 0px;
-}
-
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2
 .container #type,
 .container #title,
 .container #desc,
 .container #branch{
     padding: 8px 15px;
-<<<<<<< HEAD
     margin: 10px auto;
 
-=======
-    background-color: #151e30;
-    margin: 15px auto;
-    
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2
 }
 
 .container textarea{
     color: black;
     font-weight: 400;
     font-family: sans-serif;
-<<<<<<< HEAD
     columns: 50vw;
     background: none;
     transition: 0.3s ease-in all;
@@ -343,14 +311,4 @@ opacity: 0;
 .toggle .line3{
 transform: rotate(45deg) translate(-5px , -6px);
 }
-=======
-}
-
-.container #submit{
-    padding: 5px 15px;
-    margin: 15px auto;
-    border-radius: 5px;
-}
-
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2
 

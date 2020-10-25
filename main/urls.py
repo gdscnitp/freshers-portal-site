@@ -26,15 +26,9 @@ urlpatterns = [
     path('profile/',views.profile,name="profile"),
     path('postsignIn/',views.postsignIn),
     path('postsignup/',views.postsignup),
-<<<<<<< HEAD
     path('search/',views.search),
     path('addPost/',views.addPost, name="addPost"),
     path('afterAddPost/',views.afteraAddPost),
     path('gotoedit/',views.gotoedit,name="edit"),
     path('postedit/',views.postedit,name="pedit"),
-=======
-    path('addPost/',views.addPost, name="addPost"),
-    path('afterAddPost/',views.afteraAddPost),
-    
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2
 ]

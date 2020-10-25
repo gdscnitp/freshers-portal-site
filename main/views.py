@@ -1,11 +1,8 @@
 # viewsfile
 from django.shortcuts import render
-<<<<<<< HEAD
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-=======
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2
 import pyrebase
 
 config={
@@ -23,10 +20,9 @@ authe = firebase.auth()
 database=firebase.database()
 
 def HomePage(request):
-<<<<<<< HEAD
     import datetime
     timestamp=database.child('Blogs').shallow().get().val()
-    lis_time = [];
+    lis_time = []
     for i in timestamp:
         lis_time.append(i)
     Descriptions = []
@@ -53,19 +49,6 @@ def HomePage(request):
         date.append(dat)
     comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys)
     return render(request,"Home.html",{"comb_lis":comb_lis})
-=======
-    time_stamps = database.child("Blogs").shallow().get().val()
-    blog = [database.child("Blogs").child(time).child("Description").get().val() for time in time_stamps]
-    written = [database.child("Blogs").child(time).child("Written by").get().val() for time in time_stamps]
-    names = [database.child("users").child(x).child('name').get().val() for x in written]
-    comb_lis = list(zip(blog,names))
-    for a,b in comb_lis:
-        print(a)
-        print(b)
-    return render(request,"Home.html",{"comb":comb_lis})
-    
-    
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2
 
 @csrf_exempt
 def search(request):
@@ -74,7 +57,6 @@ def signIn(request):
     return render(request,"Login.html")
 
 def postsignIn(request):
-<<<<<<< HEAD
     if request.method=='POST':
         email = request.POST.get('email')
         pasw = request.POST.get('pass')
@@ -88,26 +70,6 @@ def postsignIn(request):
         return render(request, "ProfilePage.html", {"email": email})
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})
-=======
-    
-    email = request.POST.get("email")
-    passw = request.POST.get("pass")
-    try:
-        user = authe.sign_in_with_email_and_password(email,passw)
-    except:
-        message = "Invalid credentials"
-        return render(request ,"Login.html",{"messg":message})
-    print(user['idToken'])
-    session_id=user['idToken']
-    request.session['uid'] = str(session_id)
-    a = authe.get_account_info(request.session['uid'])
-    a = a['users']
-    a = a[0]
-    a = a['localId']
-    name = database.child('users').child(a).child('name').get().val()
-    return render(request ,"ProfilePage.html",{"e":name})
-
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2
 def logout(request):
     try:
         del request.session['uid']
@@ -141,7 +103,6 @@ def profile(request):
     return render(request,"ProfilePage.html")
 
 def addPost(request):
-<<<<<<< HEAD
         return render(request,"AddPost.html")
 
 
@@ -231,44 +192,3 @@ def postedit(request):
         return render(request,'editprofile.html')
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})
-=======
-    return render(request,"AddPost.html")
-
-def afteraAddPost(request):
-    from datetime import datetime, timezone
-    import time
-    import pytz
-
-    idToken = request.session['uid']
-    if idToken:
-        tz = pytz.timezone('Asia/Kolkata')
-        Currenttime = datetime.now(timezone.utc).astimezone(tz).strftime("%H%M%S")
-        millis = int(Currenttime)
-        tyype = request.POST.get('type')
-        title = request.POST.get('title')
-        description = request.POST.get('desc')
-        branch=request.POST.get('sel')
-    
-        a = authe.get_account_info(idToken)
-        a = a['users']
-        a = a[0]
-        a = a['localId']
-        print(str(a))
-       
-
-        data ={
-            "Type":tyype,
-            "Title":title,
-            "Description":description,
-            "Written by":a,
-            "Time":Currenttime,
-            "Department":branch,
-        }
-
-        database.child('Blogs').child(millis).set(data)
-        
-       
-        return render(request,"ProfilePage.html")
-    
-
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2

@@ -246,8 +246,9 @@ p{
   nav{
     position: sticky;
     top: 0%;
-    padding: 10px 20px;
+    padding: 20px 20px;
     text-align: center;
+    overflow-y: hidden;
     
   }
 
@@ -259,36 +260,6 @@ p{
   }
 }
 
-
-
-/* @media (max-width: 550px) {
-  .tm-special-item {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .tm-special-items {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-
-
-@media only screen and (max-width:800px) { */
-  /* For tablets: */
-  /* .main {
-    width: 80%;
-    padding: 0;
-  }
-  .right {
-    width: 100%;
-  }
-}
-@media only screen and (max-width:500px) { */
-  /* For mobile phones:  */
-  /* .menu, .main, .right {
-    width: 100%;
-  }
-}  */
 
 @keyframes navLinkFade{
   from{

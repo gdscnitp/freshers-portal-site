@@ -2,7 +2,6 @@
 {% load static %}
 <html lang="en">
 <head>
-<<<<<<< HEAD
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -10,20 +9,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-=======
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2
     <link rel="stylesheet" href="{%static 'css/AddPost.css'%}">
     <title>Add Post</title>
 </head>
 <body>
-<<<<<<< HEAD
     <nav class="sticky-top">
         <div class="logo">
             <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
@@ -127,49 +116,3 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </body>
 </html>
 
-=======
-    <div class="heading">
-        <h1>Add Your Blogs</h1>
-    </div>
-    <div class="container">
-        <form action="/afterAddPost/" method="POST">
-            {% csrf_token %}
-            <label for ="branch" id="branch"> Branch:</label>
-            <select class="form-control" name="sel">
-            <option> CSE </option>
-            <option> ECE </option>
-            <option> EE </option>
-            <option> ME </option>
-            <option> CE </option>
-            <option> IMSC </option>
-            </select>
-
-            <label id="type" > Blog Type</label>
-            <select class="form-control" name="type">
-            <option> Issue </option>
-            <option> Opportunity </option>
-            <option> Inspirational </option>
-            </select>
-
-            <label id="title" >Title </label>
-            <select class="form-control" name="title">
-                <option> Coding </option>
-                <option> Gate </option>
-                <option> UPSC </option>
-            </select>
-
-            <label id="desc" >Blog Description</label><br>
-            <textarea cols="100" rows="7" name="desc" required></textarea>
-            <br>
-
-            <input type="submit" value="Submit" id="submit">
-
-            
-        </form>
-    </div>
-    
-    
-  
-</body>
-</html>
->>>>>>> c3a4ac32ae73e708cca1e6549f8792d6ce1549e2

@@ -1,0 +1,76 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Edit Profile</title>
+    <link rel='stylesheet' href="{% static '/css/ProfilePage.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar1 sticky-top">
+   <h1 class="nit mx-auto">National Institue Of Technology, Patna</h1>
+   <div id="nav">
+ <a href="/" class="btn dark butt1" onClick="parent.location='Nav2.html'"  style="color:white;">Home</a>
+  <a href="/addPost" class="btn dark butt1" onClick="parent.location='Nav2.html'" style="color:white;">Add Blog</a>
+  <a href="/profile/" class="btn dark butt1 " onClick="parent.location='Nav2.html'" style="color:white;">Profile</a>
+  <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn dark butt1"  style="color:white;">Logout</button>
+   </div>
+</nav>
+<form action="/postedit/" method="post">
+    {% csrf_token %}
+    <h1>Profile</h1><hr>
+    Personal Details:<br><br>
+<!--    First Name : <input type="text" name="fname"><br>-->
+<!--    Last Name: <input type="text" name="lname"><br>-->
+    Enter Your Name: <input type="text" name="dname"><br>
+    Roll: <input type="number" name="roll"><br>
+<!--    About me:<br>-->
+<!--    <textarea name="tarea" cols="40" rows="5" placeholder="Write Something about yourself"></textarea><br>-->
+<!--    <br>-->
+    <hr>
+    Academic Details:<br><br>
+    Course:
+    <select id="course" name="course">
+        <option value="btech">B.Tech.</option>
+        <option value="barch">B.Arch.</option>
+        <option value="mtech">M.Tech.</option>
+    </select><br><br>
+    Branch:
+    <select id="branch" name="branch">
+        <option value="mechanical">Mechanical</option>
+        <option value="electrical">Electrical</option>
+        <option value="civil">Civil</option>
+        <option value="ece">ECE</option>
+        <option value="arch">Architecture</option>
+        <option value="cse">CSE</option>
+        <option value="humanities">Humanities</option>
+    </select><br><br>
+    Year:
+    <select id="year" name="year">
+        <option value="1">First</option>
+        <option value="2">Second</option>
+        <option value="3">Third</option>
+        <option value="4">Fourth</option>
+        <option value="5">Fifth</option>
+    </select><br><br>
+    <hr>
+<!--    External Links<br><br>-->
+<!--    Facebook URL: <input type="url" name="furl"><br>-->
+<!--    Twitter URL: <input type="url" name="turl"><br>-->
+<!--    LinkedIN URL: <input type="url" name="lurl"><br>-->
+<!--    Website URL: <input type="url" name="wurl"><br>-->
+    <br><br>
+    <button type="submit">Save</button>
+    <button type="button" onclick="location.href='{% url 'profile' %}'">Home</button>
+</form>
+</body>
+</html>

@@ -1,60 +1,56 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
                                 /* Nav bar */
 
-
-
-
-nav{
+.nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    min-height: 13vh;
+    height: 13vh;
     background-color: #26324a;
     font-family: 'Poppins', sans-serif;
-    position: sticky;
     top: 0%;
     z-index: +1;
-    padding: 0 10px;
+    position: fixed;
+    width: 100vw;
+    padding: 10px 10px;
+    text-align: center;
+    align-content: center;
     
 }
 
 
-.logo{
+.ins_name{
     color: rgba(255, 255, 255, 0.918); 
-    font-weight: 900;
+    font-weight: 600;
+
 }
 
 .nav-links{
     display: flex;
     justify-content: space-around;
-    width: 30%;
-    margin-top: auto;
-    padding: 20px;
+    width: 50%;
 
 }
 
 .nav-links li a{
-  color: rgba(255, 255, 255, 0.918); 
+  color: white; 
   text-decoration: none;
   letter-spacing: 2px;
   font-weight: bold;
-  padding: 10px;
-  transition: 0.4s ease-in all;
   
 }
 
 .nav-links li a:hover{
-    box-shadow: 0px 0px 15px -1px #0c1527;
-    background-color: #26324a;
     cursor: pointer;
+    color: rgba(212, 212, 212, 0.938);
+    
 }
 
 li{
@@ -76,6 +72,10 @@ li{
     transition: 0.5s ease all;
 }
 
+.main-part{
+    top: 13vh;
+}
+
 
 .container{
     max-width: 800px;
@@ -84,7 +84,7 @@ li{
     padding: 40px;
     overflow-x: hidden;
     min-height: 86vh;
-    margin-top: 100px;
+    margin-top: 25vh;
     margin-bottom: 100px;
     box-shadow: 0 0px 30px -2px #777;
     transition: 0.5s ease-in all;
@@ -108,6 +108,7 @@ li{
     text-align: center;
     font-family: 'Poppins', sans-serif;
     border: 2px solid rgba(255, 255, 255, 0.918);
+    padding: 10px 0;
     
 }
 
@@ -262,10 +263,11 @@ li{
     overflow-y: hidden;
     } 
 
-    nav{
-    position: sticky;
+    .nav{
+    position: fixed;
     top: 0%;
     padding: 0 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.918);
     
     }
 
@@ -277,7 +279,7 @@ li{
     }
 
     .container{
-        margin-top: 0;
+        margin-top: 13vh;
         margin-bottom: 0;
         border: none;
     }

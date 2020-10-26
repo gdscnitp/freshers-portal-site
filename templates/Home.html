@@ -7,11 +7,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <link rel="stylesheet" type="text/css" href="../static/css/Home.css">
 </head>
 <body>
-   <nav class="navbar navbar1 sticky-top">
-      <div class="logo">
-          <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
-          <h4>National Institue Of Technology, Patna</h4>
-      </div>
+   <nav class="nav sticky-top">
+      <h4 class="ins_name">National Institue Of Technology, Patna</h4>
 
       <ul class="nav-links">
           <li>
@@ -42,20 +39,25 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
       <div class="tm-main-content">
 
-        <section class="tm-section tm-section-small">
-         {% for lis_time, date, Descriptions,Departments,Titles,Types,name in comb_lis %}
-            <div class="image">
-              <img src="../static/images/nit.jpg">
+          <section class="tm-section tm-section-small">
+
+            {% for lis_time, date, Descriptions,Departments,Titles,Types,name in comb_lis %}
+
+              <div class="image">
+
+                <img src="../static/images/nit.jpg">
                 <h3 class="tm-section-header3">{{name}}</h3>
-                <h1 class="tm-section-header2">Type : {{ Types }} Titles: {{ Titles }}  </h1>
-            </div>
-            <h3 class="=tm-section-header2">{{time}}</h3>
-            <p>{{Descriptions}}</p>
+                <h1 class="tm-section-header2">Type : {{ Types }} Titles: {{ Titles }}</h1>
 
-          {% endfor %}
+              </div>
+              
+              <h3 class="=tm-section-header2">{{time}}</h3>
+              <p>{{Descriptions}}</p>
 
+            {% endfor %}
 
-        </section>
+          </section>
+
       </div>
 </div>
 

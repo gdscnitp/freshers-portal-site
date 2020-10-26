@@ -13,11 +13,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     <title>Add Post</title>
 </head>
 <body>
-    <nav class="sticky-top">
-        <div class="logo">
-            <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
-            <h4>National Institue Of Technology, Patna</h4>
-        </div>
+    <nav class="nav">
+        <h4 class="ins_name">National Institue Of Technology, Patna</h4>
 
         <ul class="nav-links">
             <li>
@@ -42,9 +39,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     <div class="main-part">
         
         <div class="container">
-            <div class="heading">
-                <h1>Add Your Blogs</h1>
-            </div>
+            
+            <h1 class="heading">Add Your Blogs</h1>
             <form action="/afterAddPost/" method="POST">
                 {% csrf_token %}
                 <label for ="branch" id="branch">Select Branch</label>

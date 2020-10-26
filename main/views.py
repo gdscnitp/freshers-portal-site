@@ -67,9 +67,46 @@ def postsignIn(request):
             return render(request, "Login.html", {"message": message})
         session_id = user['idToken']
         request.session['uid'] = str(session_id)
-        return render(request, "ProfilePage.html", {"email": email})
+        idToken = request.session['uid']
+        if idToken:
+            a = authe.get_account_info(idToken)
+            a = a['users']
+            a = a[0]
+            uid = a['localId']
+            import datetime
+            timestamp = database.child('Blogs').shallow().get().val()
+            lis_time = []
+            for i in timestamp:
+                lis_time.append(i)
+            Descriptions = []
+            Titles = []
+            Types = []
+            Departments = []
+            Writtenbys = []
+            for i in lis_time:
+                Department = database.child('Blogs').child(i).child('Department').get().val()
+                Description = database.child('Blogs').child(i).child('Description').get().val()
+                Title = database.child('Blogs').child(i).child('Title').get().val()
+                Type = database.child('Blogs').child(i).child('Type').get().val()
+                Writtenby = database.child('Blogs').child(i).child('Writtenby').get().val()
+                if uid == Writtenby:
+                    Departments.append(Department)
+                    Descriptions.append(Description)
+                    Titles.append(Title)
+                    Types.append(Type)
+                    name = database.child('users').child(Writtenby).child('name').get().val()
+                    branch = database.child('users').child(Writtenby).child('branch').get().val()
+                    Writtenbys.append(name)
+            date = []
+            for i in timestamp:
+                i = float(i)
+                dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
+                date.append(dat)
+            comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
+            return render(request, "ProfilePage.html", {"comb_lis": comb_lis, "name": name, "branch": branch})
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})
+
 def logout(request):
     try:
         del request.session['uid']
@@ -100,7 +137,45 @@ def postsignup(request):
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})
 def profile(request):
-    return render(request,"ProfilePage.html")
+    idToken = request.session['uid']
+    if idToken:
+        a = authe.get_account_info(idToken)
+        a = a['users']
+        a = a[0]
+        uid = a['localId']
+        import datetime
+        timestamp = database.child('Blogs').shallow().get().val()
+        lis_time = []
+        for i in timestamp:
+            lis_time.append(i)
+        Descriptions = []
+        Titles = []
+        Types = []
+        Departments = []
+        Writtenbys = []
+        for i in lis_time:
+            Department = database.child('Blogs').child(i).child('Department').get().val()
+            Description = database.child('Blogs').child(i).child('Description').get().val()
+            Title = database.child('Blogs').child(i).child('Title').get().val()
+            Type = database.child('Blogs').child(i).child('Type').get().val()
+            Writtenby = database.child('Blogs').child(i).child('Writtenby').get().val()
+
+            if uid == Writtenby:
+                Departments.append(Department)
+                Descriptions.append(Description)
+                Titles.append(Title)
+                Types.append(Type)
+                name = database.child('users').child(Writtenby).child('name').get().val()
+                branch = database.child('users').child(Writtenby).child('branch').get().val()
+                Writtenbys.append(name)
+        date = []
+        for i in timestamp:
+            i = float(i)
+            dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
+            date.append(dat)
+        comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
+        return render(request,"ProfilePage.html",{"comb_lis":comb_lis,"name":name,"branch":branch})
+
 
 def addPost(request):
         return render(request,"AddPost.html")

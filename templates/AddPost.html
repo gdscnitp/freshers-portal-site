@@ -2,68 +2,117 @@
 {% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{%static 'css/AddPost.css'%}">
     <title>Add Post</title>
 </head>
 <body>
-<nav class="navbar navbar1 sticky-top" style=" background-color:#26324a;">
-   <h1 class="nit mx-auto" style="color:white; margin-left:-20px;">National Institue Of Technology, Patna</h1>
-   <div id="nav">
- <a href="/" class="btn btn-black butt" onClick="parent.location='Nav2.html'"style="color:white;">Home</a>
-  <a href="/search/" class="btn btn-black butt1" onClick="parent.location='Nav2.html'" style="color:white;">Search</a>
-  <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn btn-black butt1" style="color:white;">Logout</button>
-   </div>
-</nav>
+    <nav class="sticky-top">
+        <div class="logo">
+            <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
+            <h4>National Institue Of Technology, Patna</h4>
+        </div>
 
-    <div class="heading">
-        <h1>Add Your Blogs</h1>
+        <ul class="nav-links">
+            <li>
+                <a href="/" onClick="parent.location='Nav2.html'">Home</a>
+            </li>
+
+            <li>
+                <a href="/search/"  onClick="parent.location='Nav2.html'" >Search</a>
+            </li>
+
+            <li>
+                <a href="/signIn/" onclick= "location.href = '{% url 'log' %}' ">Logout</a>
+            </li>
+        </ul>
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>    
+    <div class="main-part">
+        
+        <div class="container">
+            <div class="heading">
+                <h1>Add Your Blogs</h1>
+            </div>
+            <form action="/afterAddPost/" method="POST">
+                {% csrf_token %}
+                <label for ="branch" id="branch">Select Branch</label>
+                <select class="form-control" required name="sel">
+                    <option disabled selected> Choose your branch </option>
+                    <option> CSE </option>
+                    <option> ECE </option>
+                    <option> EE </option>
+                    <option> ME </option>
+                    <option> CE </option>
+                    <option> IMSC </option>
+                </select>
+
+                <label id="type" >Select Blog Type</label>
+                <select class="form-control" required name="type">
+                    <option disabled selected> Choose the blog type </option>
+                    <option> Issue </option>
+                    <option> Opportunity </option>
+                    <option> Inspirational </option>
+                </select>
+
+                <label id="title" >Select Title </label>
+                <select class="form-control" required name="title">
+                    <option disabled selected> Choose the blog title </option>
+                    <option> Coding </option>
+                    <option> Gate </option>
+                    <option> UPSC </option>
+                </select>
+
+                <label id="desc" >Blog Description</label><br>
+                <textarea class="txt"  name="desc" required></textarea>
+                <br>
+
+                <input type="submit" value="Submit" id="submit">
+
+
+            </form>
+        </div>
     </div>
-    <div class="container">
-        <form action="/afterAddPost/" method="POST">
-            {% csrf_token %}
-            <label for ="branch" id="branch">Select Branch</label>
-            <select class="form-control" name="sel">
-            <option> CSE </option>
-            <option> ECE </option>
-            <option> EE </option>
-            <option> ME </option>
-            <option> CE </option>
-            <option> IMSC </option>
-            </select>
 
-            <label id="type" >Select Blog Type</label>
-            <select class="form-control" name="type">
-            <option> Issue </option>
-            <option> Opportunity </option>
-            <option> Inspirational </option>
-            </select>
-
-            <label id="title" >Select Title </label>
-            <select class="form-control" name="title">
-                <option> Coding </option>
-                <option> Gate </option>
-                <option> UPSC </option>
-            </select>
-
-            <label id="desc" >Blog Description</label><br>
-            <textarea cols="100" rows="7" name="desc" required></textarea>
-            <br>
-
-            <input type="submit" value="Submit" id="submit">
-
-
-        </form>
-    </div>
-
-
+    <script>
+        const navSlide = ()=>{
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
+    
+        burger.addEventListener('click', ()=>{
+            nav.classList.toggle('nav-active');
+    
+            navLinks.forEach((link, index)=>{
+    
+            if(link.style.animation){
+                link.style.animation = '';
+            }else{
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index/7+0.3}s`;
+            }
+    
+            }); 
+    
+            burger.classList.toggle('toggle');
+    
+        });  
+    
+        
+        }
+        navSlide();
+      </script>
 
 </body>
 </html>
- 44  templat
+

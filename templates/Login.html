@@ -1,7 +1,7 @@
 {% load static %}
-{% if message %}
+{% if messg %}
     <script>
-        alert('{{message}}');
+        alert('{{messg}}');
     </script>
 {% endif %}
 <html lang="en">
@@ -12,34 +12,80 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     <link rel='stylesheet' href="{% static '/css/Login.css' %}">
 <head>
 <body>
-<nav class="navbar navbar1 sticky-top">
-   <h1 class="nit">National Institue Of Technology, Patna</h1>
-   <div id="nav">
-   <a href="/" class="btn btn-primary buttn">HOME</a>
-   <a href="/" class="btn btn-primary buttn">ABOUT OUR COLLEGE</a>
-   <a href="/signUp" class="btn btn-primary buttn" onClick="parent.location='reg.html'">REGISTER</a>
-   </div>
-   </nav>
+<nav id="home" class="sticky-top">
+    <div class="logo">
+        <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
+        <h4>National Institue Of Technology, Patna</h4>
+    </div>
 
-<img src="{% static 'images/logo.png' %}">
+    <ul class="nav-links">
+        <li>
+            <a href="/">Home</a>
+        </li>
+
+        <li>
+            <a href="#about">About Our College</a>
+        </li>
+
+        <li>
+        <a href="/signUp" onClick="parent.location='reg.html'">Register</a>
+        </li>
+        
+    </ul>
+
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>    
+
+
 <div id="log"> 
-<form action="/postsignIn/" method="POST">
-    {% csrf_token %}
-<div class="form-group"><br />
-<h1 style="text-align:center; color: white;"> WELCOME </h1><br /><br />
-<div id="margin">
-<label for="Email" style="color: white;"> Email Address:</label>
-<input type="text" class="form-control box imput-sm" id="email" name="email" placeholder="Enter Email"><br />
-<<<<<<< HEAD
-<label for="Pass"> Password:</label>
-<input type="password" class="form-control box imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
-=======
-<label for="Pass" style="color: white;"> Password:</label>
-<input type="text" class="form-control box imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
->>>>>>> 6140f0438d4e5c53015649c185327b8cfae564f8
-<input type="submit" value="SignIn">
+    <form action="/postsignIn/" method="POST" class="box">
+        {% csrf_token %}
+        <div class="form-group"><br />
+            <h1 style="text-align:center; color: white;"> WELCOME </h1><br>
+            <div id="margin">
+                <label for="Email" style="color: white;"> Email Address:</label>
+                <input type="text" class="form-control box imput-sm" id="email" name="email" placeholder="Enter Email"><br />
+                <label for="Pass" style="color: white;"> Password:</label>
+                <input type="text" class="form-control box imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
+                <input type="submit" value="SignIn">
+            </div>
+        </div>
+    </form>
 </div>
-</form>
-</div>
+
+<script>
+    const navSlide = ()=>{
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+
+    burger.addEventListener('click', ()=>{
+        nav.classList.toggle('nav-active');
+
+        navLinks.forEach((link, index)=>{
+
+        if(link.style.animation){
+            link.style.animation = '';
+        }else{
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index/7+0.3}s`;
+        }
+
+        }); 
+
+        burger.classList.toggle('toggle');
+
+    });  
+
+    
+    }
+    navSlide();
+  </script>
+
+  {% include 'footer.html' %}
 </body>
 </html>
+

@@ -29,6 +29,7 @@ def HomePage(request):
     Titles = []
     Types = []
     Departments = []
+    images = []
     Writtenbys = []
     for i in lis_time:
         Department = database.child('Blogs').child(i).child('Department').get().val()
@@ -41,13 +42,17 @@ def HomePage(request):
         Titles.append(Title)
         Types.append(Type)
         name = database.child('users').child(Writtenby).child('name').get().val()
+        image = database.child('users').child(Writtenby).child('imgUrl').get().val()
+        print(image)
         Writtenbys.append(name)
+        images.append(image)
     date = []
     for i in timestamp:
         i = float(i)
         dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
         date.append(dat)
-    comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys)
+
+    comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys,images)
     return render(request,"Home.html",{"comb_lis":comb_lis})
 
 @csrf_exempt
@@ -95,15 +100,18 @@ def postsignIn(request):
                     Titles.append(Title)
                     Types.append(Type)
                     name = database.child('users').child(Writtenby).child('name').get().val()
-                    branch = database.child('users').child(Writtenby).child('branch').get().val()
                     Writtenbys.append(name)
             date = []
             for i in timestamp:
                 i = float(i)
                 dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
                 date.append(dat)
+            name = database.child('users').child(uid).child('name').get().val()
+            branch = database.child('users').child(uid).child('branch').get().val()
+            image = database.child('users').child(uid).child('imgUrl').get().val()
+            print(image)
             comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
-            return render(request, "ProfilePage.html", {"comb_lis": comb_lis, "name": name, "branch": branch})
+            return render(request, "ProfilePage.html", {"comb_lis": comb_lis, "name": name, "branch": branch,"image":image})
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})
 def logout(request):
@@ -172,8 +180,11 @@ def profile(request):
             i = float(i)
             dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
             date.append(dat)
+        name = database.child('users').child(uid).child('name').get().val()
+        branch = database.child('users').child(uid).child('branch').get().val()
+        image = database.child('users').child(uid).child('imgUrl').get().val()
         comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
-        return render(request,"ProfilePage.html",{"comb_lis":comb_lis,"name":name,"branch":branch})
+        return render(request,"ProfilePage.html",{"comb_lis":comb_lis,"name":name,"branch":branch,"image":image})
 
 def addPost(request):
         return render(request,"AddPost.html")

@@ -79,8 +79,8 @@ li{
 
 #log{
     background-color:#26324a;
-    position: absolute;
-    top:50%;
+    position: relative;
+    top:25%;
     left: 50%;
     width:400px;
     height:400px;

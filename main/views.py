@@ -68,7 +68,7 @@ def postsignIn(request):
         try:
             user = authe.sign_in_with_email_and_password(email, pasw)
         except:
-            message = "Invalid Credentials!!Please Chech your Data"
+            message = "Invalid Credentials!!Please ChecK your Data"
             return render(request, "Login.html", {"message": message})
         session_id = user['idToken']
         request.session['uid'] = str(session_id)

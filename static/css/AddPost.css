@@ -1,56 +1,57 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 *{
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
     box-sizing: border-box;
+
 }
 
                                 /* Nav bar */
+html{
+    scroll-behavior: smooth;
+}
 
 .nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 13vh;
+    min-height: 13vh;
     background-color: #26324a;
     font-family: 'Poppins', sans-serif;
-    top: 0%;
-    z-index: +1;
     position: fixed;
+    top: 0%;
     width: 100vw;
+    z-index: +1;
     padding: 10px 10px;
-    text-align: center;
-    align-content: center;
     
 }
 
 
-.ins_name{
+.logo{
     color: rgba(255, 255, 255, 0.918); 
-    font-weight: 600;
-
+    font-weight: 900;
+    padding: 10px;
 }
 
 .nav-links{
     display: flex;
     justify-content: space-around;
-    width: 50%;
+    width: 30%;
 
 }
 
 .nav-links li a{
-  color: white; 
+  color: rgba(255, 255, 255, 0.918); 
   text-decoration: none;
   letter-spacing: 2px;
   font-weight: bold;
-  
+  transition: 0.3s ease-in-out all;
 }
 
 .nav-links li a:hover{
+    color:#ff9800;
     cursor: pointer;
-    color: rgba(212, 212, 212, 0.938);
-    
 }
 
 li{
@@ -72,10 +73,11 @@ li{
     transition: 0.5s ease all;
 }
 
+                                            /* navbar ends */
+                                            /* main starts */
 .main-part{
-    top: 13vh;
+    min-height: 86vh;
 }
-
 
 .container{
     max-width: 800px;
@@ -83,9 +85,8 @@ li{
     color: white;
     padding: 40px;
     overflow-x: hidden;
-    min-height: 86vh;
-    margin-top: 25vh;
-    margin-bottom: 100px;
+    margin-top: 15vh;
+    margin-bottom: 2vh;
     box-shadow: 0 0px 30px -2px #777;
     transition: 0.5s ease-in all;
     border: 2px solid #0c1527;
@@ -107,8 +108,8 @@ li{
 .heading{
     text-align: center;
     font-family: 'Poppins', sans-serif;
+    padding: 5px;
     border: 2px solid rgba(255, 255, 255, 0.918);
-    padding: 10px 0;
     
 }
 
@@ -132,9 +133,6 @@ li{
     outline: none;
     color: black;
 }
-
-
-
 
 .container form textarea{
     background: none;
@@ -177,46 +175,6 @@ li{
     
 }
 
-
-@media screen and (max-width:1100px){
-    body{
-      overflow-x: hidden;
-  }
-
-  nav{
-      position: sticky;
-      top: 0%;
-      
-  }
-
-  .nav-links{
-      position: fixed;
-      right: -50%;
-      height: 87vh;
-      background-color: #26324a;
-      top: 13vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      text-align: center;
-      width: 50%;
-      transition: 0.5s ease-in;
-      overflow: hidden;
-  }
-
-  .nav-links li{
-      opacity: 0;
-  }
-
-
-  .burger{
-      display: block;
-      cursor: pointer;
-  }
-
-}
-
 .box .form-control{
 	border: 0px;
 	background: none;
@@ -256,32 +214,165 @@ li{
     cursor: pointer;
 }
 
-@media screen and (max-width:500px){
+                                            /* main ends */
+                                            /* footer starts */
 
-    body{
-    overflow-x: hidden;
-    overflow-y: hidden;
-    } 
+.footer-element{
+    background-color: #26324a;
+    color:white;
+    position: relative;
+    min-height: 30vh;
+  }
+  
+  .footer-container{
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    padding: 10px;
+    
+  }
+  
+  .footer-element .footer-container .inner{
+      font-size: 15px;
+      padding: 20px;
+      align-content: center;
+      width: 33%;
+      font-family: 'Poppins', sans-serif;
+  
+  }
+  
+  .footer-container .inner .content p{
+    font-size: 18px;
+    font-family: 'Poppins';
+  }
+  
+  .footer-container .inner .borde{
+      height: 2px;
+      width: 30%;
+      background: #ff9800;
+      margin-bottom: 10px;
+  }
+  
+  .footer-container .inner .lin{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 20px;
+  }
+  
+  .footer-container .inner .lin i{
+      padding: 10px;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s ease-in-out all;
+  }
+  
+  .footer-container .inner .lin i:hover{
+      border-bottom: 2px solid #ff9800;
+      color: #ff9800;
+  }
+  
+  
+  .footer-container .inner .quick-links li{
+    list-style: none;
+    padding: 10px;
+  }
+  
+  .footer-container .inner .quick-links li a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.918);
+    transition: 0.3s ease-in-out all;
+  }
+  
+  .footer-container .inner .quick-links li a:hover{
+    color: #ff9800;
+  }
+  
+  
+  .bottom{
+      text-align: center;
+      background-color: #081022;
+      padding: 10px;
+  }
+
+                                                        /* footer ends */
+                                                        /* media queries starts */
+
+  @media screen and (max-width:1100px){
+
+    .nav{
+        position: fixed;
+        top: 0%;
+        
+    }
+  
+    .nav-links{
+        position: fixed;
+        right: -50%;
+        height: 87vh;
+        background-color: #26324a;
+        top: 13vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        width: 50%;
+        transition: 0.5s ease-in;
+        overflow: hidden;
+    }
+  
+    .nav-links li{
+        opacity: 0;
+    }
+  
+  
+    .burger{
+        display: block;
+        cursor: pointer;
+    }
+  
+  }
+
+  @media screen and (max-width:700px){
+    .footer-element .footer-container .inner{
+        width: 100%;
+    }
+    .container{
+        margin-top: 13vh;
+        margin-bottom: 0vh;
+    }
+  }
+
+
+@media screen and (max-width:500px){
 
     .nav{
     position: fixed;
     top: 0%;
     padding: 0 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.918);
     
     }
 
 
-
     .nav-links{
-    right: -100%;
-    width: 100%;
+        right: -100%;
+        width: 100%;
     }
 
     .container{
-        margin-top: 13vh;
+        margin-top: 0;
         margin-bottom: 0;
         border: none;
+        margin-top: 13vh;
+        margin-bottom: 0vh;
+        
+    }
+
+
+    .footer{
+        top: 13vh;
     }
 }
 

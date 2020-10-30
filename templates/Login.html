@@ -1,7 +1,7 @@
 {% load static %}
-{% if messg %}
+{% if message %}
     <script>
-        alert('{{messg}}');
+        alert('{{message}}');
     </script>
 {% endif %}
 <html lang="en">
@@ -9,11 +9,19 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel='stylesheet' href="{% static '/css/Login.css' %}">
+<link rel='stylesheet' href="{% static '/css/Login.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
 <head>
 <body>
 <nav class="nav">
-    <h4 class="ins_name">National Institue Of Technology, Patna</h4>
+    
+    <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
+    <h4 class="logo">National Institue Of Technology, Patna</h4>
+
 
     <ul class="nav-links">
         <li>
@@ -38,21 +46,80 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </nav>    
 
 
-<div id="log"> 
-    <form action="/postsignIn/" method="POST" class="box">
+<div class="login">
+    <form action="/postsignIn/" method="POST" class="container">
         {% csrf_token %}
-        <div class="form-group"><br />
-            <h1 class="heading_wel"> WELCOME </h1><br>
-            <div id="margin">
-                <label for="Email" style="color: white;"> Email Address:</label>
-                <input type="text" class="form-control box imput-sm" id="email" name="email" placeholder="Enter Email"><br />
-                <label for="Pass" style="color: white;"> Password:</label>
-                <input type="text" class="form-control box imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
-                <input type="submit" value="SignIn">
-            </div>
+        <div class="form">
+            <br><h1 style="text-align:center; color: white;"> WELCOME </h1><br>
+            <label for="Email" style="color: white;"> Email Address:</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required><br>
+            <label for="Pass" style="color: white;"> Password:</label><br>
+            <input type="password" id="pass" name="pass" placeholder="Minimum 8 characters" required><br>
+            <input type="submit" value="SignIn">
         </div>
     </form>
 </div>
+
+
+
+
+<footer class="footer-element">
+    <div class="footer-container">
+        <div class="inner">
+            <div class="content">
+                <h3 class="head">DSC NITP - WEB DEPT</h3>
+                <div class="borde"></div>
+                <p>Hey freshmans!! Welcome to NITP, our journey of four years starts from today,
+                    there is a long way to go. We at DSC nitp are here to help you out, you will get every bit of your doubts and 
+                    queries solved here... Have a great journey ahead... Best of luck!!!
+                </p>
+                
+            </div>
+        </div>
+        <div class="inner">
+            <div class="social-links">
+                <h3 class="head">Contact Us</h3>
+                <div class="borde"></div>
+                <p style="font-size: 22px;"><i class="fa fa-envelope" style="font-size:24px"></i> abc@gmail.com</p>
+                <div class="lin">
+                    <i class='fab fa-github' style='font-size:30px'></i>
+                    <i class="fab fa-instagram" style="font-size:30px"></i>
+                    <i class="fab fa-linkedin" style="font-size:30px"></i>
+                    <i class="fab fa-facebook" style="font-size:30px"></i>
+                </div>
+            </div>
+        </div>
+        <div class="inner">
+            <h3 class="head">Quick Links</h3>
+            <div class="borde"></div>
+            <ul class="quick-links">
+                <li>
+                    <a href="#"><i class='fas fa-arrow-up' style='font-size:16px'></i>&nbsp;&nbsp;Back to top</a>
+                </li>
+                <li>
+                    <a href="/"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;Home</a>
+                </li>
+        
+                <li>
+                    <a href="#about"><i class='fas fa-search' style='font-size:16px'></i>&nbsp;&nbsp;About Our College</a>
+                </li>
+        
+                <li>
+                    <a href="/signUp" onClick="parent.location='reg.html'"><i class='fas fa-comment' style='font-size:16px'></i>&nbsp;&nbsp;Suggestions</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+
+    <div class="bottom">
+        <p>&copy; DSC-NITP Web Dept, 2020 all rights reserved <br> Made with <i class='fas fa-heart' style='font-size:16px;color: red;'></i>  by DSC NITP</p>
+    </div>
+    
+
+</footer>
+
 
 <script>
     const navSlide = ()=>{
@@ -81,8 +148,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     }
     navSlide();
   </script>
-
-
 </body>
+
 </html>
 

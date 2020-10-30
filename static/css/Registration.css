@@ -1,3 +1,82 @@
+.footer-element{
+    background-color: #26324a;
+    color:white;
+    position: relative;
+    min-height: 30vh;
+  }
+  
+  .footer-container{
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    padding: 10px;
+    
+  }
+  
+  .footer-element .footer-container .inner{
+      font-size: 15px;
+      padding: 20px;
+      align-content: center;
+      width: 33%;
+      font-family: 'Poppins', sans-serif;
+  
+  }
+  
+  .footer-container .inner .content p{
+    font-size: 18px;
+    font-family: 'Poppins';
+  }
+  
+  .footer-container .inner .borde{
+      height: 2px;
+      width: 30%;
+      background: #ff9800;
+      margin-bottom: 10px;
+  }
+  
+  .footer-container .inner .lin{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 20px;
+  }
+  
+  .footer-container .inner .lin i{
+      padding: 10px;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s ease-in-out all;
+  }
+  
+  .footer-container .inner .lin i:hover{
+      border-bottom: 2px solid #ff9800;
+      color: #ff9800;
+  }
+  
+  
+  .footer-container .inner .quick-links li{
+    list-style: none;
+    padding: 10px;
+  }
+  
+  .footer-container .inner .quick-links li a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.918);
+    transition: 0.3s ease-in-out all;
+  }
+  
+  .footer-container .inner .quick-links li a:hover{
+    color: #ff9800;
+  }
+  
+  
+  .bottom{
+      text-align: center;
+      background-color: #081022;
+      padding: 10px;
+  }
+
 #left{
 float:left;
 width:10%;
@@ -33,7 +112,7 @@ margin-top:30px;
 border:1px solid white;
 }
 #signup{
-text-color:black;
+color:black;
 }
 #right1{
 width:400px;

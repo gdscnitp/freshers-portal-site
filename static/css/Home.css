@@ -6,8 +6,11 @@
     overflow-x: hidden;
 }
 
-                                /* Nav bar */
+html{
+  scroll-behavior: smooth;
+}
 
+                                /* Nav bar */
 
 .nav{
     display: flex;
@@ -24,12 +27,10 @@
     
 }
 
-
-.ins_name{
+.logo{
     color: rgba(255, 255, 255, 0.918); 
-    font-weight: 600;
-    padding: 5px 0px;
-
+    font-weight: 900;
+    padding: 10px;
 }
 
 .nav-links{
@@ -40,17 +41,16 @@
 }
 
 .nav-links li a{
-  color: white; 
+  color: rgba(255, 255, 255, 0.918); 
   text-decoration: none;
   letter-spacing: 2px;
   font-weight: bold;
-  
+  transition: 0.5s ease-in-out all;
 }
 
 .nav-links li a:hover{
+    color: #ff9800;
     cursor: pointer;
-    color: rgba(212, 212, 212, 0.938);
-    
 }
 
 li{
@@ -61,7 +61,7 @@ li{
 .burger{
     display: none;
 }
-
+                                            
 
 
 .burger div{
@@ -71,25 +71,20 @@ li{
     margin: 5px;
     transition: 0.5s ease all;
 }
+   
+                                                      /* navbar ends */
 
-.tm-main-content {
+                                                      /* main starts */
+
+
+.tm-main-content { 
+  background-color: #ffffff;
   max-width:auto;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
-  background-color: #ffffff; 
   margin-top: 13vh;
-}
-.tm-page-header-container { 
-  text-align: center; 
-}
+ }
 
-
-.tm-page-icon {
-  display: inline-block;
-  vertical-align: baseline;
-  padding: 15px;
-}
 
 .image img{
   height:55px;
@@ -122,13 +117,12 @@ li{
   margin-left:15px;
 }
 
-.tm-section{
+.tm-section {
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 30px;
 }
-
 
 .tm-section-small {
   max-width: 490px;
@@ -141,9 +135,88 @@ p{
   font-size: 1rem;
   line-height: 1.7;
 }
+                                                    /* main ends */
+                                                    /* footer starts */
+.footer-element{
+  background-color: #26324a;
+  color:white;
+  position: relative;
+  min-height: 30vh;
+}
+
+.footer-container{
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  padding: 10px;
+  
+}
+
+.footer-element .footer-container .inner{
+    font-size: 15px;
+    padding: 20px;
+    align-content: center;
+    width: 33%;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.footer-container .inner .content p{
+  font-size: 18px;
+  font-family: 'Poppins';
+}
+
+.footer-container .inner .borde{
+    height: 2px;
+    width: 30%;
+    background: #ff9800;
+    margin-bottom: 10px;
+}
+
+.footer-container .inner .lin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.footer-container .inner .lin i{
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s ease-in-out all;
+}
+
+.footer-container .inner .lin i:hover{
+    border-bottom: 2px solid #ff9800;
+    color: #ff9800;
+}
 
 
+.footer-container .inner .quick-links li{
+  list-style: none;
+  padding: 10px;
+}
 
+.footer-container .inner .quick-links li a{
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.918);
+  transition: 0.3s ease-in-out all;
+}
+
+.footer-container .inner .quick-links li a:hover{
+  color: #ff9800;
+}
+
+
+.bottom{
+    text-align: center;
+    background-color: #081022;
+    padding: 10px;
+}
+                                                        /* footer ends */
+                                                        /* media queries starts */
 
 @media screen and (max-width:1100px){
     body{
@@ -153,6 +226,7 @@ p{
     .nav{
         position: fixed;
         top: 0%;
+        width: 100vw;
         
     }
 
@@ -184,6 +258,12 @@ p{
 
 }
 
+@media screen and (max-width:700px){
+  .footer-element .footer-container .inner{
+      width: 100%;
+  }
+}
+
 @media screen and (max-width:500px){
 
   body{
@@ -193,16 +273,17 @@ p{
   .nav{
     position: fixed;
     top: 0%;
-    height: 16vh;
-    padding: 20px 20px;
+    padding: 10px 20px;
     text-align: center;
-    overflow-y: hidden;
+    width: 100vw;
+    height: 20vh;
     
   }
 
-  .tm-main-content{
+  .tm-main-content { 
     margin-top: 16vh;
   }
+
 
   .nav-links{
     right: -100%;

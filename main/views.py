@@ -29,6 +29,7 @@ def HomePage(request):
     Titles = []
     Types = []
     Departments = []
+    images = []
     Writtenbys = []
     for i in lis_time:
         Department = database.child('Blogs').child(i).child('Department').get().val()
@@ -41,13 +42,17 @@ def HomePage(request):
         Titles.append(Title)
         Types.append(Type)
         name = database.child('users').child(Writtenby).child('name').get().val()
+        image = database.child('users').child(Writtenby).child('imgUrl').get().val()
+        print(image)
         Writtenbys.append(name)
+        images.append(image)
     date = []
     for i in timestamp:
         i = float(i)
         dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
         date.append(dat)
-    comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys)
+
+    comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys,images)
     return render(request,"Home.html",{"comb_lis":comb_lis})
 
 @csrf_exempt
@@ -63,7 +68,7 @@ def postsignIn(request):
         try:
             user = authe.sign_in_with_email_and_password(email, pasw)
         except:
-            message = "Invalid Credentials!!Please Chech your Data"
+            message = "Invalid Credentials!!Please ChecK your Data"
             return render(request, "Login.html", {"message": message})
         session_id = user['idToken']
         request.session['uid'] = str(session_id)
@@ -95,18 +100,20 @@ def postsignIn(request):
                     Titles.append(Title)
                     Types.append(Type)
                     name = database.child('users').child(Writtenby).child('name').get().val()
-                    branch = database.child('users').child(Writtenby).child('branch').get().val()
                     Writtenbys.append(name)
             date = []
             for i in timestamp:
                 i = float(i)
                 dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
                 date.append(dat)
+            name = database.child('users').child(uid).child('name').get().val()
+            branch = database.child('users').child(uid).child('branch').get().val()
+            image = database.child('users').child(uid).child('imgUrl').get().val()
+            print(image)
             comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
-            return render(request, "ProfilePage.html", {"comb_lis": comb_lis, "name": name, "branch": branch})
+            return render(request, "ProfilePage.html", {"comb_lis": comb_lis, "name": name, "branch": branch,"image":image})
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})
-
 def logout(request):
     try:
         del request.session['uid']
@@ -173,9 +180,11 @@ def profile(request):
             i = float(i)
             dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
             date.append(dat)
+        name = database.child('users').child(uid).child('name').get().val()
+        branch = database.child('users').child(uid).child('branch').get().val()
+        image = database.child('users').child(uid).child('imgUrl').get().val()
         comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
-        return render(request,"ProfilePage.html",{"comb_lis":comb_lis,"name":name,"branch":branch})
-
+        return render(request,"ProfilePage.html",{"comb_lis":comb_lis,"name":name,"branch":branch,"image":image})
 
 def addPost(request):
         return render(request,"AddPost.html")
@@ -199,7 +208,6 @@ def afteraAddPost(request):
             a = a['users']
             a = a[0]
             a = a['localId']
-            print(str(a))
 
             data ={
                 "Type":tyype,
@@ -209,9 +217,42 @@ def afteraAddPost(request):
                 "Time":Currenttime,
                 "Department":branch,
             }
-
             database.child('Blogs').child(millis).set(data)
-            return render(request,"ProfilePage.html")
+            import datetime
+            a = authe.get_account_info(idToken)
+            a = a['users']
+            a = a[0]
+            a = a['localId']
+            timestamp = database.child('Blogs').shallow().get().val()
+            lis_time = []
+            for i in timestamp:
+                lis_time.append(i)
+            Descriptions = []
+            Titles = []
+            Types = []
+            Departments = []
+            Writtenbys = []
+            for i in lis_time:
+                Department = database.child('Blogs').child(i).child('Department').get().val()
+                Description = database.child('Blogs').child(i).child('Description').get().val()
+                Title = database.child('Blogs').child(i).child('Title').get().val()
+                Type = database.child('Blogs').child(i).child('Type').get().val()
+                Writtenby = database.child('Blogs').child(i).child('Writtenby').get().val()
+                if a == Writtenby:
+                    Departments.append(Department)
+                    Descriptions.append(Description)
+                    Titles.append(Title)
+                    Types.append(Type)
+                    name = database.child('users').child(Writtenby).child('name').get().val()
+                    branch = database.child('users').child(Writtenby).child('branch').get().val()
+                    Writtenbys.append(name)
+            date = []
+            for i in timestamp:
+                i = float(i)
+                dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
+                date.append(dat)
+            comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
+            return render(request, "ProfilePage.html", {"comb_lis": comb_lis,"name":name,"branch": branch})
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})
 
@@ -229,18 +270,13 @@ def postedit(request):
         time_now = datetime.now(timezone.utc).astimezone(tz)
         millis = int(time.mktime(time_now.timetuple()))
 
-        fname=request.POST.get('fname')
-        lname=request.POST.get('lname')
         dname=request.POST.get('dname')
         email=request.POST.get('email')
-        tarea=request.POST.get('tarea')
         course=request.POST['course']
         branch=request.POST['branch']
         year=request.POST['year']
-        furl=request.POST.get('furl')
-        turl=request.POST.get('turl')
-        lurl=request.POST.get('lurl')
-        wurl=request.POST.get('wurl')
+
+
 
         idtoken=request.session['uid']
         a = authe.get_account_info(idtoken)
@@ -249,18 +285,11 @@ def postedit(request):
         a=a['localId']
 
         data={
-            "fname":fname,
-            "lname":lname,
-            "dname":dname,
+            "name":dname,
             "email":email,
-            "tarea":tarea,
             "course":course,
             "branch":branch,
             "year":year,
-            "furl":furl,
-            "turl":turl,
-            "lurl":lurl,
-            "wurl":wurl
         }
         database.child('users').child(a).update(data)
 

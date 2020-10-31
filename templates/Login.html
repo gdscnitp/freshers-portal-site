@@ -11,54 +11,57 @@
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel='stylesheet' href="{% static '/css/Login.css' %}">
     <link rel="stylesheet" type="text/css" href="../static/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 <head>
 <body>
-<nav id="home" class="sticky-top">
-    <div class="logo">
+    <nav class="nav">
+    
         <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
-        <h4>National Institue Of Technology, Patna</h4>
-    </div>
+        <h4 class="logo">National Institue Of Technology, Patna</h4>
+    
+    
+        <ul class="nav-links">
+            <li>
+                <a href="/">Home</a>
+            </li>
+    
+            <li>
+                <a href="#about">About Our College</a>
+            </li>
+    
+            <li>
+            <a href="/signUp" onClick="parent.location='reg.html'">Register</a>
+            </li>
+            
+        </ul>
+    
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>    
 
-    <ul class="nav-links">
-        <li>
-            <a href="/">Home</a>
-        </li>
 
-        <li>
-            <a href="#about">About Our College</a>
-        </li>
-
-        <li>
-        <a href="/signUp" onClick="parent.location='reg.html'">Register</a>
-        </li>
-        
-    </ul>
-
-    <div class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-    </div>
-</nav>    
-
-
-<div id="log"> 
-    <form action="/postsignIn/" method="POST" class="box">
-        {% csrf_token %}
-        <div class="form-group"><br />
-            <h1 style="text-align:center; color: white;"> WELCOME </h1><br>
-            <div id="margin">
-                <label for="Email" style="color: white;"> Email Address:</label>
-                <input type="text" class="form-control box imput-sm" id="email" name="email" placeholder="Enter Email"><br />
-                <label for="Pass" style="color: white;"> Password:</label>
-                <input type="text" class="form-control box imput-sm" id="pass" name="pass" placeholder="Minimum 8 characters"><br />
+    <div class="login">
+        <form action="/postsignIn/" method="POST" class="container">
+            {% csrf_token %}
+            <div class="form">
+                <br><h1 style="text-align:center; color: white;"> WELCOME </h1><br>
+                <label for="Email" style="color: white;"> Email Address:</label><br>
+                <input type="email" id="email" name="email" placeholder="Enter Email" required><br>
+                <label for="Pass" style="color: white;"> Password:</label><br>
+                <input type="password" id="pass" name="pass" placeholder="Minimum 8 characters" required><br>
                 <input type="submit" value="SignIn">
             </div>
-        </div>
-    </form>
-</div>
-
+        </form>
+    </div>
+    
+    {% include 'footer.html'%}
 <script>
     const navSlide = ()=>{
     const burger = document.querySelector('.burger');
@@ -87,7 +90,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     navSlide();
   </script>
 
-  {% include 'footer.html'%}
+  
 </body>
 </html>
 

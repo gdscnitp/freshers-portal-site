@@ -14,10 +14,6 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel='stylesheet' href="{% static '/css/Registration.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
 <div id="left">
@@ -52,7 +48,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
 </div>
 
-<div id="right">
+<div id="right" style="float: right;">
 <div id="right1">
 <form action="/postsignup/" method="POST">
     {% csrf_token %}
@@ -81,63 +77,6 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </form>
 </div>
 </div>
-
-<footer class="footer-element">
-    <div class="footer-container">
-        <div class="inner">
-            <div class="content">
-                <h3 class="head">DSC NITP - WEB DEPT</h3>
-                <div class="borde"></div>
-                <p>Hey freshmans!! Welcome to NITP, our journey of four years starts from today,
-                    there is a long way to go. We at DSC nitp are here to help you out, you will get every bit of your doubts and 
-                    queries solved here... Have a great journey ahead... Best of luck!!!
-                </p>
-                
-            </div>
-        </div>
-        <div class="inner">
-            <div class="social-links">
-                <h3 class="head">Contact Us</h3>
-                <div class="borde"></div>
-                <p style="font-size: 22px;"><i class="fa fa-envelope" style="font-size:24px"></i> abc@gmail.com</p>
-                <div class="lin">
-                    <i class='fab fa-github' style='font-size:30px'></i>
-                    <i class="fab fa-instagram" style="font-size:30px"></i>
-                    <i class="fab fa-linkedin" style="font-size:30px"></i>
-                    <i class="fab fa-facebook" style="font-size:30px"></i>
-                </div>
-            </div>
-        </div>
-        <div class="inner">
-            <h3 class="head">Quick Links</h3>
-            <div class="borde"></div>
-            <ul class="quick-links">
-                <li>
-                    <a href="#"><i class='fas fa-arrow-up' style='font-size:16px'></i>&nbsp;&nbsp;Back to top</a>
-                </li>
-                <li>
-                    <a href="/"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;Home</a>
-                </li>
-        
-                <li>
-                    <a href="#about"><i class='fas fa-search' style='font-size:16px'></i>&nbsp;&nbsp;About Our College</a>
-                </li>
-        
-                <li>
-                    <a href="/signUp" onClick="parent.location='reg.html'"><i class='fas fa-comment' style='font-size:16px'></i>&nbsp;&nbsp;Suggestions</a>
-                </li>
-                
-            </ul>
-        </div>
-        
-    </div>
-
-    <div class="bottom">
-        <p>&copy; DSC-NITP Web Dept, 2020 all rights reserved <br> Made with <i class='fas fa-heart' style='font-size:16px;color: red;'></i>  by DSC NITP</p>
-    </div>
-    
-
-</footer>
-
+{% include 'footer.html'%}
 </body>
 </html>

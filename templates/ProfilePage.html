@@ -44,24 +44,36 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </nav>    
 <br /><br />
 
- <div class="first1" style="position:relative; top: 13vh; min-height: 87vh;">
-    <h3 style="text-align:center;">{{name}}
-    <img src="{{ image }}" class="icon_image" style="width:50px; height:50px"><span class="glyphicon glyphicon-pencil"></span></h3>
+ <div class="container">
 
-    <button type="button" class="btn btn-primary" style="margin-left:auto;margin-right:auto;display:block;margin-bottom:0%"
-            onclick="location.href='{% url 'edit' %}'">
-    Edit Profile</button><br />
-    <h5 style="text-align:center;">{{ branch }}</h5>
-    <h5 style="text-align:center;">Your Blogs</h5><br />
-
-    <ul>
-        <div class="tm-main-content container">
+   <div class="row" id="row1">
+     <div class="col-md-12 text-right">
+      <button type="button" class="btn btn-primary" 
+      onclick="location.href='{% url 'edit' %}'">
+Edit Profile</button>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-md-4">
+   <div class="tm-main-content profile-content">
+    <img src="{{ image }}" class="rounded-circle" style="width:100px; height:100px;"><span class="glyphicon glyphicon-pencil"></span></h3>
+    <h3>{{name}}
+    <h5>{{ branch }}</h5>
+    
+   </div>
+  </div>
+    
+    
+    
+  <div class="col-md-8">
+        <div class="tm-main-content">
+          <h2 style="text-align:center;">Your Blogs</h2><br />
             <section class="tm-section tm-section-small">
             {% for lis_time, date, Descriptions,Departments,Titles,Types,name in comb_lis %}
                 <div class="image">
     <!--              <img src="../static/images/nit.jpg">-->
 
-                    <h1 class="tm-section-header2">Type : {{ Types }} Titles: {{ Titles }}  </h1>
+                    <h3 class="tm-section-header2"><strong>Type :</strong> {{ Types }} <strong>Title:</strong> {{ Titles }}  </h3>
                 </div>
                 <h3 class="=tm-section-header2">{{time}}</h3>
                 <p>{{Descriptions}}</p>
@@ -69,9 +81,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
             </section>
           </div>
-    </ul>
+          </div>
+        </div>
+  
  </div>
-<!--  {% include 'footer.html'%}-->
+
 <script>
 
   const navSlide = ()=>{
@@ -100,6 +114,6 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
   }
   navSlide();
 </script>
-
+{% include 'footer.html'%}
 </body>
 </html>

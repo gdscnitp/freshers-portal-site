@@ -61,20 +61,6 @@ def postsignIn(request):
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
     return render(request, "ProfilePage.html", {"email": email})
-
-def resetPass(request):
-    return render(request, "Reset.html")
-
-def postReset(request):
-    try:
-        email = request.POST.get('email')
-        authe.send_password_reset_email(email)
-        message = "A reset link is succesfully sent to your email. Please check your email to reset password."
-        return render(request,"Reset.html",{"msg":message})
-    except:
-        message = "Please enter correct email, email you entered is not registered yet."
-        return render(request, "Reset.html",{"msg":message})
-
 def logout(request):
     try:
         del request.session['uid']

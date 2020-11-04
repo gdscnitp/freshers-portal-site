@@ -13,15 +13,13 @@ config={
     "measurementId": "G-KH43ST917G",
 }
 firebase=pyrebase.initialize_app(config)
-database=firebase.database()
 authe = firebase.auth()
-
-
+database=firebase.database()
 
 def HomePage(request):
     import datetime
     timestamp=database.child('Blogs').shallow().get().val()
-    lis_time = []
+    lis_time = [];
     for i in timestamp:
         lis_time.append(i)
     Descriptions = []
@@ -59,7 +57,7 @@ def postsignIn(request):
         user = authe.sign_in_with_email_and_password(email, pasw)
     except:
         message = "Invalid Credentials!!Please Check your Data"
-        return render(request, "Login.html", {"message": message})
+        return render(request, "sigIn.html", {"message": message})
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
     return render(request, "ProfilePage.html", {"email": email})
@@ -76,8 +74,6 @@ def postReset(request):
     except:
         message = "Please enter correct email, email you entered is not registered yet."
         return render(request, "Reset.html",{"msg":message})
-    
-    
 
 def logout(request):
     try:
@@ -98,14 +94,13 @@ def postsignup(request):
     passw=request.POST.get('pass')
     try:
         user=authe.create_user_with_email_and_password(email,passw)
-        authe.send_email_verification(user['idToken'])
     except:
         messg="unable to create account try again"
         return render(request,"registration.html",{"messg":messg})
     uid = user['localId']
     data={"name":name,"USER_TYPE":"user","device_token":"","email":email,"id":roll,"imgUrl":"","branch":branch,"uid":uid,"enrollment":enroll}
     database.child("users").child(uid).set(data)
-    return render(request,"login.html",{"message":"A verification link is send to your mail id please confirm it to signin to your account."})
+    return render(request,"login.html")
 
 @require_http_methods(["GET", "POST"])
 def profile(request):

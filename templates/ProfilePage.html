@@ -21,7 +21,9 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         </li>
 
         <li>
-          <a href="/addPost"  onClick="parent.location='Nav2.html'">Add Blog</a>
+           <form action="/addPost/" method="POST">
+            <a href="/addPost"  onClick="parent.location='Nav2.html'">Add Blog</a>
+           </form>
         </li>
 
         <li>
@@ -44,11 +46,9 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
  <div class="first1" style="position:relative; top: 13vh; min-height: 87vh;">
     <h3 style="text-align:center;">{{name}}
-    <img src="{{ image }}" class="icon_image"><span class="glyphicon glyphicon-pencil"></span></h3>
+    <img src="{{ image }}" class="icon_image" style="width:50px; height:50px"><span class="glyphicon glyphicon-pencil"></span></h3>
 
-    <button type="button" class="btn btn-primary" style="margin-left:auto;margin-right:auto;display:block;margin-bottom:0%"
-            onclick="location.href='{% url 'edit' %}'">
-    Edit Profile</button><br />
+
     <h5 style="text-align:center;">{{ branch }}</h5>
     <h5 style="text-align:center;">Your Blogs</h5><br />
 
@@ -69,9 +69,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
           </div>
     </ul>
  </div>
-  {% include 'footer.html'%}
+<!--  {% include 'footer.html'%}-->
 <script>
-window.location.href = "/profile/";
 
   const navSlide = ()=>{
   const burger = document.querySelector('.burger');

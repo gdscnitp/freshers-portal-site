@@ -21,6 +21,7 @@ html{
     font-family: 'Poppins', sans-serif;
     position: fixed;
     width: 100vw;
+
     top: 0%;
     z-index: +1;
     padding: 10px 10px;
@@ -89,12 +90,11 @@ li{
 .image img{
   height:55px;
   width:55px;
-  margin-top:80px;
+
   margin-left:15px;
   border-radius:400px;
   padding:3px 3px;
   border:2px solid black;
-
 }
 
 .tm-section-header2 {
@@ -112,7 +112,7 @@ li{
   text-align: center;
   font-weight: 400;
   font-size: 1.5rem;
-  margin-top: -70px;
+
   margin-bottom: 5px;
   margin-left:15px;
 }

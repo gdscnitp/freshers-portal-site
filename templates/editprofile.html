@@ -60,14 +60,14 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div class="col-md-4 side">
                 <!-- <img src="{{ image }}" class="rounded-circle" style="width:100px; height:100px; padding-top:25%;"><span class="glyphicon glyphicon-pencil"></span></h3> -->
             
-                <img src="{{ image }}" alt="" style="padding-top: 20%; height:100px; width:100px;"/>
-                <div class="file btn btn-lg btn-primary" style="width: 200px;">
+                <img src="{{ image }}" alt="" style="margin-top:15px; height:100px; width:100px;" class="rounded-circle"/>
+                <div class="file btn btn-lg btn-primary" style="width: 150px; margin-left:-100px;">
                         Change Photo
                     <input type="file" name="file"/>
                 </div>
                 
             </div>
-            <div class="col-md-4 main-content" style="background-color: #349C92;">
+            <div class="col-md-4 main-content" style="background-color: #52AFFA;">
                 <form action="/postedit/" method="post">
                     {% csrf_token %}
                     <h1>Profile</h1><hr>

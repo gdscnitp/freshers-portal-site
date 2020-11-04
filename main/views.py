@@ -260,7 +260,14 @@ def afteraAddPost(request):
 
 
 def gotoedit(request):
-        return render(request,'editprofile.html')
+    idToken = request.session['uid']
+    if idToken:
+        a = authe.get_account_info(idToken)
+        a = a['users']
+        a = a[0]
+        uid = a['localId']
+    image = database.child('users').child(uid).child('imgUrl').get().val()
+    return render(request,'editprofile.html',{"image":image})
 
 def postedit(request):
     if request.method=='POST':

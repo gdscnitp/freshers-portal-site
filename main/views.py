@@ -1,6 +1,8 @@
 # viewsfile
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt		
+from django.contrib.auth.decorators import login_required
 import pyrebase
 config={
     "apiKey": "AIzaSyA1_TbZc_DAJVAosBsBXHKVnANss0_220U",

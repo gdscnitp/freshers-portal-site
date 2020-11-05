@@ -283,7 +283,7 @@ def postedit(request):
         course=request.POST['course']
         branch=request.POST['branch']
         year=request.POST['year']
-
+        imgfile=request.POST.get('imgfile')        #for image update
 
 
         idtoken=request.session['uid']
@@ -292,7 +292,7 @@ def postedit(request):
         a=a[0]
         a=a['localId']
 
-        data={
+        data={                              #image update remaining--sumit
             "name":dname,
             "email":email,
             "course":course,

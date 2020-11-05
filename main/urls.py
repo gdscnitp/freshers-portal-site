@@ -29,9 +29,4 @@ urlpatterns = [
     path('addPost/',views.addPost, name="addPost"),
     path('afterAddPost/',views.afteraAddPost),
     path('search/',views.search,name='search'),
-<<<<<<< HEAD
-=======
-    path('gotoedit/',views.gotoedit,name="edit"),		    
-    path('postedit/',views.postedit,name="pedit"),
->>>>>>> 9ee95054f716f278f3b96a5e231d58f4e20a0197
 ]

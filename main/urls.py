@@ -29,4 +29,6 @@ urlpatterns = [
     path('addPost/',views.addPost, name="addPost"),
     path('afterAddPost/',views.afteraAddPost),
     path('search/',views.search,name='search'),
+    path('reset/',views.reset),
+    path('postReset/',views.postReset),
 ]

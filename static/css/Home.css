@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+                                /* Nav bar */
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 13vh;
+    background-color: #26324a;
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+    width: 100vw;
+
+    top: 0%;
+    z-index: +1;
+    padding: 10px 10px;
+    
+}
+
+.logo{
+    color: rgba(255, 255, 255, 0.918); 
+    font-weight: 900;
+    padding: 10px;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+
+}
+
+.nav-links li a{
+  color: rgba(255, 255, 255, 0.918); 
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: bold;
+  transition: 0.5s ease-in-out all;
+}
+
+.nav-links li a:hover{
+    color: #ff9800;
+    cursor: pointer;
+}
+
+li{
+    list-style: none;
+}
+
+
+.burger{
+    display: none;
+}
+                                            
+
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.918); 
+    margin: 5px;
+    transition: 0.5s ease all;
+}
+   
+                                                      /* navbar ends */
+
+                                                      /* main starts */
+
+
+.tm-main-content { 
+  background-color: #ffffff;
+  max-width:auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 13vh;
+ }
+
+
+.image img{
+  height:55px;
+  width:55px;
+
+  margin-left:15px;
+  border-radius:400px;
+  padding:3px 3px;
+  border:2px solid black;
+}
+
+.tm-section-header2 {
+  color:black;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.0rem;
+  margin-top: 5px;
+  margin-bottom: 40px;
+   margin-left:15px;
+}
+
+.tm-section-header3 {
+  color: black;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.5rem;
+
+  margin-bottom: 5px;
+  margin-left:15px;
+}
+
+.tm-section {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+}
+
+.tm-section-small {
+  max-width: 490px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0;
+}
+
+p{
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+@media screen and (max-width:1100px){
+  body{
+      overflow-x: hidden;
+  }
+
+  .nav{
+      position: fixed;
+      top: 0%;
+      width: 100vw;
+      
+  }
+
+  .nav-links{
+      position: fixed;
+      right: -50%;
+      height: 87vh;
+      background-color: #26324a;
+      top: 13vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: center;
+      width: 50%;
+      transition: 0.5s ease-in;
+      overflow: hidden;
+  }
+
+  .nav-links li{
+      opacity: 0;
+  }
+
+
+  .burger{
+      display: block;
+      cursor: pointer;
+  }
+
+}
+
+@media screen and (max-width:700px){
+.footer-element .footer-container .inner{
+    width: 100%;
+}
+}
+
+@media screen and (max-width:500px){
+
+body{
+  overflow-x: hidden;
+} 
+
+.nav{
+  position: fixed;
+  top: 0%;
+  padding: 10px 20px;
+  text-align: center;
+  width: 100vw;
+  height: 20vh;
+  
+}
+
+.tm-main-content { 
+  margin-top: 16vh;
+}
+
+
+.nav-links{
+  right: -100%;
+  width: 100%;
+}
+}
+
+
+@keyframes navLinkFade{
+from{
+opacity: 0;
+transform: translateX(50px);
+}
+to{
+opacity: 1;
+transform: translateX(0px);
+}
+}
+
+
+.nav-active{
+right: 0%;
+}
+
+
+.toggle .line1{
+transform: rotate(-45deg) translate(-5px , 6px);
+
+}
+.toggle .line2{
+opacity: 0;
+}
+.toggle .line3{
+transform: rotate(45deg) translate(-5px , -6px);
+}
+
+
+

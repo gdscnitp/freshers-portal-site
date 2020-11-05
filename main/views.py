@@ -260,7 +260,14 @@ def afteraAddPost(request):
 
 
 def gotoedit(request):
-        return render(request,'editprofile.html')
+    idToken = request.session['uid']
+    if idToken:
+        a = authe.get_account_info(idToken)
+        a = a['users']
+        a = a[0]
+        uid = a['localId']
+    image = database.child('users').child(uid).child('imgUrl').get().val()
+    return render(request,'editprofile.html',{"image":image})
 
 def postedit(request):
     if request.method=='POST':
@@ -276,7 +283,7 @@ def postedit(request):
         course=request.POST['course']
         branch=request.POST['branch']
         year=request.POST['year']
-
+        imgfile=request.POST.get('imgfile')        #for image update
 
 
         idtoken=request.session['uid']
@@ -285,7 +292,7 @@ def postedit(request):
         a=a[0]
         a=a['localId']
 
-        data={
+        data={                              #image update remaining--sumit
             "name":dname,
             "email":email,
             "course":course,

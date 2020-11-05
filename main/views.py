@@ -68,7 +68,7 @@ def postsignIn(request):
         try:
             user = authe.sign_in_with_email_and_password(email, pasw)
         except:
-            message = "Invalid Credentials!!Please Chech your Data"
+            message = "Invalid Credentials!!Please ChecK your Data"
             return render(request, "Login.html", {"message": message})
         session_id = user['idToken']
         request.session['uid'] = str(session_id)
@@ -138,7 +138,7 @@ def postsignup(request):
             messg="unable to create account try again"
             return render(request,"registration.html",{"messg":messg})
         uid = user['localId']
-        data={"name":name,"USER_TYPE":"user","device_token":"","email":email,"id":roll,"imgUrl":"","branch":branch,"uid":uid,"enrollment":enroll}
+        data={"name":name,"USER_TYPE":"user","device_token":"","email":email,"id":roll,"imgUrl":"https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad","branch":branch,"uid":uid,"enrollment":enroll}
         database.child("users").child(uid).set(data)
         return render(request,"login.html")
     message = "Please Login In First"
@@ -190,6 +190,8 @@ def addPost(request):
         return render(request,"AddPost.html")
 
 
+def about(request):
+    return render(request, "AboutourCollege.html")
 def afteraAddPost(request):
     if request.method=='POST':
         from datetime import datetime, timezone
@@ -257,7 +259,6 @@ def afteraAddPost(request):
     return render(request, "Login.html", {"message": message})
 
 
-
 def gotoedit(request):
         return render(request,'editprofile.html')
 
@@ -288,6 +289,7 @@ def postedit(request):
             "name":dname,
             "email":email,
             "course":course,
+            "branch":branch,
             "branch":branch,
             "year":year,
         }

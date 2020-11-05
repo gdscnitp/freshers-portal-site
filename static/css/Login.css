@@ -3,27 +3,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
                                 /* Nav bar */
 
-body{
-    background-image: url("{% static 'images/logo.png' %}");
+html{
+    scroll-behavior: smooth;
 }
 
-
-nav{
+.nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    min-height: 13vh;
+    height: 13vh;
     background-color: #26324a;
     font-family: 'Poppins', sans-serif;
     position: sticky;
     top: 0%;
     z-index: +1;
-    padding: 0 10px;
+    padding: 10px 10px;
+    border-bottom: 1px solid rgb(196, 196, 196);
     
 }
 
@@ -31,14 +31,13 @@ nav{
 .logo{
     color: rgba(255, 255, 255, 0.918); 
     font-weight: 900;
+    padding: 10px;
 }
 
 .nav-links{
     display: flex;
     justify-content: space-around;
     width: 50%;
-    margin-top: auto;
-    padding: 20px;
 
 }
 
@@ -47,14 +46,13 @@ nav{
   text-decoration: none;
   letter-spacing: 2px;
   font-weight: bold;
-  padding: 10px;
-  transition: 0.4s ease-in all;
+  transition: 0.3s ease-in all;
+  
   
 }
 
 .nav-links li a:hover{
-    box-shadow: 0px 0px 15px -1px #0c1527;
-    background-color: #26324a;
+    color: #ff9800;
     cursor: pointer;
 }
 
@@ -77,63 +75,77 @@ li{
     transition: 0.5s ease all;
 }
 
-#log{
+                                        /* Navbar ends */
+
+                                        /* main content */
+
+.login{
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    /* background: url(../images/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    
+}
+
+.login .container{
     background-color:#26324a;
-    position: absolute;
-    top:50%;
-    left: 50%;
     width:400px;
     height:400px;
     box-shadow: 0 0px 30px -2px #777;
-    transform: translate(-50%, -40%);
     padding: 0 30px;
-    font-family: 'Poppins',sans-serif;
     transition: 0.5s ease-in all;
 }
 
-#log:hover{
+.login .container:hover{
     box-shadow: none;
     cursor: pointer;
-    transform: translate(-50%, -40%) scale(1.1);
 }
 
-.box input[type="text"],.box input[type="password"]{
+
+
+.container input[type="email"],.container input[type="password"]{
 	border: 0px;
 	background: none;
 	display: block;
-	text-align:center;
+    text-align:center;
+    width: 100%;
 	border: 2px solid #3498db;
-	padding: 14px 10px;
+	padding: 10px 10px;
 	outline: none;
 	color:white;
     transition: 0.25s;
     font-size: 16px;
 
 }
-#log .form-group h1{
+.login .form h1{
     font-family: 'Poppins', sans-serif;
 }
 
-.box input[type="text"]:focus,.box input[type="password"]:focus{
+.container input[type="email"]:focus,.container input[type="password"]:focus{
     background-color: white;
     color: black;
     border-color: #2ecc71;
     }
 
-.box input[type="submit"]{
+.container input[type="submit"]{
 	border: 0px;
 	background: none;
 	display: block;
 	margin:5px auto;
 	border: 2px solid #2ecc71;
-	padding: 5px 10px;
+	padding: 8px 10px;
 	width:100px;
 	outline: none;
 	color:white;
     font-size: 16px;
     width: 100%;
 }
-.box input[type="submit"]:hover{
+.container input[type="submit"]:hover{
     background-color: #2ecc71;
     box-shadow: 0px 0px 10px -2px #2ecc71;
     color: rgba(0, 0, 0, 0.726);
@@ -142,97 +154,114 @@ li{
 
 
 @media screen and (max-width:1100px){
-    body{
-      overflow-x: hidden;
-  }
 
-  nav{
-      position: sticky;
-      top: 0%;
-      
-  }
-
-  .nav-links{
-      position: fixed;
-      right: -50%;
-      height: 87vh;
-      background-color: #26324a;
-      top: 13vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      text-align: center;
-      width: 50%;
-      transition: 0.5s ease-in;
-      overflow: hidden;
-  }
-
-  .nav-links li{
-      opacity: 0;
-  }
-
-
-  .burger{
-      display: block;
-      cursor: pointer;
-  }
-
-}
-
-@media screen and (max-width:500px){
-
-    body{
-        overflow-x: hidden;
-    } 
-
-    nav{
+    .nav{
         position: sticky;
         top: 0%;
-        padding: 20px 20px;
-        text-align: center;
+        
     }
-
+  
     .nav-links{
-        right: -100%;
-        width: 100%;
-    } 
-    #log{
-        width: 100vw;
-        height: 100vh;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -40%);
-        padding-top:15vh ;
+        position: fixed;
+        right: -50%;
+        height: 87vh;
+        background-color: #26324a;
+        top: 13vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        width: 50%;
+        transition: 0.5s ease-in;
+        overflow: hidden;
     }
-
-    #log:hover{
-        transform: translate(-50%, -40%) scale(1);
-    }
-}
-
-@keyframes navLinkFade{
-    from{
+  
+    .nav-links li{
         opacity: 0;
-        transform: translateX(50px);
     }
-    to{
-        opacity: 1;
-        transform: translateX(0px);
+  
+  
+    .burger{
+        display: block;
+        cursor: pointer;
     }
-}
-
-
-.nav-active{
-    right: 0%;
-}
-.toggle .line1{
-    transform: rotate(-45deg) translate(-5px , 6px);
-
-}
-.toggle .line2{
-    opacity: 0;
-}
-.toggle .line3{
-    transform: rotate(45deg) translate(-5px , -6px);
-}
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  @media screen and (max-width:500px){
+  
+      .nav{
+          position: fixed;
+          top: 0%;
+          padding: 10px 20px;
+          text-align: center;
+          width: 100vw;
+          height: 20vh;
+          border-bottom: 1px solid black;
+      }
+  
+      .nav-links{
+          right: -100%;
+          width: 100%;
+          top: 20vh;
+          height: 80vh;
+      } 
+  
+      .nav-links a{
+          width: 100vw;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          transition: 0.3s ease-in all;
+      }
+  
+      .login{
+          width: 100vw;
+          height: 60vh;
+          margin-top: 20vh;
+          border-bottom:1px solid black ;
+      }
+  
+      .login .container{
+          width: 100%;
+          height: 100%;
+  
+          
+      }
+      
+  
+  }
+  
+  @keyframes navLinkFade{
+      from{
+          opacity: 0;
+          transform: translateX(50px);
+      }
+      to{
+          opacity: 1;
+          transform: translateX(0px);
+      }
+  }
+  
+  
+  .nav-active{
+      right: 0%;
+  }
+  .toggle .line1{
+      transform: rotate(-45deg) translate(-5px , 6px);
+  
+  }
+  .toggle .line2{
+      opacity: 0;
+  }
+  .toggle .line3{
+      transform: rotate(45deg) translate(-5px , -6px);
+  }
+  

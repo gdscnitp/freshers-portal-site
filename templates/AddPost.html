@@ -10,14 +10,17 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{%static 'css/AddPost.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <title>Add Post</title>
 </head>
 <body>
-    <nav class="sticky-top">
-        <div class="logo">
-            <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
-            <h4>National Institue Of Technology, Patna</h4>
-        </div>
+    <nav class="nav">
+        
+        <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
+        <h4 class="logo">National Institue Of Technology, Patna</h4>
 
         <ul class="nav-links">
             <li>
@@ -29,8 +32,12 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             </li>
 
             <li>
+                  <a href="/profile/"  onClick="parent.location='Nav2.html'" >Profile</a>
+            </li>
+            <li>
                 <a href="/signIn/" onclick= "location.href = '{% url 'log' %}' ">Logout</a>
             </li>
+
         </ul>
 
         <div class="burger">
@@ -38,7 +45,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div class="line2"></div>
             <div class="line3"></div>
         </div>
-    </nav>    
+    </nav>   
     <div class="main-part">
         
         <div class="container">
@@ -84,6 +91,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             </form>
         </div>
     </div>
+    {% include 'footer.html'%}
 
     <script>
         const navSlide = ()=>{
@@ -112,7 +120,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         }
         navSlide();
       </script>
-
+      
 </body>
 </html>
 

@@ -27,6 +27,7 @@ urlpatterns = [
     path('postsignIn/',views.postsignIn),
     path('postsignup/',views.postsignup),
     path('search/',views.search),
+    path('about/',views.about),
     path('addPost/',views.addPost, name="addPost"),
     path('afterAddPost/',views.afteraAddPost),
     path('gotoedit/',views.gotoedit,name="edit"),

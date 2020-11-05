@@ -17,61 +17,124 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<nav class="navbar navbar1 sticky-top">
-   <h1 class="nit mx-auto">National Institue Of Technology, Patna</h1>
-   <div id="nav">
- <a href="/" class="btn dark butt1" onClick="parent.location='Nav2.html'"  style="color:white;">Home</a>
-  <a href="/addPost" class="btn dark butt1" onClick="parent.location='Nav2.html'" style="color:white;">Add Blog</a>
-  <a href="/profile/" class="btn dark butt1 " onClick="parent.location='Nav2.html'" style="color:white;">Profile</a>
-  <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn dark butt1"  style="color:white;">Logout</button>
-   </div>
-</nav>
-<form action="/postedit/" method="post">
-    {% csrf_token %}
-    <h1>Profile</h1><hr>
-    Personal Details:<br><br>
-<!--    First Name : <input type="text" name="fname"><br>-->
-<!--    Last Name: <input type="text" name="lname"><br>-->
-    Enter Your Name: <input type="text" name="dname"><br>
-    Roll: <input type="number" name="roll"><br>
-<!--    About me:<br>-->
-<!--    <textarea name="tarea" cols="40" rows="5" placeholder="Write Something about yourself"></textarea><br>-->
-<!--    <br>-->
-    <hr>
-    Academic Details:<br><br>
-    Course:
-    <select id="course" name="course">
-        <option value="btech">B.Tech.</option>
-        <option value="barch">B.Arch.</option>
-        <option value="mtech">M.Tech.</option>
-    </select><br><br>
-    Branch:
-    <select id="branch" name="branch">
-        <option value="Mechanical Engineer">Mechanical</option>
-        <option value="Electrical Engineer">Electrical</option>
-        <option value="Civil Engineer">Civil</option>
-        <option value="Electronics Engineering">ECE</option>
-        <option value="Architecture">Architecture</option>
-        <option value="Computer Science">CSE</option>
-        <option value="Humanities">Humanities</option>
-    </select><br><br>
-    Year:
-    <select id="year" name="year">
-        <option value="1">First</option>
-        <option value="2">Second</option>
-        <option value="3">Third</option>
-        <option value="4">Fourth</option>
-        <option value="5">Fifth</option>
-    </select><br><br>
-    <hr>
-<!--    External Links<br><br>-->
-<!--    Facebook URL: <input type="url" name="furl"><br>-->
-<!--    Twitter URL: <input type="url" name="turl"><br>-->
-<!--    LinkedIN URL: <input type="url" name="lurl"><br>-->
-<!--    Website URL: <input type="url" name="wurl"><br>-->
-    <br><br>
-    <button type="submit">Save</button>
-    <button type="button" onclick="location.href='{% url 'profile' %}'">Home</button>
-</form>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="nav">
+
+                    <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
+                    <h4 class="ins_name">National Institue Of Technology, Patna</h4>
+                    
+                
+                    <ul class="nav-links">
+                        <li>
+                          <a href="/" onClick="parent.location='Nav2.html'">Home</a>
+                        </li>
+                
+                        <li>
+                           <form action="/addPost/" method="POST">
+                            <a href="/addPost"  onClick="parent.location='Nav2.html'">Add Blog</a>
+                           </form>
+                        </li>
+                
+                        <li>
+                          <a href="/search/"  onClick="parent.location='Nav2.html'">Search</a>
+                        </li>
+                
+                        <li>
+                          <a href="/signIn/" onclick= "location.href = '{% url 'log' %}' ">Logout</a>
+                        </li>
+                        
+                    </ul>
+                
+                    <div class="burger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 side">
+                <!-- <img src="{{ image }}" class="rounded-circle" style="width:100px; height:100px; padding-top:25%;"><span class="glyphicon glyphicon-pencil"></span></h3> -->
+            
+                <img src="{{ image }}" alt="" style="padding-top: 20%; height:100px; width:100px;"/>
+                <div class="file btn btn-lg btn-primary" style="width: 200px;">
+                        Change Photo
+                    <input type="file" name="file"/>
+                </div>
+                
+            </div>
+            <div class="col-md-4 main-content" style="background-color: #349C92;">
+                <form action="/postedit/" method="post">
+                    {% csrf_token %}
+                    <h1>Profile</h1><hr>
+                    <label for="personal details">Personal Details:</label>
+                    <br><br>
+                <!--    First Name : <input type="text" name="fname"><br>-->
+                <!--    Last Name: <input type="text" name="lname"><br>-->
+                    <label for="Name">Enter Your Name:</label>
+                    <input type="text" name="dname"><br>
+                    <label for="roll">Roll: </label>
+                    <input type="number" name="roll"><br>
+                <!--    About me:<br>-->
+                <!--    <textarea name="tarea" cols="40" rows="5" placeholder="Write Something about yourself"></textarea><br>-->
+                <!--    <br>-->
+                    <hr>
+                    <label for="academic">Academic Details:</label>
+                    <br><br>
+                    <label for="course">Course:</label>
+                    
+                    <select id="course" name="course">
+                        <option value="btech">B.Tech.</option>
+                        <option value="barch">B.Arch.</option>
+                        <option value="mtech">M.Tech.</option>
+                    </select><br><br>
+                    <label for="branch">Branch:</label>
+                    
+                    <select id="branch" name="branch">
+                        <option value="Mechanical Engineer">Mechanical</option>
+                        <option value="Electrical Engineer">Electrical</option>
+                        <option value="Civil Engineer">Civil</option>
+                        <option value="Electronics Engineering">ECE</option>
+                        <option value="Architecture">Architecture</option>
+                        <option value="Computer Science">CSE</option>
+                        <option value="Humanities">Humanities</option>
+                    </select><br><br>
+                    <label for="year">Year:</label>
+                    
+                    <select id="year" name="year">
+                        <option value="1">First</option>
+                        <option value="2">Second</option>
+                        <option value="3">Third</option>
+                        <option value="4">Fourth</option>
+                        <option value="5">Fifth</option>
+                    </select><br><br>
+                    <hr>
+                <!--    External Links<br><br>-->
+                <!--    Facebook URL: <input type="url" name="furl"><br>-->
+                <!--    Twitter URL: <input type="url" name="turl"><br>-->
+                <!--    LinkedIN URL: <input type="url" name="lurl"><br>-->
+                <!--    Website URL: <input type="url" name="wurl"><br>-->
+                    <br><br>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'profile' %}'">Back To Profile</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+                
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% include 'footer.html'%}
+        </div>
+    </div>
+
 </body>
 </html>

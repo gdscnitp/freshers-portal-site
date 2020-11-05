@@ -1,6 +1,11 @@
 # viewsfile
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
+<<<<<<< HEAD
+=======
+from django.views.decorators.csrf import csrf_exempt		
+from django.contrib.auth.decorators import login_required
+>>>>>>> 9ee95054f716f278f3b96a5e231d58f4e20a0197
 import pyrebase
 config={
     "apiKey": "AIzaSyA1_TbZc_DAJVAosBsBXHKVnANss0_220U",
@@ -122,6 +127,7 @@ def afteraAddPost(request):
             "Time":Currenttime,
             "Department":branch,
         }
+<<<<<<< HEAD
 
         database.child('Blogs').child(millis).set(data)
         return render(request,"ProfilePage.html")
@@ -155,3 +161,36 @@ def search(request):
     return render(request,"Search.html",{"comb_lis":comb_lis})
 
 
+=======
+
+        database.child('Blogs').child(millis).set(data)
+        return render(request,"ProfilePage.html")
+
+def search(request):
+    value = request.POST.get('search')
+    data = database.child('users').shallow().get().val()
+    uidlist = []
+    requid='null'
+    for i in data:
+        uidlist.append(i)
+    for i in uidlist:
+        val = database.child('users').child(i).child('name').get().val()
+        if(val == value):
+            requid = i
+    print(requid)
+
+    name = database.child('users').child(requid).child('name').get().val()
+    course = database.child('users').child(requid).child('course').get().val()
+    branch = database.child('users').child(requid).child('branch').get().val()
+    img = database.child('users').child(requid).child('imgUrl').get().val()
+    Name=[]
+    Name.append(name)
+    Course=[]
+    Course.append(course)
+    Branch=[]
+    Branch.append(branch)
+    Image=[]
+    Image.append(img)
+    comb_lis = zip(Name,Course,Branch,Image)
+    return render(request,"Search.html",{"comb_lis":comb_lis})
+>>>>>>> 9ee95054f716f278f3b96a5e231d58f4e20a0197

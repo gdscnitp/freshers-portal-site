@@ -21,7 +21,7 @@ database=firebase.database()
 def HomePage(request):
     import datetime
     timestamp=database.child('Blogs').shallow().get().val()
-    lis_time = [];
+    lis_time = []
     for i in timestamp:
         lis_time.append(i)
     Descriptions = []
@@ -59,7 +59,7 @@ def postsignIn(request):
         user = authe.sign_in_with_email_and_password(email, pasw)
     except:
         message = "Invalid Credentials!!Please Check your Data"
-        return render(request, "sigIn.html", {"message": message})
+        return render(request, "Login.html", {"message": message})
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
     return render(request, "ProfilePage.html", {"email": email})

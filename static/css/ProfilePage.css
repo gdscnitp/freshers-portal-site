@@ -153,5 +153,10 @@ li{
   .toggle .line3{
       transform: rotate(45deg) translate(-5px , -6px);
   }
-  
+  .profile-content {
+      padding-top: 5%;
+  }
+  #row1{
+      padding-top: 5%;
+  }
   

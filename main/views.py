@@ -209,18 +209,6 @@ def profile(request):
         return render(request,"ProfilePage.html",{"comb_lis":comb_lis,"name":name,"branch":branch,"image":image})
 def gotoedit(request):
         return render(request, 'editprofile.html')
-
-def postsignIn(request):
-    email = request.POST.get('email')
-    pasw = request.POST.get('pass')
-    try:
-        user = authe.sign_in_with_email_and_password(email, pasw)
-    except:
-        message = "Invalid Credentials!!Please Check your Data"
-        return render(request, "Login.html", {"message": message})
-    session_id = user['idToken']
-    request.session['uid'] = str(session_id)
-    return render(request, "ProfilePage.html", {"email": email})
 def addPost(request):
         return render(request,"AddPost.html")
 def about(request):

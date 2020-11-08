@@ -136,6 +136,20 @@ def postsignIn(request):
             return render(request, "ProfilePage.html", {"comb_lis": comb_lis, "name": name, "branch": branch,"image":image})
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})
+
+def reset(request):
+    return render(request, "Reset.html")
+
+def postReset(request):
+    email = request.POST.get('email')
+    try:
+        authe.send_password_reset_email(email)
+        message  = "A email to reset password is succesfully sent"
+        return render(request, "Reset.html", {"msg":message})
+    except:
+        message  = "Something went wrong, Please check the email you provided is registered or not"
+        return render(request, "Reset.html", {"msg":message})
+
 def logout(request):
     try:
         del request.session['uid']

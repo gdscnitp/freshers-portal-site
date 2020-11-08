@@ -48,18 +48,20 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
    <div class="row" id="row1">
      <div class="col-md-12 text-right">
-      <button type="button" class="btn btn-primary" 
-      onclick="location.href='{% url 'edit' %}'">
-Edit Profile</button>
+
      </div>
    </div>
    <div class="row">
      <div class="col-md-4">
    <div class="tm-main-content profile-content">
     <img src="{{ image }}" class="rounded-circle" style="width:100px; height:100px;"><span class="glyphicon glyphicon-pencil"></span></h3>
-    <h3>{{name}}
+       <h3>{{ name }}</h3>
     <h5>{{ branch }}</h5>
-    
+     <button type="button" class="btn btn-primary"
+      onclick="location.href='{% url 'edit' %}'">
+Edit Profile</button>
+
+
    </div>
   </div>
     

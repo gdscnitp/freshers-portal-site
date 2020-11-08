@@ -260,7 +260,7 @@ def afteraAddPost(request):
 
 
 def gotoedit(request):
-    return render(request,'editprofile.html')
+        return render(request,'editprofile.html')
 
 def postedit(request):
     if request.method=='POST':

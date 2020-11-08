@@ -54,10 +54,32 @@ def HomePage(request):
 
     comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys,images)
     return render(request,"Home.html",{"comb_lis":comb_lis})
-
-@csrf_exempt
 def search(request):
-    return render(request,"Search.html")
+    value = request.POST.get('search')
+    data = database.child('users').shallow().get().val()
+    uidlist = []
+    requid='null'
+    for i in data:
+        uidlist.append(i)
+    for i in uidlist:
+        val = database.child('users').child(i).child('name').get().val()
+        if(val == value):
+            requid = i
+    print(requid)
+    name = database.child('users').child(requid).child('name').get().val()
+    course = database.child('users').child(requid).child('course').get().val()
+    branch = database.child('users').child(requid).child('branch').get().val()
+    img = database.child('users').child(requid).child('imgUrl').get().val()
+    Name=[]
+    Name.append(name)
+    Course=[]
+    Course.append(course)
+    Branch=[]
+    Branch.append(branch)
+    Image=[]
+    Image.append(img)
+    comb_lis = zip(Name,Course,Branch,Image)
+    return render(request,"Search.html",{"comb_lis":comb_lis})
 def signIn(request):
     return render(request,"Login.html")
 
@@ -68,7 +90,7 @@ def postsignIn(request):
         try:
             user = authe.sign_in_with_email_and_password(email, pasw)
         except:
-            message = "Invalid Credentials!!Please ChecK your Data"
+            message = "Invalid Credentials!!Please Check your Data"
             return render(request, "Login.html", {"message": message})
         session_id = user['idToken']
         request.session['uid'] = str(session_id)
@@ -141,7 +163,7 @@ def postsignup(request):
         data={"name":name,"USER_TYPE":"user","device_token":"","email":email,"id":roll,"imgUrl":"https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad","branch":branch,"uid":uid,"enrollment":enroll}
         database.child("users").child(uid).set(data)
         return render(request,"login.html")
-    message = "Please Login In First"
+    message = "Please Login In Here First "
     return render(request, "Login.html", {"message": message})
 def profile(request):
     idToken = request.session['uid']
@@ -185,11 +207,10 @@ def profile(request):
         image = database.child('users').child(uid).child('imgUrl').get().val()
         comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
         return render(request,"ProfilePage.html",{"comb_lis":comb_lis,"name":name,"branch":branch,"image":image})
-
+def gotoedit(request):
+        return render(request, 'editprofile.html')
 def addPost(request):
         return render(request,"AddPost.html")
-
-
 def about(request):
     return render(request, "AboutourCollege.html")
 def afteraAddPost(request):
@@ -257,7 +278,6 @@ def afteraAddPost(request):
             return render(request, "ProfilePage.html", {"comb_lis": comb_lis,"name":name,"branch": branch})
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})
-
 
 def gotoedit(request):
     idToken = request.session['uid']

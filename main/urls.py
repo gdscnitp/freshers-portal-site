@@ -32,4 +32,6 @@ urlpatterns = [
     path('afterAddPost/', views.afteraAddPost),
     path('gotoedit/', views.gotoedit, name="edit"),
     path('postedit/', views.postedit, name="pedit"),
+    path('reset/', views.reset),
+    path('postReset/',views.postReset),
 ]

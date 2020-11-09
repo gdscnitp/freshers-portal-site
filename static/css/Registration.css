@@ -1,51 +1,212 @@
-#left{
-float:left;
-width:10%;
-height:100%;
-background-color:#26324a;
-padding:20px;
+body{
+	background-image: linear-gradient(to right,#A4A67B,white);
 }
-#middle{
-background-color:/* #2196f3;*/
-white;
-float:left;
-width:30%;
-height:90%;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
-#right {
-float: right;
-width: 38%;
-height: 100%;
-background-color: #26324a;
-color: white;
-height: 100%;
+
+img{ max-width:100%;
+height:auto;}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 13vh;
+    background-color: #26324a;
+    font-family: 'Poppins', sans-serif;
+    position: sticky;
+    top: 0%;
+    z-index: +1;
+    padding: 0 10px;
+
 }
-.butt{ background-color:#26324a;
-border-color:#26324a;
-margin-top:100px;
+
+
+.logo{
+    color: rgba(255, 255, 255, 0.918);
+    font-weight: 900;
 }
-.butt1{ background-color:#26324a;
-border-color:#26324a;
-margin-top:30px;
-margin-top:30px;
+
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin-top: auto;
+    padding: 20px;
+
 }
-.butt2{ background-color:#26324a;
-border:1px solid white;
+
+.nav-links li a{
+  color: rgba(255, 255, 255, 0.918);
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding: 10px;
+  transition: 0.4s ease-in all;
+
 }
-#signup{
-text-color:black;
+
+.nav-links li a:hover{
+    box-shadow: 0px 0px 15px -1px #0c1527;
+    background-color: #26324a;
+    cursor: pointer;
 }
-#right1{
-width:400px;
-position : absolute;
-top:100px;
-left:68%;
-border:2px solid white;
-padding:20px;
+
+li{
+    list-style: none;
 }
-#mycarousel{
-position:absolute;
-height:100%;
+
+
+.burger{
+    display: none;
 }
-img{width:800px;
-height:380px;}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.918);
+    margin: 5px;
+    transition: 0.5s ease all;
+}
+.form-textbox, .form-textarea{
+	border-style: none;
+}
+.wpv-filter-form .form-control {
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+#body1{
+	width:100%;
+	height:100%;
+    z-index:-1;
+    }
+.row{ background:url("{% static 'images/background.jpg' %}") no-repeat center;
+background-size: cover;
+	width:100%;
+	height:100%;
+display:flex;
+position:relative;
+top:5%;
+left:13%;
+right:20%;
+width:1200px;
+height:800px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+.column1{
+	float:left;
+	width:60%;
+	flex:50%;
+}
+.column2{
+	background:rgba(74,67,89,.7);
+	float:right;
+	width:40%;
+	padding:15px;
+	font-family:Space Grotesk;
+	font-size:large;
+	color:#EDD1CA;
+	letter-spacing:1px;
+	word-spacing:3px;
+}
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+	color:white;
+	font-size:large;
+}
+.butt2{
+	top: 50%;
+	-ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+	background-color:#A4A67B;
+color:black;}
+
+@media screen and (max-width:1100px){
+.nav{
+        position: sticky;
+        top: 0%;
+
+    }
+.nav-links{
+        position: fixed;
+        right: -50%;
+        height: 87vh;
+        background-color: #26324a;
+        top: 13vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        width: 50%;
+        transition: 0.5s ease-in;
+        overflow: hidden;
+    }
+.nav-links li{
+        opacity: 0;
+    }
+.burger{
+        display: block;
+        cursor: pointer;
+    }
+.column2{position: absolute;
+float:left;}
+  }
+@media screen and (max-width:500px){
+
+      .nav{
+          position: fixed;
+          top: 0%;
+          padding: 10px 20px;
+          text-align: center;
+          width: 100vw;
+          height: 20vh;
+          border-bottom: 1px solid black;
+      }
+
+      .nav-links{
+          right: -100%;
+          width: 100%;
+          top: 20vh;
+          height: 80vh;
+      }
+
+      .nav-links a{
+          width: 100vw;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          transition: 0.3s ease-in all;
+      }
+}
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+.nav-active{
+    right: 0%;
+}
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px , 6px);
+}
+.toggle .line2{
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px , -6px);
+}

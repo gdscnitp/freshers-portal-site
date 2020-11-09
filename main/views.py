@@ -226,7 +226,7 @@ def gotoedit(request):
 def addPost(request):
         return render(request,"AddPost.html")
 def about(request):
-    return render(request, "AboutourCollege.html")
+    return render(request, "aboutcollege.html")
 def afteraAddPost(request):
     if request.method=='POST':
         from datetime import datetime, timezone

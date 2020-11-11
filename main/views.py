@@ -19,7 +19,7 @@ firebase=pyrebase.initialize_app(config)
 authe = firebase.auth()
 database=firebase.database()
 
-def HomePage(request):
+def Blogs(request):
     import datetime
     timestamp=database.child('Blogs').shallow().get().val()
     lis_time = []
@@ -53,7 +53,7 @@ def HomePage(request):
         date.append(dat)
 
     comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys,images)
-    return render(request,"Home.html",{"comb_lis":comb_lis})
+    return render(request,"Blogs.html",{"comb_lis":comb_lis})
 def search(request):
     value = request.POST.get('search')
     data = database.child('users').shallow().get().val()

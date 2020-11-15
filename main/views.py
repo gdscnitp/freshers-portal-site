@@ -221,8 +221,7 @@ def profile(request):
         image = database.child('users').child(uid).child('imgUrl').get().val()
         comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
         return render(request,"ProfilePage.html",{"comb_lis":comb_lis,"name":name,"branch":branch,"image":image})
-def gotoedit(request):
-        return render(request, 'editprofile.html')
+
 def addPost(request):
         return render(request,"AddPost.html")
 def about(request):
@@ -317,8 +316,8 @@ def postedit(request):
         course=request.POST['course']
         branch=request.POST['branch']
         year=request.POST['year']
-        imgfile=request.POST.get('imgfile')        #for image update
-
+        imgurl=request.POST.get('url')        #for image update
+        print("IMAGEurl",imgurl)
 
         idtoken=request.session['uid']
         a = authe.get_account_info(idtoken)
@@ -333,9 +332,9 @@ def postedit(request):
             "branch":branch,
             "branch":branch,
             "year":year,
+            "imgUrl":imgurl,
         }
         database.child('users').child(a).update(data)
-
         return render(request,'editprofile.html')
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})

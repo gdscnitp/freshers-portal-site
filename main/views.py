@@ -180,7 +180,11 @@ def postsignup(request):
     message = "Please Login In Here First "
     return render(request, "Login.html", {"message": message})
 def profile(request):
-    idToken = request.session['uid']
+    try:
+        idToken = request.session['uid']
+    except:
+        message = "Please Login In Here First "
+        return render(request, "Login.html", {"message": message})
     if idToken:
         a = authe.get_account_info(idToken)
         a = a['users']

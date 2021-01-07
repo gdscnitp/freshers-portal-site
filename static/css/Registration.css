@@ -246,7 +246,9 @@ li{
     text-align: center;
     color: #fff;
     /* margin-top: 4%; */
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
+    background: rgb(57,49,175);
+    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%); 
 }
 .register-left input{
     border: none;
@@ -261,10 +263,14 @@ li{
     cursor: pointer;
 }
 .register{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
+    background: rgb(57,49,175);
+    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
 }
 .register-right{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
+    background: rgb(57,49,175);
+    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
 }

@@ -53,19 +53,36 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     </nav>    
 
 
-    <div class="login">
-        <form action="/postsignIn/" method="POST" class="container">
-            {% csrf_token %}
-            <div class="form">
-                <br><h1 style="text-align:center; color: white;"> WELCOME </h1><br>
-                <label for="Email" style="color: white;"> Email Address:</label><br>
-                <input type="email" id="email" name="email" placeholder="Enter Email" required><br>
-                <label for="Pass" style="color: white;"> Password:</label><br>
-                <input type="password" id="pass" name="pass" placeholder="Minimum 8 characters" required><br>
-                <input type="submit" value="SignIn">
-                <p style="color: white;text-align: center;padding: 10px 0;">Forgot Password? <a href="/reset/" style="color: white;">Click Here to Reset</a></p>
+    <div class="container-fluid login">
+        <div class="row">
+            <div class="col-md-3 login-left">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="Logo"/> 
+                <h3>Welcome Back To Fresher's Portal Site</h3>
             </div>
-        </form>
+            <div class="col-md-9 login-right">
+                <form action="/postsignIn/" method="POST">
+                    {% csrf_token %}
+                    <h1 style="text-align:center; color: white;"> Login </h1>
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <label for="Email"> Email Address:</label><br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                        </div>
+                        <label for="Pass"> Password:</label><br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="password" id="pass" name="pass" placeholder="Minimum 8 characters" required>
+                        </div>
+                        <input type="submit" value="SignIn" class="btnLogin">
+                        <p style="color: white;padding: 10px 0;">Forgot Password? <a href="/reset/" style="color: white;">Click Here to Reset</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     
 <script>

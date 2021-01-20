@@ -121,8 +121,7 @@ li{
 }
 
 .btnLogin{
-    float: right;
-    margin-top: 10%;
+    margin-top: 5%;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
@@ -131,10 +130,18 @@ li{
     font-weight: 600;
     width: 25%;
     cursor: pointer;
+    
 }
 .btnLogin:hover{
     background-color: green;
     color: #fff;
+}
+label{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.5em;
+}
+.heightText{
+    line-height: 28px;
 }
 @keyframes mover {
     0% { transform: translateY(0); }

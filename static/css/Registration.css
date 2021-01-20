@@ -275,20 +275,23 @@ li{
     border-bottom-left-radius: 10% 50%;
 }
 .btnRegister{
-    float: right;
-    margin-top: 10%;
     border: none;
     border-radius: 1.5rem;
-    padding: 2%;
+    padding: 1%;
+    margin-bottom:5%;
     background: #0062cc;
     color: #fff;
     font-weight: 600;
-    width: 25%;
+    width: 15%;
     cursor: pointer;
 }
 .btnRegister:hover{
     background-color: green;
     color: #fff;
+}
+label{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2em;
 }
 @keyframes mover {
     0% { transform: translateY(0); }

@@ -62,7 +62,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div class="col-md-9 login-right">
                 <form action="/postsignIn/" method="POST">
                     {% csrf_token %}
-                    <h1 style="text-align:center; color: white;"> Login </h1>
+                    <h1 style="text-align:center; color: white; font-family: 'Times New Roman', Times, serif;"> Login </h1>
                     <div class="col-md-4">
 
                     </div>
@@ -70,12 +70,12 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         <label for="Email"> Email Address:</label><br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                            <input type="email" id="email" name="email" class="heightText" placeholder="Enter Email" required>
                         </div>
                         <label for="Pass"> Password:</label><br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" id="pass" name="pass" placeholder="Minimum 8 characters" required>
+                            <input type="password" id="pass" name="pass" class="heightText" placeholder="Minimum 8 characters" required>
                         </div>
                         <input type="submit" value="SignIn" class="btnLogin">
                         <p style="color: white;padding: 10px 0;">Forgot Password? <a href="/reset/" style="color: white;">Click Here to Reset</a></p>

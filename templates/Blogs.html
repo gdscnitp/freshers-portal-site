@@ -17,11 +17,25 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <li>
             <a href="/">Home</a>
         </li>
-
+        {% if session1 %}
         <li>
             <a href="/profile">Account Profile</a>
         </li>
 
+        <li>
+          <a href="/search/"  onClick="parent.location='Nav2.html'">Search</a>
+        </li>
+
+        <li>
+          <form action="/addPost/" method="POST">
+            <a href="/addPost"  onClick="parent.location='Nav2.html'">Add Blog</a>
+           </form>
+        </li>
+
+        <li>
+          <button onclick= "location.href = '{% url 'log' %}' ">Logout</button>
+        </li>
+        {% else %}
         <li>
           <a href="/signUp" onClick="parent.location='reg.html'">Register</a>
         </li>
@@ -29,7 +43,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <li>
           <a href="/signIn" onClick="parent.location='login.html'">Login</a>
         </li>
-        
+        {% endif %}
     </ul>
 
     <div class="burger">

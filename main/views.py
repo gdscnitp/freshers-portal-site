@@ -20,6 +20,11 @@ authe = firebase.auth()
 database=firebase.database()
 
 def Blogs(request):
+    try:
+        idToken = request.session['uid']
+        session1=True
+    except:
+        session1=False
     import datetime
     timestamp=database.child('Blogs').shallow().get().val()
     lis_time = []
@@ -53,7 +58,7 @@ def Blogs(request):
         date.append(dat)
 
     comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys,images)
-    return render(request,"Blogs.html",{"comb_lis":comb_lis})
+    return render(request,"Blogs.html",{"comb_lis":comb_lis,"session1":session1})
 def search(request):
     value = request.POST.get('search')
     data = database.child('users').shallow().get().val()

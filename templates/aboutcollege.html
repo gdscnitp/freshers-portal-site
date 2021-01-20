@@ -20,8 +20,12 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
    <div class=" nav">
    <a href="#" class="btn btn-primary butt">HOME</a>
    <a href="/readBlogs/" class="btn btn-primary butt">READ BLOGS</a>
+   {% if session1 %}
+   <a href="/profile" class="btn btn-primary butt">PROFILE</a>
+   <button onclick= "location.href = '{% url 'log' %}' " class="btn btn-primary butt" >LOGOUT</button>
+   {% else %}
    <a href="/signIn/" class="btn btn-primary butt" onClick="parent.location='reg.html'">LOGIN</a>
-   <a href="/signUp/" class="btn btn-primary butt" onClick="parent.location='login.html'">REGISTER</a> </div>
+   {% endif %} </div>
    </nav><br/><br/>
   <div class="urbox">
               <div id="demo" class="carousel slide" data-ride="carousel">

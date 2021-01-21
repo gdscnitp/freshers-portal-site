@@ -17,21 +17,22 @@
 <div class="media txt">
         <div class="media-body">
             <div >
-    <form class="form-inline w-1900" method="post" action="/searchusers/" style="margin:auto;">
-         {% csrf_token %}
-          <div class="media mt-3 ml-10">
-              <div class="md-form active-pink active-pink-2 pl-15  mt-0">
-      <input class="form-control" type="text" placeholder="Enter Title..." aria-label="Search.." name="search" id="search" style="width:100%">
-              </div>
-      <input class="form-control" type="text" placeholder="Enter Title..." aria-label="Search.." name="category" id="category" style="width:100%">
-<!--                <datalist id="datalistOptions">-->
-<!--                  <option value="Notes">-->
-<!--                  <option value="Previous Year Question">-->
-<!--                  <option value="Users">-->
-<!--                </datalist>-->
-    <button class="btn btn-primary " type="submit">Find</button>
-          </div>
-  </form>
+                <form class="form-inline w-1900" method="post" action="/searchusers/" style="margin:auto;">
+                        {% csrf_token %}
+                        <div class="media mt-3 ml-10">
+                                <div class="md-form active-pink active-pink-2 pl-15  mt-0">
+                                        <input class="form-control" type="text" placeholder="Enter Title..." aria-label="Search.." name="search" id="search" style="width:100%">
+                                </div>
+                                <select class="form-control" name="category" id="category">
+                                        <option selected disabled >Select Category</option>
+                                        <option value="Notes">Notes</option>
+                                        <option value="Question-papers">Previous Year Question Papers</option>
+                                        <option value="Users">Users</option> 
+                                </select>
+                                <button class="btn btn-primary " type="submit">Find</button>
+                         </div>
+                </form>
+                        
 
 
 <br>

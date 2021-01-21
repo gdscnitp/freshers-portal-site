@@ -1,0 +1,52 @@
+{% load static %}
+
+<html lang="en">
+<head>
+  <title>Search Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Search.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href="{% static '/css/Search.css' %}">
+
+</head>
+<body>
+<nav class="navbar navbar1 sticky-top" style="height: 90px;">
+<div class="media txt">
+        <div class="media-body">
+            <div >
+    <form class="form-inline w-1900" method="post" action="/searchusers/" style="margin:auto;">
+         {% csrf_token %}
+          <div class="media mt-3 ml-10">
+              <div class="md-form active-pink active-pink-2 pl-15  mt-0">
+      <input class="form-control" type="text" placeholder="Enter Title..." aria-label="Search.." name="search" id="search" style="width:100%">
+              </div>
+      <input class="form-control" type="text" placeholder="Enter Title..." aria-label="Search.." name="category" id="category" style="width:100%">
+<!--                <datalist id="datalistOptions">-->
+<!--                  <option value="Notes">-->
+<!--                  <option value="Previous Year Question">-->
+<!--                  <option value="Users">-->
+<!--                </datalist>-->
+    <button class="btn btn-primary " type="submit">Find</button>
+          </div>
+  </form>
+
+
+<br>
+</div>
+          </div>
+        </div>
+
+    <div id="nav">
+ <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'" style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Home</a>
+  <a href="/addPost" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'"style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Add Blog</a>
+  <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn btn-primary butt1" style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Logout</button>
+   </div>
+    </div>
+    </div>
+</nav>
+
+</body>
+</html>

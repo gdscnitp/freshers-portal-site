@@ -55,31 +55,66 @@ def Blogs(request):
     comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys,images)
     return render(request,"Blogs.html",{"comb_lis":comb_lis})
 def search(request):
+    return render(request, "search.html")
+def searchusers(request):
     value = request.POST.get('search')
-    data = database.child('users').shallow().get().val()
-    uidlist = []
-    requid='null'
-    for i in data:
-        uidlist.append(i)
-    for i in uidlist:
-        val = database.child('users').child(i).child('name').get().val()
-        if(val == value):
-            requid = i
-    print(requid)
-    name = database.child('users').child(requid).child('name').get().val()
-    course = database.child('users').child(requid).child('course').get().val()
-    branch = database.child('users').child(requid).child('branch').get().val()
-    img = database.child('users').child(requid).child('imgUrl').get().val()
-    Name=[]
-    Name.append(name)
-    Course=[]
-    Course.append(course)
-    Branch=[]
-    Branch.append(branch)
-    Image=[]
-    Image.append(img)
-    comb_lis = zip(Name,Course,Branch,Image)
-    return render(request,"Search.html",{"comb_lis":comb_lis})
+    title = request.POST.get('category')
+    if value is None or title is None:
+        print(value ,"Value",title)
+        return render(request, "search.html")
+    else:
+        print(value)
+        if title == "Notes":
+            data = database.child('Notes').shallow().get().val()
+            id = []
+            for i in data:
+                id.append(i)
+            for i in id:
+                val = database.child('Notes').child(i).child('filename').get().val()
+                if (val == value):
+                    requid = i
+            print(requid)
+            fileurl = database.child('Notes').child(requid).child('fileurl').get().val()
+            return render(request, "searchNotes.html", {"fileurl":fileurl})
+        if title == "Question-papers":
+            data = database.child('Question-papers').shallow().get().val()
+            id = []
+            for i in data:
+                id.append(i)
+            for i in id:
+                val = database.child('Question-papers').child(i).child('filename').get().val()
+                if (val == value):
+                    requid = i
+            print(requid)
+            fileurl = database.child('Question-papers').child(requid).child('fileurl').get().val()
+            return render(request, "searchNotes.html", {"fileurl": fileurl})
+        if title == "Users":
+            data = database.child('users').shallow().get().val()
+            uidlist = []
+            requid = 'null'
+            for i in data:
+                uidlist.append(i)
+            for i in uidlist:
+                val = database.child('users').child(i).child('name').get().val()
+                if (val == value):
+                    requid = i
+            print(requid)
+            name = database.child('users').child(requid).child('name').get().val()
+            course = database.child('users').child(requid).child('course').get().val()
+            branch = database.child('users').child(requid).child('branch').get().val()
+            img = database.child('users').child(requid).child('imgUrl').get().val()
+            Name = []
+            Name.append(name)
+            Course = []
+            Course.append(course)
+            Branch = []
+            Branch.append(branch)
+            Image = []
+            Image.append(img)
+            comb_lis = zip(Name, Course, Branch, Image)
+            return render(request, "SearchUsers.html", {"comb_lis": comb_lis})
+def searchnotes(request):
+    return render(request,"searchNotes.html")
 def signIn(request):
     return render(request,"Login.html")
 
@@ -102,38 +137,54 @@ def postsignIn(request):
             uid = a['localId']
             import datetime
             timestamp = database.child('Blogs').shallow().get().val()
-            lis_time = []
-            for i in timestamp:
-                lis_time.append(i)
-            Descriptions = []
-            Titles = []
-            Types = []
-            Departments = []
-            Writtenbys = []
-            for i in lis_time:
-                Department = database.child('Blogs').child(i).child('Department').get().val()
-                Description = database.child('Blogs').child(i).child('Description').get().val()
-                Title = database.child('Blogs').child(i).child('Title').get().val()
-                Type = database.child('Blogs').child(i).child('Type').get().val()
-                Writtenby = database.child('Blogs').child(i).child('Writtenby').get().val()
-                if uid == Writtenby:
-                    Departments.append(Department)
-                    Descriptions.append(Description)
-                    Titles.append(Title)
-                    Types.append(Type)
-                    name = database.child('users').child(Writtenby).child('name').get().val()
-                    Writtenbys.append(name)
-            date = []
-            for i in timestamp:
-                i = float(i)
-                dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
-                date.append(dat)
-            name = database.child('users').child(uid).child('name').get().val()
-            branch = database.child('users').child(uid).child('branch').get().val()
-            image = database.child('users').child(uid).child('imgUrl').get().val()
-            print(image)
-            comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
-            return render(request, "ProfilePage.html", {"comb_lis": comb_lis, "name": name, "branch": branch,"image":image})
+            if timestamp:
+                lis_time = []
+                for i in timestamp:
+                    lis_time.append(i)
+                Descriptions = []
+                Titles = []
+                Types = []
+                Departments = []
+                Writtenbys = []
+                for i in lis_time:
+                    Department = database.child('Blogs').child(i).child('Department').get().val()
+                    Description = database.child('Blogs').child(i).child('Description').get().val()
+                    Title = database.child('Blogs').child(i).child('Title').get().val()
+                    Type = database.child('Blogs').child(i).child('Type').get().val()
+                    Writtenby = database.child('Blogs').child(i).child('Writtenby').get().val()
+                    if uid == Writtenby:
+                        Departments.append(Department)
+                        Descriptions.append(Description)
+                        Titles.append(Title)
+                        Types.append(Type)
+                        name = database.child('users').child(Writtenby).child('name').get().val()
+                        Writtenbys.append(name)
+                date = []
+                for i in timestamp:
+                    i = float(i)
+                    dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
+                    date.append(dat)
+                name = database.child('users').child(uid).child('name').get().val()
+                branch = database.child('users').child(uid).child('branch').get().val()
+                image = database.child('users').child(uid).child('imgUrl').get().val()
+                print(image)
+                comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
+                return render(request, "ProfilePage.html", {"comb_lis": comb_lis, "name": name, "branch": branch,"image":image})
+            else:
+                Descriptions = []
+                Titles = []
+                Types = []
+                Departments = []
+                date=[]
+                Writtenbys = []
+                lis_time=[]
+                name = database.child('users').child(uid).child('name').get().val()
+                branch = database.child('users').child(uid).child('branch').get().val()
+                image = database.child('users').child(uid).child('imgUrl').get().val()
+                print(image)
+                comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
+                return render(request, "ProfilePage.html",
+                              {"comb_lis": comb_lis, "name": name, "branch": branch, "image": image})
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})
 
@@ -180,7 +231,11 @@ def postsignup(request):
     message = "Please Login In Here First "
     return render(request, "Login.html", {"message": message})
 def profile(request):
-    idToken = request.session['uid']
+    try:
+        idToken = request.session['uid']
+    except:
+        message = "Please Login In Here First "
+        return render(request, "Login.html", {"message": message})
     if idToken:
         a = authe.get_account_info(idToken)
         a = a['users']
@@ -221,8 +276,7 @@ def profile(request):
         image = database.child('users').child(uid).child('imgUrl').get().val()
         comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
         return render(request,"ProfilePage.html",{"comb_lis":comb_lis,"name":name,"branch":branch,"image":image})
-def gotoedit(request):
-        return render(request, 'editprofile.html')
+
 def addPost(request):
         return render(request,"AddPost.html")
 def about(request):
@@ -317,8 +371,8 @@ def postedit(request):
         course=request.POST['course']
         branch=request.POST['branch']
         year=request.POST['year']
-        imgfile=request.POST.get('imgfile')        #for image update
-
+        imgurl=request.POST.get('url')        #for image update
+        print("IMAGEurl",imgurl)
 
         idtoken=request.session['uid']
         a = authe.get_account_info(idtoken)
@@ -333,9 +387,9 @@ def postedit(request):
             "branch":branch,
             "branch":branch,
             "year":year,
+            "imgUrl":imgurl,
         }
         database.child('users').child(a).update(data)
-
         return render(request,'editprofile.html')
     message = "Please Login In First"
     return render(request, "Login.html", {"message": message})

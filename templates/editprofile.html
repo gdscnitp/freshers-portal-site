@@ -63,7 +63,52 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     <img src="{{ image }}" alt="" style="margin-top:15px; height:100px; width:100px;" class="rounded-circle"/>
                 <div class="file btn btn-lg btn-primary" style="width: 150px; margin-left:-100px;">
                     <label for="file">Change Photo</label>    
-                    <input type="file" name="imgfile"/>
+                    <input type="file" name="files[]" id="files">
+                    <input type="hidden" name="url" id="url">
+                    <button type="button" onclick="uploadimage()" class="btn btn-primary" style="float: left; padding-left:0px; font-size: 18px;">Upload</button>
+                    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+                    <script>    
+                        var firebaseConfig = {
+                            apiKey: "AIzaSyA1_TbZc_DAJVAosBsBXHKVnANss0_220U",
+                            authDomain: "freshers-portal.firebaseapp.com",
+                            databaseURL: "https://freshers-portal.firebaseio.com",
+                            projectId: "freshers-portal",
+                            storageBucket: "freshers-portal.appspot.com",
+                            messagingSenderId: "620782197376",
+                            appId: "1:620782197376:web:f7835cc81df3aced7d2465",
+                            measurementId: "G-KH43ST917G"
+                          };
+                          // Initialize Firebase
+                          firebase.initializeApp(firebaseConfig);
+                        
+                          function uploadimage(){
+                            var storage = firebase.storage();
+                            var file=document.getElementById("files").files[0];
+                            var storageRef = storage.ref();
+                            var metadata = {
+                                contentType: 'image/jpeg',
+                              };
+                            var thisref = storageRef.child(file.name).put(file,metadata);
+                            thisref.on('state_changed',function(snapshot){
+                                console.log("File uploaded successfully");
+                            },
+                            function(error){
+                    
+                            },
+                            function() {
+                                // Upload completed successfully, now we can get the download URL
+                                thisref.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                                    <!-- console.log('File available at', downloadURL); -->
+                                    document.getElementById("url").value = downloadURL;
+                                  });
+                                alert("File uploaded successfully");
+                                
+                                });
+                    
+                        }
+                        
+                        
+                    </script>
                 </div>
 
             

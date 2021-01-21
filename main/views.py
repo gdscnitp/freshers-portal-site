@@ -58,7 +58,7 @@ def search(request):
     return render(request, "search.html")
 def searchusers(request):
     value = request.POST.get('search')
-    title = request.POST.get('category')
+    title = request.POST['category']
     if value is None or title is None:
         print(value ,"Value",title)
         return render(request, "search.html")

@@ -60,31 +60,66 @@ def Blogs(request):
     comb_lis = zip(lis_time, date, Descriptions,Departments,Titles,Types,Writtenbys,images)
     return render(request,"Blogs.html",{"comb_lis":comb_lis,"session1":session1})
 def search(request):
+    return render(request, "search.html")
+def searchusers(request):
     value = request.POST.get('search')
-    data = database.child('users').shallow().get().val()
-    uidlist = []
-    requid='null'
-    for i in data:
-        uidlist.append(i)
-    for i in uidlist:
-        val = database.child('users').child(i).child('name').get().val()
-        if(val == value):
-            requid = i
-    print(requid)
-    name = database.child('users').child(requid).child('name').get().val()
-    course = database.child('users').child(requid).child('course').get().val()
-    branch = database.child('users').child(requid).child('branch').get().val()
-    img = database.child('users').child(requid).child('imgUrl').get().val()
-    Name=[]
-    Name.append(name)
-    Course=[]
-    Course.append(course)
-    Branch=[]
-    Branch.append(branch)
-    Image=[]
-    Image.append(img)
-    comb_lis = zip(Name,Course,Branch,Image)
-    return render(request,"Search.html",{"comb_lis":comb_lis})
+    title = request.POST['category']
+    if value is None or title is None:
+        print(value ,"Value",title)
+        return render(request, "search.html")
+    else:
+        print(value)
+        if title == "Notes":
+            data = database.child('Notes').shallow().get().val()
+            id = []
+            for i in data:
+                id.append(i)
+            for i in id:
+                val = database.child('Notes').child(i).child('filename').get().val()
+                if (val == value):
+                    requid = i
+            print(requid)
+            fileurl = database.child('Notes').child(requid).child('fileurl').get().val()
+            return render(request, "searchNotes.html", {"fileurl":fileurl})
+        if title == "Question-papers":
+            data = database.child('Question-papers').shallow().get().val()
+            id = []
+            for i in data:
+                id.append(i)
+            for i in id:
+                val = database.child('Question-papers').child(i).child('filename').get().val()
+                if (val == value):
+                    requid = i
+            print(requid)
+            fileurl = database.child('Question-papers').child(requid).child('fileurl').get().val()
+            return render(request, "searchNotes.html", {"fileurl": fileurl})
+        if title == "Users":
+            data = database.child('users').shallow().get().val()
+            uidlist = []
+            requid = 'null'
+            for i in data:
+                uidlist.append(i)
+            for i in uidlist:
+                val = database.child('users').child(i).child('name').get().val()
+                if (val == value):
+                    requid = i
+            print(requid)
+            name = database.child('users').child(requid).child('name').get().val()
+            course = database.child('users').child(requid).child('course').get().val()
+            branch = database.child('users').child(requid).child('branch').get().val()
+            img = database.child('users').child(requid).child('imgUrl').get().val()
+            Name = []
+            Name.append(name)
+            Course = []
+            Course.append(course)
+            Branch = []
+            Branch.append(branch)
+            Image = []
+            Image.append(img)
+            comb_lis = zip(Name, Course, Branch, Image)
+            return render(request, "SearchUsers.html", {"comb_lis": comb_lis})
+def searchnotes(request):
+    return render(request,"searchNotes.html")
 def signIn(request):
     return render(request,"Login.html")
 

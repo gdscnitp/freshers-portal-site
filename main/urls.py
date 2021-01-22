@@ -28,6 +28,8 @@ urlpatterns = [
     path('postsignIn/', views.postsignIn),
     path('postsignup/', views.postsignup),
     path('search/', views.search),
+    path('searchnotes/', views.searchnotes),
+    path('searchusers/', views.searchusers),
     path('about/', views.about),
     path('addPost/', views.addPost, name="addPost"),
     path('afterAddPost/', views.afteraAddPost),

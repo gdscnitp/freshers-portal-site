@@ -78,6 +78,8 @@ def searchusers(request):
                 val = database.child('Notes').child(i).child('filename').get().val()
                 if (val == value):
                     requid = i
+                else:
+                    return render(request, "search.html")
             print(requid)
             fileurl = database.child('Notes').child(requid).child('fileurl').get().val()
             return render(request, "searchNotes.html", {"fileurl":fileurl})
@@ -90,6 +92,8 @@ def searchusers(request):
                 val = database.child('Question-papers').child(i).child('filename').get().val()
                 if (val == value):
                     requid = i
+                else:
+                    return render(request, "search.html")
             print(requid)
             fileurl = database.child('Question-papers').child(requid).child('fileurl').get().val()
             return render(request, "searchNotes.html", {"fileurl": fileurl})
@@ -103,6 +107,8 @@ def searchusers(request):
                 val = database.child('users').child(i).child('name').get().val()
                 if (val == value):
                     requid = i
+                else:
+                    return render(request, "search.html")
             print(requid)
             name = database.child('users').child(requid).child('name').get().val()
             course = database.child('users').child(requid).child('course').get().val()

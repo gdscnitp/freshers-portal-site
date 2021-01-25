@@ -41,7 +41,7 @@ html{
     margin-right: 10px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
-    height: 70px;
+    /* height: 70px; */
     width: 100px;
     text-align: center;
     display: table-cell;

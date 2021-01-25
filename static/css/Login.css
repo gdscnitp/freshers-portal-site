@@ -100,6 +100,7 @@ li{
     background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%); 
 }
 .login-left input{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
@@ -118,10 +119,11 @@ li{
     background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .btnLogin{
-    float: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 10%;
     border: none;
     border-radius: 1.5rem;

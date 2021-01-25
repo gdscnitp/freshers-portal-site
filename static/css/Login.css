@@ -70,7 +70,7 @@ li{
 .burger div{
     width: 25px;
     height: 3px;
-    background-color: rgba(255, 255, 255, 0.918); 
+    background-color: rgba(255, 255, 255, 0.918);
     margin: 5px;
     transition: 0.5s ease all;
 }
@@ -97,7 +97,7 @@ li{
     /* margin-top: 4%; */
     /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
     background: rgb(57,49,175);
-    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%); 
+    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
 }
 .login-left input{
     font-family: Verdana, Geneva, Tahoma, sans-serif;

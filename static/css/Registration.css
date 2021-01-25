@@ -251,6 +251,7 @@ li{
     background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%); 
 }
 .register-left input{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
@@ -273,12 +274,15 @@ li{
     background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .btnRegister{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top:2%;
+    margin-bottom: 5%;
     border: none;
     border-radius: 1.5rem;
     padding: 1%;
-    margin-bottom:5%;
     background: #0062cc;
     color: #fff;
     font-weight: 600;
@@ -290,8 +294,8 @@ li{
     color: #fff;
 }
 label{
-    font-family: "Times New Roman", Times, serif;
-    font-size: 2em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
 }
 @keyframes mover {
     0% { transform: translateY(0); }

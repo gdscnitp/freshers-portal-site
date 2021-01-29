@@ -18,6 +18,7 @@ config={
 firebase=pyrebase.initialize_app(config)
 authe = firebase.auth()
 database=firebase.database()
+session1=False
 
 def Blogs(request):
     try:

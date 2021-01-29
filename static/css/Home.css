@@ -12,7 +12,7 @@ html{
 
                                 /* Nav bar */
 
-.nav{
+/* .nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -88,7 +88,7 @@ li{
     background-color: rgba(255, 255, 255, 0.918); 
     margin: 5px;
     transition: 0.5s ease all;
-}
+} */
    
                                                       /* navbar ends */
 

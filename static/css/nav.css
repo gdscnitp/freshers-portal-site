@@ -1,0 +1,79 @@
+html{
+    scroll-behavior: smooth;
+}
+
+
+.nav-first{
+   margin-left: 4px;
+    /* margin-right: 170px; */
+    
+    color: #ffffff;
+  }
+
+ 
+ 
+  .logo{
+    height: 50px;
+    width: 50px;
+    padding-left: 0;
+  }
+  .nit{
+    display:inline;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing:0.8px; 
+    word-spacing: 1px; 
+    font-size: 25px;
+    padding-left:5px;
+    /*padding: 20px 20px 40px 20px ;*/
+    color: #ffffff;
+    }
+    .navbar{
+        margin-bottom: 0px!important;
+    }
+  .navbar.navbar1{
+    background-color:#26324a;
+    height:90px;
+    padding: 10px;  
+}
+  .btn-primary.butt{ 
+    background-color:#26324a;
+    border-color:#26324a;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    /* height: 70px; */
+    width: 100px;
+    text-align: center;
+    display: table-cell;
+    vertical-align:middle;
+    padding-top:20px;
+  }
+  
+  .nav{
+    float:right;
+    /* margin-left: 10px; */
+    /*margin:30px 10px -20px 10px;*/
+   word-spacing: 1px; 
+   }
+   @media screen and (max-width: 500px) {
+.butt{
+margin-right:10px;
+font-size: 8px;
+}
+.nav{float:left; 
+margin:30px 10px -20px 10px;
+ word-spacing: 1px; 
+ }
+.nit{
+display:inline;
+font-family:pangolin;
+letter-spacing:0.8px; word-spacing: 1px; 
+color:white;
+font-size: 15px;
+padding: 20px 20px 40px 20px ;
+color: B8C6DE;
+}   
+      
+}

@@ -7,50 +7,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel='stylesheet' href="{% static '/css/Login.css' %}">
+    <link rel='stylesheet' href="{% static '/css/nav.css' %}">
     <link rel="stylesheet" type="text/css" href="../static/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 <head>
 <body>
-    <nav class="nav">
-    
-        <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
-        <h4 class="logo">National Institue Of Technology, Patna</h4>
-    
-    
-        <ul class="nav-links">
-            <li>
-                <a href="/">Home</a>
-            </li>
-    
-            <li>
-                <a href="/readBlogs/">Read blogs</a>
-            </li>
+    <nav class="row navbar navbar1">
 
-            <li>
-                <a href="/profile">Account</a>
-            </li>
-    
-    
-            <li>
-            <a href="/signUp" onClick="parent.location='reg.html'">Register</a>
-            </li>
-            
-        </ul>
-    
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+        <div class="nav-first">
+          <img src="../static/images/nitp.png" class="logo">
+         <h1 class=" nit">National Institute Of Technology, Patna</h1>
+         <br>
+         <span style="margin-left: 60px;margin-right: 170px;">An Institute of National Importance under Ministry of Education, Government of India</span>
+      </div>
+      
+         <div class="nav">
+           
+          <a href="/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
+            <a href="/signUp/" class="btn btn-primary butt" onClick="parent.location='login.html'">Register</a> 
         </div>
-    </nav>    
+        
+        </nav>    
 
 
     <div class="container-fluid login">

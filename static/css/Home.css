@@ -12,7 +12,7 @@ html{
 
                                 /* Nav bar */
 
-.nav{
+/* .nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -54,6 +54,23 @@ html{
     cursor: pointer;
 }
 
+.nav-links li button{
+  color: rgba(255, 255, 255, 0.918); 
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: bold;
+  background-color: #26324a;
+  transition: 0.3s ease-in-out all;
+  border: 0;
+  outline: 0;
+}
+
+.nav-links li button:hover{
+    cursor: pointer;
+    color: #ff9800;
+}
+
+
 li{
     list-style: none;
 }
@@ -71,7 +88,7 @@ li{
     background-color: rgba(255, 255, 255, 0.918); 
     margin: 5px;
     transition: 0.5s ease all;
-}
+} */
    
                                                       /* navbar ends */
 

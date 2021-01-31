@@ -12,68 +12,8 @@ html{
     scroll-behavior: smooth;
 }
 
-.nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 13vh;
-    background-color: #26324a;
-    font-family: 'Poppins', sans-serif;
-    position: sticky;
-    top: 0%;
-    z-index: +1;
-    padding: 10px 10px;
-    border-bottom: 1px solid rgb(196, 196, 196);
+
     
-}
-
-
-.logo{
-    color: rgba(255, 255, 255, 0.918); 
-    font-weight: 900;
-    padding: 10px;
-}
-
-.nav-links{
-    display: flex;
-    justify-content: space-around;
-    width: 50%;
-
-}
-
-.nav-links li a{
-  color: rgba(255, 255, 255, 0.918); 
-  text-decoration: none;
-  letter-spacing: 2px;
-  font-weight: bold;
-  transition: 0.3s ease-in all;
-  
-  
-}
-
-.nav-links li a:hover{
-    color: #ff9800;
-    cursor: pointer;
-}
-
-li{
-    list-style: none;
-}
-
-
-.burger{
-    display: none;
-}
-
-
-
-.burger div{
-    width: 25px;
-    height: 3px;
-    background-color: rgba(255, 255, 255, 0.918); 
-    margin: 5px;
-    transition: 0.5s ease all;
-}
 
                                         /* Navbar ends */
 
@@ -97,9 +37,10 @@ li{
     /* margin-top: 4%; */
     /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
     background: rgb(57,49,175);
-    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%); 
+    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
 }
 .login-left input{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
@@ -118,10 +59,11 @@ li{
     background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .btnLogin{
-    float: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 10%;
     border: none;
     border-radius: 1.5rem;
@@ -143,7 +85,7 @@ li{
 
 @media screen and (max-width:1100px){
 
-    .nav{
+    /* .nav{
         position: sticky;
         top: 0%;
         
@@ -173,7 +115,7 @@ li{
     .burger{
         display: block;
         cursor: pointer;
-    }
+    } */
   
   }
   
@@ -185,30 +127,24 @@ li{
   
   @media screen and (max-width:500px){
   
-      .nav{
-          position: fixed;
-          top: 0%;
-          padding: 10px 20px;
-          text-align: center;
-          width: 100vw;
-          height: 20vh;
-          border-bottom: 1px solid black;
-      }
-  
-      .nav-links{
-          right: -100%;
-          width: 100%;
-          top: 20vh;
-          height: 80vh;
-      } 
-  
-      .nav-links a{
-          width: 100vw;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          transition: 0.3s ease-in all;
-      }
+    .butt{
+        margin-right:10px;
+        font-size: 8px;
+        }
+        .nav{float:left; 
+        margin:30px 10px -20px 10px;
+         word-spacing: 1px; 
+         }
+        .nit{
+        display:inline;
+        font-family:pangolin;
+        letter-spacing:0.8px; word-spacing: 1px; 
+        color:white;
+        font-size: 15px;
+        padding: 20px 20px 40px 20px ;
+        color: B8C6DE;
+        }
+        
 
       
   

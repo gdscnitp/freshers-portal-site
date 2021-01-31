@@ -11,100 +11,30 @@ html{
     scroll-behavior: smooth;
 }
 
-.nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    min-height: 13vh;
-    background-color: #26324a;
-    font-family: 'Poppins', sans-serif;
-    position: fixed;
-    top: 0%;
-    width: 100vw;
-    z-index: +1;
-    padding: 10px 10px;
-    
-}
 
-
-.logo{
-    color: rgba(255, 255, 255, 0.918); 
-    font-weight: 900;
-    padding: 10px;
-}
-
-.nav-links{
-    display: flex;
-    justify-content: space-around;
-    width: 30%;
-
-}
-
-.nav-links li a{
-  color: rgba(255, 255, 255, 0.918); 
-  text-decoration: none;
-  letter-spacing: 2px;
-  font-weight: bold;
-  transition: 0.3s ease-in-out all;
-}
-
-.nav-links li a:hover{
-    color:#ff9800;
-    cursor: pointer;
-}
-
-.nav-links li button{
-    color: rgba(255, 255, 255, 0.918); 
-    text-decoration: none;
-    letter-spacing: 2px;
-    font-weight: bold;
-    background-color: #26324a;
-    transition: 0.3s ease-in-out all;
-    border: 0;
-    outline: 0;
-  }
-  
-  .nav-links li button:hover{
-      cursor: pointer;
-      color: #ff9800;
-  }
-
-li{
-    list-style: none;
-}
-
-
-.burger{
-    display: none;
-}
-
-
-
-.burger div{
-    width: 25px;
-    height: 3px;
-    background-color: rgba(255, 255, 255, 0.918); 
-    margin: 5px;
-    transition: 0.5s ease all;
-}
 
                                             /* navbar ends */
                                             /* main starts */
 .main-part{
-    min-height: 86vh;
+    background-image: url("https://images.pexels.com/photos/220634/pexels-photo-220634.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container{
     max-width: 800px;
-    background-color:#26324a;
+    background-color: #a9a9a9;opacity: 0.8;
     color: white;
     padding: 40px;
     overflow-x: hidden;
     margin-top: 15vh;
     margin-bottom: 2vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: medium;
     box-shadow: 0 0px 30px -2px #777;
     transition: 0.5s ease-in all;
-    border: 2px solid #0c1527;
+    border: 2px solid #6c6f74;
+    border-radius: 25px;
 
 }
 
@@ -124,42 +54,46 @@ li{
     text-align: center;
     font-family: 'Poppins', sans-serif;
     padding: 5px;
-    border: 2px solid rgba(255, 255, 255, 0.918);
-    
+    border: 1px solid  #0b200d;
+    border-radius: 25px;
 }
 
 .container #sel{
-    border-radius: 0px;
+    border-radius: 25px;
 }
 
 .container form select{
     background:none;
-    border: 2px solid #3498db;
+    border: 2px solid #0b200d;
+    border-radius: 25px;
     outline: none;
     color: white;
     height: 50px;
     margin-bottom: 30px;
     transition: 0.3s ease-in all;
+    
 }
 
 .container form select:focus{
     background: white;
-    border: 2px solid #2ecc71;
+    border: 2px solid  #7cb342;
+    border-radius: 25px;
     outline: none;
-    color: black;
+    color: rgb(95, 90, 90);
 }
 
 .container form textarea{
     background: none;
-    border: 2px solid #3498db;
+    border: 2px solid #0c5306;
+    border-radius: 25px;
     outline: none;
     color: white;
 }
 
 .container form textarea:focus{
-    border: 2px solid #2ecc71;
+    border: 2px solid  #7cb342;
     background-color: white;
-    color: black;
+    color: rgb(44, 37, 37);
 }
 
 .container #type,
@@ -168,11 +102,12 @@ li{
 .container #branch{
     padding: 8px 15px;
     margin: 10px auto;
+    border-radius: 25px;
 
 }
 
 .container textarea{
-    color: black;
+    color:  rgb(44, 37, 37);
     font-weight: 400;
     font-family: sans-serif;
     columns: 50vw;
@@ -195,17 +130,20 @@ li{
 	background: none;
 	display: block;
 	text-align:center;
-	border: 2px solid #3498db;
+    border: 2px solid #797d80;
+    border-radius: 25px;
 	padding: 14px 10px;
 	outline: none;
 	color:white;
     transition: 0.25s;
     font-size: 16px;
     
+    
 }
 
 .box .form-control:focus{
-    border-color: #2ecc71;
+    border-color:  #7cb342;
+    border-radius: 25px;
 }
 
 .container input[type="submit"]{
@@ -213,20 +151,23 @@ li{
 	background: none;
 	display: block;
 	margin:5px auto;
-	border: 2px solid #2ecc71;
+	border: 2px solid  #7cb342;
 	padding: 5px 10px;
 	width:100px;
 	outline: none;
 	color:white;
-	font-size: 16px;
+    font-size: 25px;
+    border-radius: 25px;
 	
 }
 
 .container input[type="submit"]:hover{
-    background-color: #2ecc71;
-    box-shadow: 0px 0px 10px -2px #2ecc71;
+    background-color:  #7cb342;
+    box-shadow: 0px 0px 10px -2px  #7cb342;
+    opacity: 1;
     color: white;
     cursor: pointer;
+    border-radius: 25px;
 }
 
                                             /* main ends */

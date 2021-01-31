@@ -34,18 +34,17 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
    {% for lis_time, date, Descriptions,Departments,Titles,Types,name,image in comb_lis %}
       <div class="image">
         <img src="{{ image }}">
-          <h3 class="tm-section-header3">{{name}}</h3>
-          <h1 class="tm-section-header2">Type : {{ Types }} Titles: {{ Titles }}  </h1>
-      </div>
+          <h1 class="tm-section-header2"><strong>Type : {{ Types }} Titles: {{ Titles }} </strong></br> {{name}} </h1>
+                </div>
       <h3 class="=tm-section-header2">{{time}}</h3>
-      <p>{{Descriptions}}</p>
+      <p><center>{{Descriptions}}</center></p>
 
     {% endfor %}
+    
 
 
   </section>
 </div>
-
 
 <script>
   const navSlide = ()=>{

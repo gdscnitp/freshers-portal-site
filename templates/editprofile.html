@@ -9,7 +9,6 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     <title>Edit Profile</title>
     <link rel='stylesheet' href="{% static '/css/ProfilePage.css' %}">
     <link rel='stylesheet' href="{% static '/css/editProfile.css' %}">
-    <link rel='stylesheet' href="{% static '/css/nav.css' %}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,24 +20,42 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     
     <div class="container-fluid" >
         <div class="row">
-            <div class="col-md-12" style="padding: 0px;">
-                <nav class="row navbar navbar1">
-
+            <div class="col-md-12 container" style="padding: 0px;">
+                <nav class="nav">
                     <div class="nav-first">
-                      <img src="../static/images/nitp.png" class="logo">
-                     <h1 class=" nit">National Institute Of Technology, Patna</h1>
-                     <br>
-                     <span style="margin-left: 60px;margin-right: 170px;">An Institute of National Importance under Ministry of Education, Government of India</span>
-                  </div>
-                  
-                     <div class="nav">
-                       
-                      <a href="/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
-                      <a href="/search/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Search</a>
-                      <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
+                        <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
+                    <h1 class="logo">National Institue Of Technology, Patna</h1>
+                    <p>An Institute of National Importance under Ministry of Education, Government of India</p>
                     </div>
-                    
-                    </nav>
+                 
+                      
+                
+                    <ul class="nav-links">
+                      <li>
+                        <a href="/home/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
+                      </li>
+                      <li>
+                        <a href="/addPost/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Add Blog</a> 
+                      </li>
+                      <li>
+                        <a href="/readBlogs/" class="btn btn-primary butt">Blogs</a>
+                      </li>
+                      <li>
+                        <a href="/search/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Search</a>
+                      </li>
+                      <li>
+                        <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
+                      </li>
+                      
+                        
+                    </ul>
+                
+                    <div class="burger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+                </nav>
             </div>
         </div>
         <form action="/postedit/" method="post">
@@ -167,6 +184,33 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             {% include 'footer.html'%}
         </div>
     </div>
+    <script>
+
+        const navSlide = ()=>{
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
       
+        burger.addEventListener('click', ()=>{
+            nav.classList.toggle('nav-active');
+      
+            navLinks.forEach((link, index)=>{
+      
+            if(link.style.animation){
+                link.style.animation = '';
+            }else{
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index/7+0.3}s`;
+            }
+      
+            }); 
+      
+            burger.classList.toggle('toggle');
+      
+        });  
+      
+        
+        }
+        navSlide();
+      </script>  
 </body>
 </html>

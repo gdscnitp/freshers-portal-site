@@ -40,6 +40,7 @@ html{
     color: rgba(255, 255, 255, 0.918); 
     font-weight: 900;
     padding: 0px;
+    font-size: 25px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -159,7 +160,9 @@ li{
         top: 0%;
         
     }
-  
+    .logo{
+        font-size: 20px;
+    }
     .nav-links{
         position: fixed;
         right: -50%;
@@ -202,10 +205,15 @@ li{
           padding: 10px 20px;
           text-align: center;
           width: 100vw;
-          height: 20vh;
+          height: 35vh;
           border-bottom: 1px solid black;
       }
-  
+      .logo{
+        font-size: 20px;
+    }
+    .nav-first p{
+        margin-top: 0px;
+    }
       .nav-links{
           right: -100%;
           width: 100%;
@@ -220,7 +228,9 @@ li{
           align-items: center;
           transition: 0.3s ease-in all;
       }
-
+      .login{
+          margin-top: 35vh;
+      }
       
   
   }

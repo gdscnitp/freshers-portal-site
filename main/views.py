@@ -298,6 +298,13 @@ def about(request):
     except:
         session1=False
     return render(request, "aboutcollege.html",{"session1":session1})
+def home(request):
+    try:
+        idToken = request.session['uid']
+        session1=True
+    except:
+        session1=False
+    return render(request, "home2.html",{"session1":session1})
 def afteraAddPost(request):
     if request.method=='POST':
         from datetime import datetime, timezone

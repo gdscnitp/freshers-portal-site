@@ -14,25 +14,36 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel='stylesheet' href="{% static '/css/Registration.css' %}">
-<link rel='stylesheet' href="{% static '/css/nav.css' %}">
+
 </head>
 <body>
-    <nav class="row navbar navbar1">
-
+    <nav class="nav">
         <div class="nav-first">
-          <img src="../static/images/nitp.png" class="logo">
-         <h1 class=" nit">National Institute Of Technology, Patna</h1>
-         <br>
-         <span style="margin-left: 50px;margin-right: 50px;">An Institute of National Importance under Ministry of Education, Government of India</span>
-      </div>
-      
-         <div class="nav">
-           
-          <a href="/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
-          <a href="/signIn/" class="btn btn-primary butt" onClick="parent.location='reg.html'">Login</a> 
+            <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
+        <h1 class="logo">National Institue Of Technology, Patna</h1>
+        <p>An Institute of National Importance under Ministry of Education, Government of India</p>
         </div>
-        
-        </nav>
+     
+          
+    
+        <ul class="nav-links">
+            <li>
+                <a href="/home/">Home</a>
+            </li>
+    
+            
+            <li>
+            <a href="/signIn">Login</a>
+            </li>
+            
+        </ul>
+    
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
 
 <div class="container-fluid register">
     <div class="row">

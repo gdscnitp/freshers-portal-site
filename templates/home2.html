@@ -30,23 +30,12 @@
       <li>
         <a href="/home/">Home</a>
       </li>
-
-      {% if session1 %}
-      <li>
-        <a href="/profile/">Profile</a>
-      </li>
-      <li>
-        <button onclick="location.href = '{% url 'log' %}' ">Logout</button>
-      </li>
-      {% else %}
       <li>
         <a href="/signIn/" onClick="parent.location='reg.html'">Login</a>
       </li>
       <li>
         <a href="/signUp/" onClick="parent.location='login.html'">Register</a>
       </li>
-
-      {% endif%}
     </ul>
     <div class="burger">
       <div class="line1"></div>

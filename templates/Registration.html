@@ -1,0 +1,131 @@
+{% load static %}
+{% if messg %}
+    <script>
+        alert('{{messg}}');
+    </script>
+{% endif %}
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel='stylesheet' href="{% static '/css/Registration.css' %}">
+
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-first">
+            <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
+        <h1 class="logo">National Institue Of Technology, Patna</h1>
+        <p>An Institute of National Importance under Ministry of Education, Government of India</p>
+        </div>
+     
+          
+    
+        <ul class="nav-links">
+            <li>
+                <a href="/">Home</a>
+            </li>
+    
+            
+            <li>
+            <a href="/signIn">Login</a>
+            </li>
+            
+        </ul>
+    
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+<div class="container-fluid register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="Logo"/> 
+            <h3>Welcome To Fresher's Portal Site</h3>
+        </div>
+        <div class="col-md-9 register-right">
+            <h1 class="heading" style="text-align: center;"> Registration Form</h1>
+            <form action="/postsignup/" method="POST">
+                {% csrf_token %}
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for ="fname">Full Name:</label>
+                        <input type="text" class="form-control input-m" name="name" placeholder="Enter name"> 
+                    </div>
+                    <div class="form-group">
+                        <label for="enroll"> Enrollment No.:</label>
+                        <input type="number" class="form-control input-m" name="enrolls" placeholder="Enter Enrollment No.">
+                    </div>
+                    <div class="form-group">
+                        <label for="roll"> Roll No.:</label>
+                        <input type="number" class="form-control input-m" name="roll" placeholder="Enter Roll No.">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for ="branch"> Branch:</label>
+                        <select class="form-control" name="sel" placeholder=" Select Branch">
+                        <option> CSE </option>
+                        <option> ECE </option>
+                        <option> EE </option>
+                        <option> ME </option>
+                        <option> CE </option>
+                        <option> IMSC </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Email"> Email Address:</label>
+                        <input type="email" class="form-control imput-m" name="email" placeholder="Enter Email" title="Use your college Email Id"/ />
+                    </div>
+                    <div class="form-group">
+                        <label for="Pass"> Password: </label>
+                        <input type="password" class="form-control imput-m" name="pass" placeholder="Minimum 8 characters" />
+                    </div>
+                    
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btnRegister" value="Register"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+const navSlide = ()=>{
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+
+    burger.addEventListener('click', ()=>{
+        nav.classList.toggle('nav-active');
+
+        navLinks.forEach((link, index)=>{
+
+        if(link.style.animation){
+            link.style.animation = '';
+        }else{
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index/7+0.3}s`;
+        }
+
+        });
+
+        burger.classList.toggle('toggle');
+
+    });
+
+
+    }
+    navSlide();
+
+</script>
+{% include 'footer.html'%}
+</body>
+</html>

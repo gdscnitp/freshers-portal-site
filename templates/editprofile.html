@@ -1,0 +1,216 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Edit Profile</title>
+    <link rel='stylesheet' href="{% static '/css/ProfilePage.css' %}">
+    <link rel='stylesheet' href="{% static '/css/editProfile.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-md-12 container" style="padding: 0px;">
+                <nav class="nav">
+                    <div class="nav-first">
+                        <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
+                    <h1 class="logo">National Institue Of Technology, Patna</h1>
+                    <p>An Institute of National Importance under Ministry of Education, Government of India</p>
+                    </div>
+                 
+                      
+                
+                    <ul class="nav-links">
+                      <li>
+                        <a href="/home/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
+                      </li>
+                      <li>
+                        <a href="/addPost/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Add Blog</a> 
+                      </li>
+                      <li>
+                        <a href="/readBlogs/" class="btn btn-primary butt">Blogs</a>
+                      </li>
+                      <li>
+                        <a href="/search/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Search</a>
+                      </li>
+                      <li>
+                        <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
+                      </li>
+                      
+                        
+                    </ul>
+                
+                    <div class="burger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <form action="/postedit/" method="post">
+        <div class="row" style="background-color: #52AFFA;">
+            <div class="col-md-4 side">
+                {% csrf_token %}
+                    <img src="{{ image }}" alt="" style="margin-top:15px; height:100px; width:100px;" class="rounded-circle"/>
+                <div class="file btn btn-lg btn-primary" style="width: 150px; margin-left:-100px;">
+                    <label for="file">Change Photo</label>    
+                    <input type="file" name="files[]" id="files">
+                    <input type="hidden" name="url" id="url">
+                    <button type="button" onclick="uploadimage()" class="btn btn-primary" style="float: left; padding-left:0px; font-size: 18px;">Upload</button>
+                    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+                    <script>    
+                        var firebaseConfig = {
+                            apiKey: "AIzaSyA1_TbZc_DAJVAosBsBXHKVnANss0_220U",
+                            authDomain: "freshers-portal.firebaseapp.com",
+                            databaseURL: "https://freshers-portal.firebaseio.com",
+                            projectId: "freshers-portal",
+                            storageBucket: "freshers-portal.appspot.com",
+                            messagingSenderId: "620782197376",
+                            appId: "1:620782197376:web:f7835cc81df3aced7d2465",
+                            measurementId: "G-KH43ST917G"
+                          };
+                          // Initialize Firebase
+                          firebase.initializeApp(firebaseConfig);
+                        
+                          function uploadimage(){
+                            var storage = firebase.storage();
+                            var file=document.getElementById("files").files[0];
+                            var storageRef = storage.ref();
+                            var metadata = {
+                                contentType: 'image/jpeg',
+                              };
+                            var thisref = storageRef.child(file.name).put(file,metadata);
+                            thisref.on('state_changed',function(snapshot){
+                                console.log("File uploaded successfully");
+                            },
+                            function(error){
+                    
+                            },
+                            function() {
+                                // Upload completed successfully, now we can get the download URL
+                                thisref.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                                    <!-- console.log('File available at', downloadURL); -->
+                                    document.getElementById("url").value = downloadURL;
+                                  });
+                                alert("File uploaded successfully");
+                                
+                                });
+                    
+                        }
+                        
+                        
+                    </script>
+                </div>
+
+            
+                
+                
+            </div>
+            <div class="col-md-4" >
+                <br><br><br><br>
+                    <h1>Profile</h1>
+                    <label for="personal details">Personal Details:</label>
+                    <br><br>
+                <!--    First Name : <input type="text" name="fname"><br>-->
+                <!--    Last Name: <input type="text" name="lname"><br>-->
+                    <label for="Name">Enter Your Name:</label><br>
+                    <input type="text" name="dname"><br>
+                    <label for="roll">Roll: </label><br>
+                    <input type="number" name="roll"><br>
+                <!--    About me:<br>-->
+                <!--    <textarea name="tarea" cols="40" rows="5" placeholder="Write Something about yourself"></textarea><br>-->
+                <!--    <br>-->
+                    
+                    
+                <!--    External Links<br><br>-->
+                <!--    Facebook URL: <input type="url" name="furl"><br>-->
+                <!--    Twitter URL: <input type="url" name="turl"><br>-->
+                <!--    LinkedIN URL: <input type="url" name="lurl"><br>-->
+                <!--    Website URL: <input type="url" name="wurl"><br>-->
+                    <br><br>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'profile' %}'">Back To Profile</button>
+            </div>
+            <div class="col-md-4">
+                <br><br><br><br><br><br><br>
+                <label for="academic">Academic Details:</label>
+                    <br><br>
+                    <label for="course">Course:</label>
+                    
+                    <select id="course" name="course">
+                        <option value="btech">B.Tech.</option>
+                        <option value="barch">B.Arch.</option>
+                        <option value="mtech">M.Tech.</option>
+                    </select><br><br>
+                    <label for="branch">Branch:</label>
+                    
+                    <select id="branch" name="branch">
+                        <option value="Mechanical Engineer">Mechanical</option>
+                        <option value="Electrical Engineer">Electrical</option>
+                        <option value="Civil Engineer">Civil</option>
+                        <option value="Electronics Engineering">ECE</option>
+                        <option value="Architecture">Architecture</option>
+                        <option value="Computer Science">CSE</option>
+                        <option value="Humanities">Humanities</option>
+                    </select><br><br>
+                    <label for="year">Year:</label>
+                    
+                    <select id="year" name="year">
+                        <option value="1">First</option>
+                        <option value="2">Second</option>
+                        <option value="3">Third</option>
+                        <option value="4">Fourth</option>
+                        <option value="5">Fifth</option>
+                    </select><br><br>
+                    
+            </div>
+                
+        </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% include 'footer.html'%}
+        </div>
+    </div>
+    <script>
+
+        const navSlide = ()=>{
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
+      
+        burger.addEventListener('click', ()=>{
+            nav.classList.toggle('nav-active');
+      
+            navLinks.forEach((link, index)=>{
+      
+            if(link.style.animation){
+                link.style.animation = '';
+            }else{
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index/7+0.3}s`;
+            }
+      
+            }); 
+      
+            burger.classList.toggle('toggle');
+      
+        });  
+      
+        
+        }
+        navSlide();
+      </script>  
+</body>
+</html>

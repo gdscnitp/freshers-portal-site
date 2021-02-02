@@ -1,0 +1,94 @@
+{% load static %}
+
+<html>
+<head> <meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../static/css/Home.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-first">
+        <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
+    <h1 class="logo">National Institue Of Technology, Patna</h1>
+    <p>An Institute of National Importance under Ministry of Education, Government of India</p>
+    </div>
+ 
+      
+
+    <ul class="nav-links">
+      <li>
+        <a href="/home/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
+      </li>
+      <li>
+        <a href="/addPost/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Add Blog</a> 
+      </li>
+      <li>
+        <a href="/profile/" class="btn btn-primary butt">Profile</a>
+      </li>
+      <li>
+        <a href="/search/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Search</a>
+      </li>
+      <li>
+        <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
+      </li>
+      
+        
+    </ul>
+
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+
+ <div class="tm-main-content">
+
+  <section class="tm-section tm-section-small">
+   {% for lis_time, date, Descriptions,Departments,Titles,Types,name,image in comb_lis %}
+      <div class="image">
+        <img src="{{ image }}">
+          <h3 class="tm-section-header3">{{name}}</h3>
+          <h1 class="tm-section-header2">Type : {{ Types }} Titles: {{ Titles }}  </h1>
+      </div>
+      <h3 class="=tm-section-header2">{{time}}</h3>
+      <p>{{Descriptions}}</p>
+
+    {% endfor %}
+
+
+  </section>
+</div>
+
+
+<script>
+  const navSlide = ()=>{
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+  const navLinks = document.querySelectorAll('.nav-links li');
+
+  burger.addEventListener('click', ()=>{
+      nav.classList.toggle('nav-active');
+
+      navLinks.forEach((link, index)=>{
+
+      if(link.style.animation){
+          link.style.animation = '';
+      }else{
+          link.style.animation = `navLinkFade 0.5s ease forwards ${index/7+0.3}s`;
+      }
+
+      }); 
+
+      burger.classList.toggle('toggle');
+
+  });  
+
+  
+  }
+  navSlide();
+</script>
+{% include 'footer.html'%}
+</body>
+</html>

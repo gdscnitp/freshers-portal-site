@@ -57,6 +57,7 @@ html{
   letter-spacing: 2px;
   font-weight: bold;
   transition: 0.3s ease-in all;
+  font-size: large;
   
   
 }
@@ -91,7 +92,7 @@ li{
 
 .login{
     background: rgb(57,49,175);
-    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
 }
 
 .login-left img{
@@ -107,7 +108,9 @@ li{
     /* margin-top: 4%; */
     /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
     background: rgb(57,49,175);
-    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
+    font-size: large;
+    
 }
 .login-left input{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -126,7 +129,7 @@ li{
 .login-right{
     /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
     background: rgb(57,49,175);
-    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -138,15 +141,18 @@ li{
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #0062cc;
-    color: #fff;
+    background:lightblue ;
+    color: #000;
     font-weight: 600;
+  
     width: 25%;
     cursor: pointer;
+   
 }
 .btnLogin:hover{
-    background-color: green;
+    background-color:#0062cc;
     color: #fff;
+
 }
 @keyframes mover {
     0% { transform: translateY(0); }

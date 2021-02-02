@@ -6,7 +6,7 @@
     border: none;
     border-radius: 0;
     font-size: 15px;
-    background: #212529b8;
+    background-image: linear-gradient(90deg,  #26324a, lightblue);;
 }
 .file input {
     position: absolute;

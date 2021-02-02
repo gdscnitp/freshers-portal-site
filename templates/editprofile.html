@@ -59,11 +59,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             </div>
         </div>
         <form action="/postedit/" method="post">
-        <div class="row" style="background-color: #52AFFA;">
+        <div class="row" style=" background-image: linear-gradient(90deg,  #26324a, lightblue);">
             <div class="col-md-4 side">
                 {% csrf_token %}
                     <img src="{{ image }}" alt="" style="margin-top:15px; height:100px; width:100px;" class="rounded-circle"/>
-                <div class="file btn btn-lg btn-primary" style="width: 150px; margin-left:-100px;">
+                <div class="file btn btn-lg btn-primary" style="width: 150px; margin-left:-100px; background-image: linear-gradient(90deg,  #26324a, lightblue);">
                     <label for="file">Change Photo</label>    
                     <input type="file" name="files[]" id="files">
                     <input type="hidden" name="url" id="url">

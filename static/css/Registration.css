@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+
 body{
 	background-image: linear-gradient(to right,#A4A67B,white);
 }
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -58,6 +60,7 @@ html{
   text-decoration: none;
   letter-spacing: 2px;
   font-weight: bold;
+  font-size:small;
   transition: 0.3s ease-in all;
   
   
@@ -129,7 +132,7 @@ li{
 	width:40%;
 	padding:15px;
 	font-family:Space Grotesk;
-	font-size:large;
+	font-size:small;
 	color:#EDD1CA;
 	letter-spacing:1px;
 	word-spacing:3px;
@@ -266,7 +269,8 @@ li{
     /* margin-top: 4%; */
     /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
     background: rgb(57,49,175);
-    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%); 
+  
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
 }
 .register-left input{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -280,19 +284,27 @@ li{
     margin-top: 30%;
     margin-bottom: 3%;
     cursor: pointer;
+     background-image: linear-gradient(90deg,  #26324a, lightblue);
 }
 .register{
     /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
     background: rgb(57,49,175);
-    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
+
 }
 .register-right{
     /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
     background: rgb(57,49,175);
-    background: linear-gradient(90deg, rgba(57,49,175,1) 0%, rgba(0,198,255,1) 100%);
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.heading{
+    color:rgb(39, 39, 85);
+    font-family: 'Times New Roman', Times, serif;
+    
+    
 }
 .btnRegister{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -301,14 +313,14 @@ li{
     border: none;
     border-radius: 1.5rem;
     padding: 1%;
-    background: #0062cc;
-    color: #fff;
+    background:lightblue ;
+    color: #000;
     font-weight: 600;
     width: 15%;
     cursor: pointer;
 }
 .btnRegister:hover{
-    background-color: green;
+    background-color:#0062cc;
     color: #fff;
 }
 label{

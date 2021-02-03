@@ -6,11 +6,19 @@
     border: none;
     border-radius: 0;
     font-size: 15px;
-    background-image: linear-gradient(90deg,  #26324a, lightblue);;
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
 }
 .file input {
     position: absolute;
     opacity: 0;
     right: 0;
     top: 0;
+}
+.container-fluid{
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
+}
+.text-center{
+    margin-left: -15px;
+    margin-right: -15px;
+    height: 70px;
 }

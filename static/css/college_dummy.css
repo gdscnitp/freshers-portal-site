@@ -475,18 +475,15 @@ li {
   }
 
 }
-@media screen and (max-width: 992px) {
-  .col-rr {
-    flex: 50%;
-  }
-}
-
 
 
 
 @media screen and (max-width: 992px) {
   .col {
     flex: 50%;
+  }
+  .nav{
+    height: 20vh;
   }
 
 }

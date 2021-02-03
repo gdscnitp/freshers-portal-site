@@ -111,7 +111,6 @@ li {
   max-width:auto;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 13vh;
  }
  .image{
   width: 650px;
@@ -218,18 +217,24 @@ body{
   padding: 10px 20px;
   text-align: center;
   width: 100vw;
-  height: 20vh;
+  height: 35vh;
   
 }
 
 .tm-main-content { 
-  margin-top: 16vh;
+  margin-top: 20vh;
+}
+.tm-section-header2{
+  text-align: left;
 }
 
 
 .nav-links{
   right: -100%;
   width: 100%;
+}
+.footer{
+  top: 13vh;
 }
 }
 

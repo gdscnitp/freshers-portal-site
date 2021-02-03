@@ -4,32 +4,43 @@
 <head>
   <title>User's List</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Search.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel='stylesheet' href="{% static '/css/Search.css' %}">
+        
 
 </head>
 <body>
-<nav class="navbar navbar1 sticky-top" style="height: 90px;">
-<div class="media txt">
-        <div class="media-left media-top">
-          <img src="https://i.pinimg.com/originals/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.png" class="media-object" style="width:80px">
-        </div>
-        <div class="media-body">
-          </div>
-        </div>
-
-
-    <div id="nav">
- <a href="/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'" style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Home</a>
-  <a href="/addPost" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'"style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Add Blog</a>
-  <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn btn-primary butt1" style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Logout</button>
-   </div>
+  <nav class="nav">
+    <div class="nav-first">
+        <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
+    <h1 class="logo">National Institue Of Technology, Patna</h1>
+    <p> Institute of National Importance under Ministry of Education, Government of India</p>
     </div>
+ 
+      
 
+    <ul class="nav-links">
+      <li>
+        <a href="/home/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
+      </li>
+      <li>
+        <a href="/addPost/" class="btn btn-primary butt">Add Blog</a>
+      </li>
+      <li>
+        <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
+      </li>
+      
+        
+    </ul>
+
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
 </nav>
 <br>
 
@@ -60,6 +71,34 @@
         e.preventDefault();
       });
     });
+    </script>
+    <script>
+
+      const navSlide = ()=>{
+      const burger = document.querySelector('.burger');
+      const nav = document.querySelector('.nav-links');
+      const navLinks = document.querySelectorAll('.nav-links li');
+    
+      burger.addEventListener('click', ()=>{
+          nav.classList.toggle('nav-active');
+    
+          navLinks.forEach((link, index)=>{
+    
+          if(link.style.animation){
+              link.style.animation = '';
+          }else{
+              link.style.animation = `navLinkFade 0.5s ease forwards ${index/7+0.3}s`;
+          }
+    
+          }); 
+    
+          burger.classList.toggle('toggle');
+    
+      });  
+    
+      
+      }
+      navSlide();
     </script>
 </div>
 </body>

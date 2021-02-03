@@ -51,6 +51,8 @@ html{
 
 .nav-links li a{
   color: rgba(255, 255, 255, 0.918);
+  background-color: transparent;
+  border-color: transparent;
   text-decoration: none;
   letter-spacing: 2px;
   font-weight: bold;
@@ -58,6 +60,8 @@ html{
 }
 .nav-links li button{
     color: rgba(255, 255, 255, 0.918);
+    background-color: transparent;
+    border-color: transparent;
     text-decoration: none;
     letter-spacing: 2px;
     font-weight: bold;

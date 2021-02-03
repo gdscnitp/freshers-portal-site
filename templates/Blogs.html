@@ -2,31 +2,47 @@
 
 <html>
 <head> <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="../static/css/Home.css">
-<link rel='stylesheet' href="{% static '/css/nav.css' %}">
 </head>
 <body>
-  <nav class="row navbar navbar1">
-
+  <nav class="nav">
     <div class="nav-first">
-      <img src="../static/images/nitp.png" class="logo">
-     <h1 class=" nit">National Institute Of Technology, Patna</h1>
-     <br>
-     <span style="margin-left: 60px;margin-right: 60px;">An Institute of National Importance under Ministry of Education, Government of India</span>
-  </div>
-  
-     <div class="nav">
-       
-      <a href="/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
-      <a href="/addPost" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Add Blog</a> 
-      <a href="/profile/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'" >Profile</a>
-      <a href="/search/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Search</a>
-      <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
+        <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
+    <h1 class="logo">National Institue Of Technology, Patna</h1>
+    <p>An Institute of National Importance under Ministry of Education, Government of India</p>
     </div>
-    
-    </nav>
+ 
+      
+
+    <ul class="nav-links">
+      <li>
+        <a href="/home/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
+      </li>
+      <li>
+        <a href="/addPost/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Add Blog</a> 
+      </li>
+      <li>
+        <a href="/profile/" class="btn btn-primary butt">Profile</a>
+      </li>
+      <li>
+        <a href="/search/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Search</a>
+      </li>
+      <li>
+        <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
+      </li>
+      
+        
+    </ul>
+
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
 
  <div class="tm-main-content">
 

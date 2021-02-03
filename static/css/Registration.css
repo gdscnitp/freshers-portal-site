@@ -153,6 +153,81 @@ li{
 	background-color:#A4A67B;
     color:black;
 }
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    /* margin-top: 4%; */
+    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
+    background: rgb(57,49,175);
+  
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
+}
+.register-left input{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+     background-image: linear-gradient(90deg,  #26324a, lightblue);
+}
+.register{
+    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
+    background: rgb(57,49,175);
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
+
+}
+.register-right{
+    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
+    background: rgb(57,49,175);
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.heading{
+    color:rgb(39, 39, 85);
+    font-family: 'Times New Roman', Times, serif;
+    
+    
+}
+.btnRegister{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top:2%;
+    margin-bottom: 5%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1%;
+    background:lightblue ;
+    color: #000;
+    font-weight: 600;
+    width: 15%;
+    cursor: pointer;
+}
+.btnRegister:hover{
+    background-color:#0062cc;
+    color: #fff;
+}
+label{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
 
 @media screen and (max-width:1100px){
     .nav{
@@ -231,6 +306,9 @@ li{
     .register{
         margin-top: 35vh;
     }
+    .btnRegister{
+        width: 25%;
+    }
 }
 @keyframes navLinkFade{
     from{
@@ -255,79 +333,4 @@ li{
 }
 .toggle .line3{
     transform: rotate(45deg) translate(-5px , -6px);
-}
-.register-left img{
-    margin-top: 15%;
-    margin-bottom: 5%;
-    width: 25%;
-    -webkit-animation: mover 2s infinite  alternate;
-    animation: mover 1s infinite  alternate;
-}
-.register-left{
-    text-align: center;
-    color: #fff;
-    /* margin-top: 4%; */
-    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
-    background: rgb(57,49,175);
-  
-    background-image: linear-gradient(90deg,  #26324a, lightblue);
-}
-.register-left input{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    width: 60%;
-    background: #f8f9fa;
-    font-weight: bold;
-    color: #383d41;
-    margin-top: 30%;
-    margin-bottom: 3%;
-    cursor: pointer;
-     background-image: linear-gradient(90deg,  #26324a, lightblue);
-}
-.register{
-    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
-    background: rgb(57,49,175);
-    background-image: linear-gradient(90deg,  #26324a, lightblue);
-
-}
-.register-right{
-    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
-    background: rgb(57,49,175);
-    background-image: linear-gradient(90deg,  #26324a, lightblue);
-    border-top-left-radius: 10% 50%;
-    border-bottom-left-radius: 10% 50%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.heading{
-    color:rgb(39, 39, 85);
-    font-family: 'Times New Roman', Times, serif;
-    
-    
-}
-.btnRegister{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top:2%;
-    margin-bottom: 5%;
-    border: none;
-    border-radius: 1.5rem;
-    padding: 1%;
-    background:lightblue ;
-    color: #000;
-    font-weight: 600;
-    width: 15%;
-    cursor: pointer;
-}
-.btnRegister:hover{
-    background-color:#0062cc;
-    color: #fff;
-}
-label{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 2rem;
-}
-@keyframes mover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-20px); }
 }

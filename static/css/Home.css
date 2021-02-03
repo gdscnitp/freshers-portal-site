@@ -107,61 +107,57 @@ li {
 
 
 .tm-main-content { 
-  background-color: #ffffff;
+  background-color: #ebdbdb;
   max-width:auto;
   margin-left: auto;
   margin-right: auto;
   margin-top: 13vh;
  }
+ .image{
+  width: 650px;
+  height: 66px;
+  border-radius: 30px 0px 30px 0px;
+  border: 2px solid #64666b;
+  box-sizing: border-box;
+  margin:0px 0px;
+  box-shadow: 5px 5px 3px 3px #888888;
+  background-color: #ffffff;
+}
 
 
 .image img{
-  height:55px;
+  float:left;
+  height: 62px;
   width:55px;
-
-  margin-left:15px;
-  border-radius:400px;
-  padding:3px 3px;
-  border:2px solid black;
+  border-radius: 30px 0px 30px 0px;
+  border:2px solid #64666b;
+  vertical-align:middle;
+  box-shadow: 5px 5px 3px 3px #888888;
 }
 
 .tm-section-header2 {
-  color:black;
-  text-align: center;
-  font-weight: 400;
-  font-size: 1.0rem;
-  margin-top: 5px;
-  margin-bottom: 40px;
-   margin-left:15px;
-}
-
-.tm-section-header3 {
-  color: black;
+  color: #64666b;
+  padding: 0px 10px 0px 10px;
   text-align: center;
   font-weight: 400;
   font-size: 1.5rem;
-
-  margin-bottom: 5px;
-  margin-left:15px;
-}
-
-.tm-section {
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 30px;
+  text-align: top;
 }
 
 .tm-section-small {
-  max-width: 490px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 0;
+  margin: 20px auto 20px auto;
+  max-width: 653px;
+  border-radius: 30px 0px 30px 0px;
+  border:2px solid #64666b;
+  vertical-align:middle;
+  box-shadow: 5px 10px 8px 10px #888888;
+  background-color:  #abb7ce;
 }
 
 p{
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.5rem;
+  line-height: 2.0;
+  padding: auto 10px auto 10px;
 }
 
 @media screen and (max-width:1100px){
@@ -224,9 +220,6 @@ body{
   width: 100vw;
   height: 20vh;
   
-}
-.logo{
-  font-size: 20px;
 }
 
 .tm-main-content { 

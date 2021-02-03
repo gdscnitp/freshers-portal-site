@@ -20,31 +20,33 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     
     <div class="container-fluid" >
         <div class="row">
-            <div class="col-md-12" style="padding: 0px;">
+            <div class="col-md-12 container" style="padding: 0px;">
                 <nav class="nav">
-
-                    <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
-                    <h4 class="ins_name">National Institue Of Technology, Patna</h4>
-                    
+                    <div class="nav-first">
+                        <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
+                    <h1 class="logo">National Institue Of Technology, Patna</h1>
+                    <p>An Institute of National Importance under Ministry of Education, Government of India</p>
+                    </div>
+                 
+                      
                 
                     <ul class="nav-links">
-                        <li>
-                          <a href="/" onClick="parent.location='Nav2.html'">Home</a>
-                        </li>
-                
-                        <li>
-                           <form action="/addPost/" method="POST">
-                            <a href="/addPost"  onClick="parent.location='Nav2.html'">Add Blog</a>
-                           </form>
-                        </li>
-                
-                        <li>
-                          <a href="/search/"  onClick="parent.location='Nav2.html'">Search</a>
-                        </li>
-                
-                        <li>
-                            <button onclick= "location.href = '{% url 'log' %}' ">Logout</button>
-                        </li>
+                      <li>
+                        <a href="/home/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
+                      </li>
+                      <li>
+                        <a href="/addPost/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Add Blog</a> 
+                      </li>
+                      <li>
+                        <a href="/readBlogs/" class="btn btn-primary butt">Blogs</a>
+                      </li>
+                      <li>
+                        <a href="/search/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Search</a>
+                      </li>
+                      <li>
+                        <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
+                      </li>
+                      
                         
                     </ul>
                 
@@ -57,11 +59,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             </div>
         </div>
         <form action="/postedit/" method="post">
-        <div class="row" style="background-color: #52AFFA;">
+        <div class="row" style=" background-image: linear-gradient(90deg,  #26324a, lightblue);">
             <div class="col-md-4 side">
                 {% csrf_token %}
                     <img src="{{ image }}" alt="" style="margin-top:15px; height:100px; width:100px;" class="rounded-circle"/>
-                <div class="file btn btn-lg btn-primary" style="width: 150px; margin-left:-100px;">
+                <div class="file btn btn-lg btn-primary" style="width: 150px; margin-left:-100px; background-image: linear-gradient(90deg,  #26324a, lightblue);">
                     <label for="file">Change Photo</label>    
                     <input type="file" name="files[]" id="files">
                     <input type="hidden" name="url" id="url">
@@ -182,6 +184,33 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             {% include 'footer.html'%}
         </div>
     </div>
+    <script>
+
+        const navSlide = ()=>{
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
       
+        burger.addEventListener('click', ()=>{
+            nav.classList.toggle('nav-active');
+      
+            navLinks.forEach((link, index)=>{
+      
+            if(link.style.animation){
+                link.style.animation = '';
+            }else{
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index/7+0.3}s`;
+            }
+      
+            }); 
+      
+            burger.classList.toggle('toggle');
+      
+        });  
+      
+        
+        }
+        navSlide();
+      </script>  
 </body>
 </html>

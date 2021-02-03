@@ -18,6 +18,7 @@ config={
 firebase=pyrebase.initialize_app(config)
 authe = firebase.auth()
 database=firebase.database()
+session1=False
 
 def Blogs(request):
     try:
@@ -136,7 +137,7 @@ def postsignIn(request):
         try:
             user = authe.sign_in_with_email_and_password(email, pasw)
         except:
-            message = "Invalid Credentials!!Please Check your Data"
+            message = "Invalid Credentials!! Please Check your credentials and try sign-in again"
             return render(request, "Login.html", {"message": message})
         session_id = user['idToken']
         request.session['uid'] = str(session_id)
@@ -196,7 +197,7 @@ def postsignIn(request):
                 comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
                 return render(request, "ProfilePage.html",
                               {"comb_lis": comb_lis, "name": name, "branch": branch, "image": image})
-    message = "Please Login In First"
+    message = "Please Login First"
     return render(request, "Login.html", {"message": message})
 
 def reset(request):
@@ -206,10 +207,10 @@ def postReset(request):
     email = request.POST.get('email')
     try:
         authe.send_password_reset_email(email)
-        message  = "A email to reset password is succesfully sent"
+        message  = "A link to reset your password is succesfully sent to your email"
         return render(request, "Reset.html", {"msg":message})
     except:
-        message  = "Something went wrong, Please check the email you provided is registered or not"
+        message  = "Something Went Wrong, Please check the email you provided is already registered or not!!"
         return render(request, "Reset.html", {"msg":message})
 
 def logout(request):
@@ -233,13 +234,13 @@ def postsignup(request):
         try:
             user=authe.create_user_with_email_and_password(email,passw)
         except:
-            messg="unable to create account try again"
+            messg="Something Went Wrong, Unable to create your account. Try Again!"
             return render(request,"registration.html",{"messg":messg})
         uid = user['localId']
         data={"name":name,"USER_TYPE":"user","device_token":"","email":email,"id":roll,"imgUrl":"https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad","branch":branch,"uid":uid,"enrollment":enroll}
         database.child("users").child(uid).set(data)
         return render(request,"login.html")
-    message = "Please Login In Here First "
+    message = "Please Login Here First "
     return render(request, "Login.html", {"message": message})
 def profile(request):
     try:
@@ -297,6 +298,13 @@ def about(request):
     except:
         session1=False
     return render(request, "aboutcollege.html",{"session1":session1})
+def home(request):
+    try:
+        idToken = request.session['uid']
+        session1=True
+    except:
+        session1=False
+    return render(request, "home2.html",{"session1":session1})
 def afteraAddPost(request):
     if request.method=='POST':
         from datetime import datetime, timezone
@@ -360,7 +368,7 @@ def afteraAddPost(request):
                 date.append(dat)
             comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
             return render(request, "ProfilePage.html", {"comb_lis": comb_lis,"name":name,"branch": branch})
-    message = "Please Login In First"
+    message = "Please Login First"
     return render(request, "Login.html", {"message": message})
 
 def gotoedit(request):
@@ -407,5 +415,5 @@ def postedit(request):
         }
         database.child('users').child(a).update(data)
         return render(request,'editprofile.html')
-    message = "Please Login In First"
+    message = "Please Login First"
     return render(request, "Login.html", {"message": message})

@@ -8,42 +8,32 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </head>
 <body>
   <nav class="nav">
+    <div class="nav-first">
+        <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
+    <h1 class="logo">National Institue Of Technology, Patna</h1>
+    <p>An Institute of National Importance under Ministry of Education, Government of India</p>
+    </div>
+ 
       
-    <!--   <img  src="{% static 'images/logo.png' %}" width="100" height="100" class="d-inline-block align-top logo" style=""alt="">-->
-    <h4 class="logo">National Institue Of Technology, Patna</h4>
-  
 
     <ul class="nav-links">
-        <li>
-            <a href="/">Home</a>
-        </li>
-        {% if session1 %}
-        <li>
-            <a href="/profile">Account Profile</a>
-        </li>
-
-        <li>
-          <a href="/search/"  onClick="parent.location='Nav2.html'">Search</a>
-        </li>
-
-        <li>
-          <form action="/addPost/" method="POST">
-            <a href="/addPost"  onClick="parent.location='Nav2.html'">Add Blog</a>
-           </form>
-        </li>
-
-        <li>
-          <button onclick= "location.href = '{% url 'log' %}' ">Logout</button>
-        </li>
-        {% else %}
-        <li>
-          <a href="/signUp" onClick="parent.location='reg.html'">Register</a>
-        </li>
-
-        <li>
-          <a href="/signIn" onClick="parent.location='login.html'">Login</a>
-        </li>
-        {% endif %}
+      <li>
+        <a href="/home/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
+      </li>
+      <li>
+        <a href="/addPost/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Add Blog</a> 
+      </li>
+      <li>
+        <a href="/profile/" class="btn btn-primary butt">Profile</a>
+      </li>
+      <li>
+        <a href="/search/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Search</a>
+      </li>
+      <li>
+        <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
+      </li>
+      
+        
     </ul>
 
     <div class="burger">
@@ -51,7 +41,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <div class="line2"></div>
         <div class="line3"></div>
     </div>
- </nav>
+</nav>
 
  <div class="tm-main-content">
 

@@ -99,22 +99,23 @@ li{
     background-image: linear-gradient( #26324a, lightblue); 
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 10px;
 }
 
 .container{
     max-width: 800px;
-    background-color: #a9a9a9;opacity: 0.8;
+    background-color: #64707c;opacity: 0.8;
     color: white;
     padding: 40px;
     overflow-x: hidden;
     margin-top: 15vh;
     margin-bottom: 2vh;
-    font-family: 'Poppins', sans-serif;
-    font-size: medium;
+    font-size:large;
     box-shadow: 0 0px 30px -2px #777;
     transition: 0.5s ease-in all;
     border: 2px solid #6c6f74;
     border-radius: 25px;
+    font-family: 'Times New Roman', Times, serif;
 
 }
 
@@ -134,8 +135,9 @@ li{
     text-align: center;
     font-family: 'Poppins', sans-serif;
     padding: 5px;
-    border: 1px solid  #0b200d;
+    border: 1px solid  #030e30;
     border-radius: 25px;
+    
 }
 
 .container #sel{
@@ -144,7 +146,7 @@ li{
 
 .container form select{
     background:none;
-    border: 2px solid #0b200d;
+    border: 2px solid #030e30;
     border-radius: 25px;
     outline: none;
     color: white;
@@ -155,24 +157,24 @@ li{
 }
 
 .container form select:focus{
-    background: white;
-    border: 2px solid  #7cb342;
-    border-radius: 25px;
+    background: rgb(205, 209, 231);
+    border: 2px solid #000;
+    border-radius: 30px;
     outline: none;
-    color: rgb(95, 90, 90);
+    color:#000;
 }
 
 .container form textarea{
     background: none;
-    border: 2px solid #0c5306;
+    border: 2px solid #030e30;
     border-radius: 25px;
     outline: none;
-    color: white;
+    color:000;
 }
 
 .container form textarea:focus{
-    border: 2px solid  #7cb342;
-    background-color: white;
+    border: 2px solid #000;
+    background-color:rgb(205, 209, 231);
     color: rgb(44, 37, 37);
 }
 
@@ -207,7 +209,7 @@ li{
 
 .box .form-control{
 	border: 0px;
-	background: none;
+	background-color: #777;
 	display: block;
 	text-align:center;
     border: 2px solid #797d80;
@@ -216,13 +218,13 @@ li{
 	outline: none;
 	color:white;
     transition: 0.25s;
-    font-size: 16px;
+    font-size: 18px;
     
     
 }
 
 .box .form-control:focus{
-    border-color:  #7cb342;
+    border-color:  #030e30;
     border-radius: 25px;
 }
 
@@ -231,7 +233,7 @@ li{
 	background: none;
 	display: block;
 	margin:5px auto;
-	border: 2px solid  #7cb342;
+	border: 2px solid #030e30;
 	padding: 5px 10px;
 	width:100px;
 	outline: none;
@@ -242,8 +244,8 @@ li{
 }
 
 .container input[type="submit"]:hover{
-    background-color:  #42a2b3;
-    box-shadow: 0px 0px 10px -2px  #3b4eb6;
+    background-color:  #091938;
+    box-shadow: 0px 0px 10px -2px #030e30;
     opacity: 1;
     color: white;
     cursor: pointer;

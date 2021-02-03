@@ -5,43 +5,28 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="../static/css/Home.css">
+<link rel='stylesheet' href="{% static '/css/nav.css' %}">
 </head>
 <body>
-  <nav class="nav">
+  <nav class="row navbar navbar1">
+
     <div class="nav-first">
-        <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
-    <h1 class="logo">National Institue Of Technology, Patna</h1>
-    <p>An Institute of National Importance under Ministry of Education, Government of India</p>
+      <img src="../static/images/nitp.png" class="logo">
+     <h1 class=" nit">National Institute Of Technology, Patna</h1>
+     <br>
+     <span style="margin-left: 60px;margin-right: 60px;">An Institute of National Importance under Ministry of Education, Government of India</span>
+  </div>
+  
+     <div class="nav">
+       
+      <a href="/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
+      <a href="/addPost" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Add Blog</a> 
+      <a href="/profile/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'" >Profile</a>
+      <a href="/search/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Search</a>
+      <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
     </div>
- 
-      
-
-    <ul class="nav-links">
-      <li>
-        <a href="/home/" class="btn btn-primary butt" onclick="parent.location='college.html'">Home</a>
-      </li>
-      <li>
-        <a href="/addPost/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Add Blog</a> 
-      </li>
-      <li>
-        <a href="/profile/" class="btn btn-primary butt">Profile</a>
-      </li>
-      <li>
-        <a href="/search/" class="btn btn-primary butt" onClick="parent.location='Nav2.html'">Search</a>
-      </li>
-      <li>
-        <button class="btn btn-primary butt" onclick= "location.href = '{% url 'log' %}' ">Logout</button>
-      </li>
-      
-        
-    </ul>
-
-    <div class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-    </div>
-</nav>
+    
+    </nav>
 
  <div class="tm-main-content">
 
@@ -49,11 +34,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
    {% for lis_time, date, Descriptions,Departments,Titles,Types,name,image in comb_lis %}
       <div class="image">
         <img src="{{ image }}">
-          <h3 class="tm-section-header3">{{name}}</h3>
-          <h1 class="tm-section-header2">Type : {{ Types }} Titles: {{ Titles }}  </h1>
-      </div>
+         <h1 class="tm-section-header2"><strong>Type : {{ Types }} Titles: {{ Titles }} </strong></br> {{name}} </h1>
+                </div>
       <h3 class="=tm-section-header2">{{time}}</h3>
-      <p>{{Descriptions}}</p>
+        <p><center>{{Descriptions}}</center></p>
 
     {% endfor %}
 

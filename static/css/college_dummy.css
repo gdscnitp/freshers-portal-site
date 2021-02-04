@@ -84,8 +84,6 @@ li {
   display: none;
 }
 
-
-
 .burger div {
   width: 25px;
   height: 3px;
@@ -104,8 +102,18 @@ li {
   padding-bottom: 40px;
   font-family: pangolin;
   margin-top: -20px;
-}
+} 
 
+@media screen and (max-width: 1060px){
+  .about-text{
+    width: 100%;
+    height: 1500px;
+  }
+  .anam-pa{
+    size: 20px;
+    margin-top: 10px;
+  }
+}
 .container {
   margin-top: -420px;
   width: 100%;
@@ -128,7 +136,6 @@ li {
 .about {
   margin-top: 10px;
   height: 450px;
-  background-image: linear-gradient(lightblue, white);
 }
 
 .anam-pa {
@@ -139,7 +146,6 @@ li {
 }
 
 .sec-but {
-  background-image: linear-gradient(lightblue, lightblue);
   height: 140px;
   text-align: center;
 }
@@ -212,8 +218,10 @@ li {
 .section1 {
   position: absolute;
   margin: 50px 10px 20px 10px;
-  width: 100px;
-  height: 500px;
+  width: 7vw;
+  height: 32.5vw;
+  max-width: 100%;
+  max-height: 100%;
   padding: 20px 20px 0px 0px;
   background-image: linear-gradient(to right, #26324a, #2b547e);
   display: inline-block;
@@ -221,7 +229,6 @@ li {
   font-family: pangolin;
   color: white;
   padding: 15px;
-
 }
 
 .section2 {
@@ -231,13 +238,13 @@ li {
   color: white;
   position: absolute;
   left: 12%;
-  width: 70%;
-  height: 500px;
+  width: 50vw;
+  height: 32.5vw;
   line-height: 130%;
   font-size: 18px;
   font-family: pangolin;
-  max-width: 85ch;
-  max-height: 1500px;
+  max-width: 100%;
+  max-height: 100%;
   word-spacing: 1.1px;
   letter-spacing: 0.6px;
 }
@@ -252,11 +259,12 @@ li {
   position: absolute;
 
   left: 67%;
-  width: 30%;
+  width: 30vw;
   margin: 50px 30px 0px -10px;
-  height: 500px;
+  height: 32.5vw;
   padding: 15px;
-
+  max-width: 100%;
+  max-height: 100%;
 
 }
 
@@ -474,16 +482,24 @@ li {
       cursor: pointer;
   }
 
+  .about{
+    width: 100%;
+    height: 100%;
+  }
+
 }
+@media screen and (max-width: 992px) {
+  .col-rr {
+    flex: 50%;
+  }
+}
+
 
 
 
 @media screen and (max-width: 992px) {
   .col {
     flex: 50%;
-  }
-  .nav{
-    height: 20vh;
   }
 
 }
@@ -554,12 +570,11 @@ li {
   .section2 {
     left: 15%;
     width: 75%;
+    height: 50%;
     padding-top: 500px;
     line-height: 110%;
     font-size: 17px;
     font-family: dosis;
-    max-width: 85ch;
-    max-height: 3800px;
     word-spacing: 2px;
     letter-spacing: 1px;
   }
@@ -615,3 +630,4 @@ li {
 .toggle .line3{
   transform: rotate(45deg) translate(-5px , -6px);
 }
+

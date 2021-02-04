@@ -22,7 +22,7 @@
   <nav class="nav">
     <div class="nav-first">
       <img src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
-      <h1 class="logo">National Institute Of Technology, Patna</h1>
+      <h1 class="logo">National Institue Of Technology, Patna</h1>
       <p>An Institute of National Importance under Ministry of Education, Government of India</p>
     </div>
 
@@ -91,10 +91,6 @@
       </div>
     </div>
     <div class="about">
-      <div class="sec-but">
-        <button class="sec-part"><a href="#aboutus">About Us</a></button><button class="sec-part"><a
-            href="#another">Departments</a></button><button class="sec-part"><a href="#Contacts">Contact Us</a></button>
-      </div>
       <div class="about-text">
         <p class="anam-pa" id="aboutus">National Institute of Technology Patna is the 18th National Institute of
           Technology created by the Ministry of H.R.D. Government of India after rechristening the erstwhile Bihar
@@ -118,21 +114,21 @@
       <section id="lav">
         <div class=" section1" id="sec2">
           <div class=" btn-group-lg branch">
-            <a href="#another" class="btn btn-outline-light cs" onclick="myFunction()">CSE</a>
-            <a href="#another" class="btn btn-outline-light ec" onclick="myFunction1()">ECE</a>
-            <a href="#another" class="btn btn-outline-light e" onclick="myFunction2()">EE</a>
-            <a href="#another" class="btn btn-outline-light c" onclick="myFunction3()">CE</a>
-            <a href="#another" class="btn btn-outline-light m" onclick="myFunction4()">ME</a>
-            <a href="#another" class="btn btn-outline-light dop1" onclick="myFunction5()">DOP</a>
-            <a href="#another" class="btn btn-outline-light dom1" onclick="myFunction6()">DOM</a>
-            <a href="#another" class="btn btn-outline-light doc1" onclick="myFunction7()">DOC</a>
-            <a href="#another" class="btn btn-outline-light arch1" onclick="myFunction8()">ARCH</a>
+            <a href="#sec3" class="btn btn-outline-light cs" onclick="opendetcse(event)">CSE</a>
+            <a href="#sec3" class="btn btn-outline-light ec" onclick="opendetece(event)">ECE</a>
+            <a href="#sec3" class="btn btn-outline-light e" onclick="opendetee(event)">EE</a>
+            <a href="#sec3" class="btn btn-outline-light c" onclick="opendetce(event)">CE</a>
+            <a href="#sec3" class="btn btn-outline-light m" onclick="opendetme(event)">ME</a>
+            <a href="#sec3" class="btn btn-outline-light dop1" onclick="opendetdop(event)">DOP</a>
+            <a href="#sec3" class="btn btn-outline-light dom1" onclick="opendetdom(event)">DOM</a>
+            <a href="#sec3" class="btn btn-outline-light doc1" onclick="opendetdoc(event)">DOC</a>
+            <a href="#sec3" class="btn btn-outline-light arch1" onclick="opendetarch(event)">ARCH</a>
 
           </div>
         </div>
         <div class="roa">
-          <div class="section2">
-            <div id="cse"><strong>
+          <div class="section2" id="sec3">
+            <div id="cse" class="tabcontent"><strong>
                 <div id="header">The Department of Computer Science & Engineering</div>
               </strong> offers courses leading to Bachelor of Technology in Computer Science and Engineering.
               The department has a very good infrastructure and faculty to provide excellent education.The Department of
@@ -149,7 +145,7 @@
               in Computer Science and Engineering with relevant theoretical basis,
               to impart knowledge in the state of art in Computer Science and Engineering .</div>
 
-            <div id="ece"><strong>
+            <div id="ece" class="tabcontent"><strong>
                 <div id="header">The Department of Electronics and Communication Engineering</div>
               </strong> is one of the established and largest department in the institute.
               It was established in the year 1978 with an intake of 10 students only. The Department offers B. Tech
@@ -165,7 +161,7 @@
 
             </div>
 
-            <div id="ee"><strong>
+            <div id="ee" class="tabcontent"><strong>
                 <div id="header">The Department of Electrical Engineering</div>
               </strong> was established in 1945 under Patna University with an intake of 20 students leading to Bachelor
               of Science (Engineering)
@@ -187,7 +183,7 @@
               with specialization in the field of electrical power, control system and microcomputer based
               instrumentation & control. The department has well qualified panel of visiting faculty .
             </div>
-            <div id="ce"><strong>
+            <div id="ce" class="tabcontent"><strong>
                 <div id="header">The Department of Civil Engineering</div>
               </strong> is the oldest and vibrant department of the institute, which was established along with the
               inception of the Institute
@@ -209,7 +205,7 @@
               expertise in various consultancy works and research projects for different industries and
               organisations in the locale.</div>
 
-            <div id="me"><strong>
+            <div id="me" class="tabcontent"><strong>
                 <div id="header">The Department of Mechanical Engineering</div>
               </strong> was established in 1952 and the M.Tech Program was started in 1978. BCE was converted to
               National Institute of Technology Patna
@@ -225,7 +221,7 @@
               reflected in our campus placement our students getting placed in the top industrial houses
               of the country. </div>
 
-            <div id="dop"><strong>
+            <div id="dop" class="tabcontent"><strong>
                 <div id="header">The Department of Physics</div>
               </strong> was established in 1924 and since then has been functioning as an important part of the
               institute. As of now, the Department has eight faculty members
@@ -233,7 +229,7 @@
               program.
               The Department is mentored by <strong>Prof. K.L.Chopra ,Ex-Director,IIT Kharagpur.</strong></div>
 
-            <div id="dom"><strong>
+            <div id="dom" class="tabcontent"><strong>
                 <div id="header">The Department of Mathematics</div>
               </strong> was established in 1924 and department offer several courses that support other engineering
               departments.
@@ -244,7 +240,7 @@
               Department of Mathematics is one of the backbone of the Institution as it is an essential department for
               engineering courses up to Ph.D level.</div>
 
-            <div id="doc"><strong>
+            <div id="doc" class="tabcontent"><strong>
                 <div id="header">The Chemistry department</div>
               </strong> was established in 1924, at the same time the institute was founded. Until recently the
               department has been an auxiliary department
@@ -398,127 +394,125 @@
       </script>
       <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-      <script>
-        function myFunction() {
-          var x = document.querySelectorAll("#ece,#ee,#ce,#me,#dop,#dom,#doc,#arch");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
+        <script>
+          function opendetece(evt){
+              var i,tabcontent,tablinks;
+              tabcontent=document.getElementsByClassName("tabcontent");
+              for(i=0;i<tabcontent.length;i++){
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("btn btn-outline-light ec");
+              for(i=0;i<tablinks.length;i++){
+                  tablinks[i].className.replace("active","");
+              }
+              document.getElementById('ece').style.display="block";
+              evt.currentTarget.className+="active";
           }
-          var y = document.getElementById("cse");
-          if (y.style.display === "none") {
-            y.style.display = "block";
+          function opendetee(evt){
+              var i,tabcontent,tablinks;
+              tabcontent=document.getElementsByClassName("tabcontent");
+              for(i=0;i<tabcontent.length;i++){
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("btn btn-outline-light e");
+              for(i=0;i<tablinks.length;i++){
+                  tablinks[i].className.replace("active","");
+              }
+              document.getElementById('ee').style.display="block";
+              evt.currentTarget.className+="active";
           }
-        }
-
-        function myFunction1() {
-          var x = document.querySelectorAll("#cse,#ee,#ce,#me,#dop,#dom,#doc,#arch");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
+          function opendetcse(evt){
+              var i,tabcontent,tablinks;
+              tabcontent=document.getElementsByClassName("tabcontent");
+              for(i=0;i<tabcontent.length;i++){
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("btn btn-outline-light cs");
+              for(i=0;i<tablinks.length;i++){
+                  tablinks[i].className.replace("active","");
+              }
+              document.getElementById('cse').style.display="block";
+              evt.currentTarget.className+="active";
           }
-          var y = document.getElementById("ece");
-          if (y.style.display === "none") {
-            y.style.display = "block";
+          function opendetce(evt){
+              var i,tabcontent,tablinks;
+              tabcontent=document.getElementsByClassName("tabcontent");
+              for(i=0;i<tabcontent.length;i++){
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("btn btn-outline-light c");
+              for(i=0;i<tablinks.length;i++){
+                  tablinks[i].className.replace("active","");
+              }
+              document.getElementById('ce').style.display="block";
+              evt.currentTarget.className+="active";
           }
-        }
-
-        function myFunction2() {
-          var x = document.querySelectorAll("#ece,#cse,#ce,#me,#dop,#dom,#doc,#arch");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
+          function opendetme(evt){
+              var i,tabcontent,tablinks;
+              tabcontent=document.getElementsByClassName("tabcontent");
+              for(i=0;i<tabcontent.length;i++){
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("btn btn-outline-light m");
+              for(i=0;i<tablinks.length;i++){
+                  tablinks[i].className.replace("active","");
+              }
+              document.getElementById('me').style.display="block";
+              evt.currentTarget.className+="active";
           }
-          var y = document.getElementById("ee");
-          if (y.style.display === "none") {
-            y.style.display = "block";
+          function opendetdop(evt){
+              var i,tabcontent,tablinks;
+              tabcontent=document.getElementsByClassName("tabcontent");
+              for(i=0;i<tabcontent.length;i++){
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("btn btn-outline-light dop1");
+              for(i=0;i<tablinks.length;i++){
+                  tablinks[i].className.replace("active","");
+              }
+              document.getElementById('dop').style.display="block";
+              evt.currentTarget.className+="active";
           }
-        }
-
-        function myFunction3() {
-          var x = document.querySelectorAll("#ece,#cse,#ee,#me,#dop,#dom,#doc,#arch");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
+          function opendetdom(evt){
+              var i,tabcontent,tablinks;
+              tabcontent=document.getElementsByClassName("tabcontent");
+              for(i=0;i<tabcontent.length;i++){
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("btn btn-outline-light dom1");
+              for(i=0;i<tablinks.length;i++){
+                  tablinks[i].className.replace("active","");
+              }
+              document.getElementById('dom').style.display="block";
+              evt.currentTarget.className+="active";
           }
-          var y = document.getElementById("ce");
-          if (y.style.display === "none") {
-            y.style.display = "block";
+          function opendetdoc(evt){
+              var i,tabcontent,tablinks;
+              tabcontent=document.getElementsByClassName("tabcontent");
+              for(i=0;i<tabcontent.length;i++){
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("btn btn-outline-light doc1");
+              for(i=0;i<tablinks.length;i++){
+                  tablinks[i].className.replace("active","");
+              }
+              document.getElementById('doc').style.display="block";
+              evt.currentTarget.className+="active";
           }
-        }
-
-        function myFunction4() {
-          var x = document.querySelectorAll("#ece,#cse,#ce,#ee,#dop,#dom,#doc,#arch");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
+          function opendetarch(evt){
+              var i,tabcontent,tablinks;
+              tabcontent=document.getElementsByClassName("tabcontent");
+              for(i=0;i<tabcontent.length;i++){
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("btn btn-outline-light arch1");
+              for(i=0;i<tablinks.length;i++){
+                  tablinks[i].className.replace("active","");
+              }
+              document.getElementById('arch').style.display="block";
+              evt.currentTarget.className+="active";
           }
-          var y = document.getElementById("me");
-          if (y.style.display === "none") {
-            y.style.display = "block";
-          }
-        }
-
-        function myFunction5() {
-          var x = document.querySelectorAll("#ece,#cse,#ce,#me,#ee,#dom,#doc,#arch");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-          }
-          var y = document.getElementById("dop");
-          if (y.style.display === "none") {
-            y.style.display = "block";
-          }
-        }
-
-        function myFunction6() {
-          var x = document.querySelectorAll("#ece,#cse,#ce,#me,#ee,#dop,#doc,#arch");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-          }
-          var y = document.getElementById("dom");
-          if (y.style.display === "none") {
-            y.style.display = "block";
-          }
-        }
-
-        function myFunction7() {
-          var x = document.querySelectorAll("#ece,#cse,#ce,#me,#ee,#dom,#dop,#arch");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-          }
-          var y = document.getElementById("doc");
-          if (y.style.display === "none") {
-            y.style.display = "block";
-          }
-        }
-
-        function myFunction8() {
-          var x = document.querySelectorAll("#ece,#cse,#ce,#me,#ee,#dom,#doc,#dop");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-          }
-          var y = document.getElementById("arch");
-          if (y.style.display === "none") {
-            y.style.display = "block";
-          }
-        }
-      </script>
-      <script>
-        var modal = document.getElementById("myModal");
-
-        // Get the image and insert it inside the modal - use its "alt" text as a caption
-        var img = document.getElementByClass("n1");
-        var modalImg = document.getElementById("img01");
-        var captionText = document.getElementById("caption");
-        img.onclick = function () {
-          modal.style.display = "block";
-          modalImg.src = this.src;
-          captionText.innerHTML = this.alt;
-        }
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-          modal.style.display = "none";
-        }
-      </script>
+        </script>
     </section>
   </div>
   {% include 'footer.html' %}

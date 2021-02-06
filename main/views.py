@@ -91,7 +91,7 @@ def searchusers(request):
                 id.append(i)
             for i in id:
                 val = database.child('Question-papers').child(i).child('filename').get().val()
-                if (val == value):
+                if (val== value):
                     requid = i
                 else:
                     return render(request, "search.html")
@@ -106,10 +106,13 @@ def searchusers(request):
                 uidlist.append(i)
             for i in uidlist:
                 val = database.child('users').child(i).child('name').get().val()
+                val=val.lower()
+                value=value.lower()
+                print(val,value)
                 if (val == value):
                     requid = i
-                else:
-                    return render(request, "search.html")
+            if requid=='null':
+                return render(request, "search.html")
             print(requid)
             name = database.child('users').child(requid).child('name').get().val()
             course = database.child('users').child(requid).child('course').get().val()
@@ -179,7 +182,9 @@ def postsignIn(request):
                 name = database.child('users').child(uid).child('name').get().val()
                 branch = database.child('users').child(uid).child('branch').get().val()
                 image = database.child('users').child(uid).child('imgUrl').get().val()
-                print(image)
+                if image == "":
+                    image = "https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad"
+
                 comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
                 return render(request, "ProfilePage.html", {"comb_lis": comb_lis, "name": name, "branch": branch,"image":image})
             else:
@@ -286,6 +291,8 @@ def profile(request):
         name = database.child('users').child(uid).child('name').get().val()
         branch = database.child('users').child(uid).child('branch').get().val()
         image = database.child('users').child(uid).child('imgUrl').get().val()
+        if image=="":
+            image="https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad"
         comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
         return render(request,"ProfilePage.html",{"comb_lis":comb_lis,"name":name,"branch":branch,"image":image})
 
@@ -379,8 +386,14 @@ def gotoedit(request):
         a = a['users']
         a = a[0]
         uid = a['localId']
+
     image = database.child('users').child(uid).child('imgUrl').get().val()
-    return render(request,'editprofile.html',{"image":image})
+    name = database.child('users').child(uid).child('name').get().val()
+    branch = database.child('users').child(uid).child('branch').get().val()
+    enrollment = database.child('users').child(uid).child('enrollment').get().val()
+    if image == "":
+        image = "https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad"
+    return render(request,'editprofile.html',{"image":image,"name":name,"branch":branch,"enrollment":enrollment})
 
 def postedit(request):
     if request.method=='POST':
@@ -391,11 +404,6 @@ def postedit(request):
         time_now = datetime.now(timezone.utc).astimezone(tz)
         millis = int(time.mktime(time_now.timetuple()))
 
-        dname=request.POST.get('dname')
-        email=request.POST.get('email')
-        course=request.POST['course']
-        branch=request.POST['branch']
-        year=request.POST['year']
         imgurl=request.POST.get('url')        #for image update
         print("IMAGEurl",imgurl)
 
@@ -404,17 +412,10 @@ def postedit(request):
         a=a['users']
         a=a[0]
         a=a['localId']
-
-        data={                             
-            "name":dname,
-            "email":email,
-            "course":course,
-            "branch":branch,
-            "branch":branch,
-            "year":year,
+        data={                              #image update remaining--sumit
             "imgUrl":imgurl,
         }
         database.child('users').child(a).update(data)
-        return render(request,'editprofile.html')
+        return render(request,'home2.html')
     message = "Please Login First"
     return render(request, "Login.html", {"message": message})

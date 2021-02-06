@@ -63,11 +63,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div class="col-md-4 side">
                 {% csrf_token %}
                     <img src="{{ image }}" alt="" style="margin-top:15px; height:100px; width:100px;" class="rounded-circle"/>
-                <div class="file btn btn-lg btn-primary" style="width: 150px; margin-left:-100px; background-image: linear-gradient(90deg,  #26324a, lightblue);">
-                    <label for="file">Change Photo</label>    
+                <div class="file btn btn-lg btn-primary" style="width: 80px; margin-left:-100px; background-image: linear-gradient(90deg,  #26324a, lightblue);">
+                    <label for="file"></label>
                     <input type="file" name="files[]" id="files">
                     <input type="hidden" name="url" id="url">
-                    <button type="button" onclick="uploadimage()" class="btn btn-primary" style="float: left; padding-left:0px; font-size: 18px;">Upload</button>
+                    <button type="button" onclick="uploadimage()" class="btn btn-primary" style="float: left; padding-left:0px; font-size: 10px;">Upload</button>
                     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
                     <script>    
                         var firebaseConfig = {
@@ -90,7 +90,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                             var metadata = {
                                 contentType: 'image/jpeg',
                               };
-                            var thisref = storageRef.child(file.name).put(file,metadata);
+                            var thisref = storageRef.child("images"/file.name).put(file,metadata);
                             thisref.on('state_changed',function(snapshot){
                                 console.log("File uploaded successfully");
                             },
@@ -129,56 +129,27 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         <br>
                     <label for="roll">Roll: </label><br>
                     <label type="number" name="roll">{{enrollment}}<br>
-                <!--    About me:<br>-->
-                <!--    <textarea name="tarea" cols="40" rows="5" placeholder="Write Something about yourself"></textarea><br>-->
-                <!--    <br>-->
-                    
-                    
-                <!--    External Links<br><br>-->
-                <!--    Facebook URL: <input type="url" name="furl"><br>-->
-                <!--    Twitter URL: <input type="url" name="turl"><br>-->
-                <!--    LinkedIN URL: <input type="url" name="lurl"><br>-->
-                <!--    Website URL: <input type="url" name="wurl"><br>-->
-                    <br><br>
-                    
+                    </label>
+
             </div>
             <div class="col-md-4">
                 <br><br><br><br><br><br><br>
                 <label for="academic">Academic Details:</label>
                     <br><br>
-                    <label for="course">Course:</label>
-                    
-                    <select id="course" name="course">
-                        <option value="btech">B.Tech.</option>
-                        <option value="barch">B.Arch.</option>
-                        <option value="mtech">M.Tech.</option>
-                    </select><br><br>
-                    <label for="branch">Branch:</label>
-                    
-                    <select id="branch" name="branch">
-                        <option value="Mechanical Engineer">Mechanical</option>
-                        <option value="Electrical Engineer">Electrical</option>
-                        <option value="Civil Engineer">Civil</option>
-                        <option value="Electronics Engineering">ECE</option>
-                        <option value="Architecture">Architecture</option>
-                        <option value="Computer Science">CSE</option>
-                        <option value="Humanities">Humanities</option>
-                    </select><br><br>
-<!--                    <label for="year">Year:</label>-->
-<!--                    -->
-<!--&lt;!&ndash;                    <select id="year" name="year">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <option value="1">First</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <option value="2">Second</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <option value="3">Third</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <option value="4">Fourth</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <option value="5">Fifth</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </select><br><br>&ndash;&gt;-->
-                    
+
+                <!--    First Name : <input type="text" name="fname"><br>-->
+                <!--    Last Name: <input type="text" name="lname"><br>-->
+                    <label for="Name"> Course</label><br>
+                    <label type="text" name="dname">Btech<br>
+                        <br>
+                    <label for="roll">Branch: </label><br>
+                    <label type="number" name="roll">{{branch}}<br>
+                    </label>
+
             </div>
-                
+
         </div>
         <div class="text-center" style="background-image: linear-gradient(90deg,  #26324a, lightblue); margin-left: 15px;">
-            <button type="submit" class="btn btn-primary">Save</button>
             <button type="button" class="btn btn-primary" onclick="location.href='{% url 'profile' %}'">Back To Profile</button>
         </div>
         </form>

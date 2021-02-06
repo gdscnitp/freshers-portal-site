@@ -49,6 +49,9 @@ def Blogs(request):
         Types.append(Type)
         name = database.child('users').child(Writtenby).child('name').get().val()
         image = database.child('users').child(Writtenby).child('imgUrl').get().val()
+        if image == "":
+            image = "https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad"
+
         print(image)
         Writtenbys.append(name)
         images.append(image)
@@ -79,11 +82,11 @@ def searchusers(request):
                 val = database.child('Notes').child(i).child('filename').get().val()
                 if (val == value):
                     requid = i
+                    fileurl = database.child('Notes').child(requid).child('fileurl').get().val()
+                    return render(request, "searchNotes.html", {"fileurl": fileurl})
                 else:
                     return render(request, "search.html")
-            print(requid)
-            fileurl = database.child('Notes').child(requid).child('fileurl').get().val()
-            return render(request, "searchNotes.html", {"fileurl":fileurl})
+
         if title == "Question-papers":
             data = database.child('Question-papers').shallow().get().val()
             id = []
@@ -91,13 +94,13 @@ def searchusers(request):
                 id.append(i)
             for i in id:
                 val = database.child('Question-papers').child(i).child('filename').get().val()
-                if (val== value):
+                if (val == value):
                     requid = i
+                    fileurl = database.child('Question-papers').child(requid).child('fileurl').get().val()
+                    return render(request, "searchNotes.html", {"fileurl": fileurl})
                 else:
                     return render(request, "search.html")
-            print(requid)
-            fileurl = database.child('Question-papers').child(requid).child('fileurl').get().val()
-            return render(request, "searchNotes.html", {"fileurl": fileurl})
+
         if title == "Users":
             data = database.child('users').shallow().get().val()
             uidlist = []
@@ -198,6 +201,8 @@ def postsignIn(request):
                 name = database.child('users').child(uid).child('name').get().val()
                 branch = database.child('users').child(uid).child('branch').get().val()
                 image = database.child('users').child(uid).child('imgUrl').get().val()
+                if image == "":
+                    image = "https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad"
                 print(image)
                 comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
                 return render(request, "ProfilePage.html",
@@ -366,6 +371,10 @@ def afteraAddPost(request):
                     Titles.append(Title)
                     Types.append(Type)
                     name = database.child('users').child(Writtenby).child('name').get().val()
+                    image = database.child('users').child(a).child('imgUrl').get().val()
+                    if image == "":
+                        image = "https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad"
+
                     branch = database.child('users').child(Writtenby).child('branch').get().val()
                     Writtenbys.append(name)
             date = []
@@ -374,7 +383,6 @@ def afteraAddPost(request):
                 dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
                 date.append(dat)
             comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
-            image = database.child('users').child(a).child('imgUrl').get().val()
             return render(request, "ProfilePage.html", {"comb_lis": comb_lis,"name":name,"branch": branch,"image":image})
     message = "Please Login First"
     return render(request, "Login.html", {"message": message})

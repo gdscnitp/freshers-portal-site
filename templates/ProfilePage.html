@@ -60,7 +60,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     <h5>{{ branch }}</h5>
      <button type="button" class="btn btn-primary"
       onclick="location.href='{% url 'edit' %}'">
-Edit Profile</button>
+View Profile</button>
 
 
    </div>
@@ -70,8 +70,10 @@ Edit Profile</button>
 
   <div class="col-md-8">
         <div class="tm-main-content">
-          <h2 style="text-align:center;">Your Blogs</h2><br />
+
+          <h2 style="text-align:center;">Your Blogs</h2><br/>
             <section class="tm-section tm-section-small">
+
             {% for lis_time, date, Descriptions,Departments,Titles,Types,name in comb_lis %}
                 <div class="image">
     <!--              <img src="../static/images/nit.jpg">-->

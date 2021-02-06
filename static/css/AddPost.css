@@ -108,7 +108,8 @@ li{
 
 .container{
     max-width: 800px;
-    background-color: #64707c;opacity: 0.8;
+    background-color: #64707c;
+    opacity: 0.8;
     color: white;
     padding: 40px;
     overflow-x: hidden;

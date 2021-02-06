@@ -52,7 +52,6 @@ def Blogs(request):
         if image == "":
             image = "https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad"
 
-        print(image)
         Writtenbys.append(name)
         images.append(image)
     date = []

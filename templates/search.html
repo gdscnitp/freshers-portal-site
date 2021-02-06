@@ -1,53 +1,107 @@
 {% load static %}
 
 <html lang="en">
+
 <head>
-  <title>Search Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Search.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Search Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel='stylesheet' href="{% static '/css/Search.css' %}">
+        <link rel="stylesheet" type="text/css" href="{%static '/css/footer.css' %}">
 
 </head>
+
 <body>
-<nav class="navbar navbar1 sticky-top" style="height: 90px;">
-<div class="media txt">
-        <div class="media-body">
-            <div >
-                <form class="form-inline w-1900" method="post" action="/searchusers/" style="margin:auto;">
-                        {% csrf_token %}
-                        <div class="media mt-3 ml-10">
-                                <div class="md-form active-pink active-pink-2 pl-15  mt-0">
-                                        <input class="form-control" type="text" placeholder="Enter Title..." aria-label="Search.." name="search" id="search" style="width:100%">
-                                </div>
-                                <select class="form-control" name="category" id="category">
-                                        <option selected disabled >Select Category</option>
+        <nav class="nav">
+                <div class="nav-first">
+                        <img src="{% static 'images/nitp.png' %}" width="50" height="50"
+                                class="d-inline-block align-top logo" alt="Logo">
+                        <h1 class="logo">National Institue Of Technology, Patna</h1>
+                        <p>An Institute of National Importance under Ministry of Education, Government of India</p>
+                </div>
+
+
+
+                <ul class="nav-links">
+                        <li>
+                                <a href="/home/" class="btn btn-primary butt"
+                                        onclick="parent.location='college.html'">Home</a>
+                        </li>
+                        <li>
+                                <a href="/addPost/" class="btn btn-primary butt"
+                                        onClick="parent.location='Nav2.html'">Add Blog</a>
+                        </li>
+                        <li>
+                                <a href="/profile/" class="btn btn-primary butt">Profile</a>
+                        </li>
+                        
+                        <li>
+                                <button class="btn btn-primary butt"
+                                        onclick="location.href = '{% url 'log' %}' ">Logout</button>
+                        </li>
+
+
+                </ul>
+
+                <div class="burger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                </div>
+        </nav>
+        <div class="container">
+                <div class="inner">
+                        <form method="post" action="/searchusers/">
+                                {% csrf_token %}
+                                <input type="text" placeholder="Enter Title..." aria-label="Search.." name="search"
+                                        id="search">
+                                <select name="category" id="category">
+                                        <option selected disabled>Select Category</option>
                                         <option value="Notes">Notes</option>
                                         <option value="Question-papers">Previous Year Question Papers</option>
-                                        <option value="Users">Users</option> 
+                                        <option value="Users">Users</option>
                                 </select>
-                                <button class="btn btn-primary " type="submit">Find</button>
-                         </div>
-                </form>
-                        
+                                <input type="submit" value="Find">
+                        </form>
+                </div>
 
 
-<br>
-</div>
-          </div>
+
+
+                <script>
+                        const navSlide = () => {
+                                const burger = document.querySelector('.burger');
+                                const nav = document.querySelector('.nav-links');
+                                const navLinks = document.querySelectorAll('.nav-links li');
+
+                                burger.addEventListener('click', () => {
+                                        nav.classList.toggle('nav-active');
+
+                                        navLinks.forEach((link, index) => {
+
+                                                if (link.style.animation) {
+                                                        link.style.animation =
+                                                                '';
+                                                } else {
+                                                        link.style.animation =
+                                                                `navLinkFade 0.5s ease forwards ${index/7+0.3}s`;
+                                                }
+
+                                        });
+
+                                        burger.classList.toggle('toggle');
+
+                                });
+
+
+                        }
+                        navSlide();
+                </script>
         </div>
-
-    <div id="nav">
- <a href="/home/" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'" style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Home</a>
-  <a href="/addPost" class="btn btn-primary butt1" onClick="parent.location='Nav2.html'"style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Add Blog</a>
-  <button type="button" onclick= "location.href = '{% url 'log' %}' " class="btn btn-primary butt1" style="margin-right:40px; background-color:#26324a; border-color:#26324a;">Logout</button>
-   </div>
-    </div>
-    </div>
-</nav>
-
+        {% include 'footer.html'%}
 </body>
+
 </html>

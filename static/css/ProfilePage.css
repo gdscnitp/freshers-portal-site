@@ -205,6 +205,9 @@
     .container{
         margin-top: 35vh;
     }
+    .profile-content{
+        text-align: center;
+    }
 
   }
   
@@ -232,14 +235,6 @@
   }
   .toggle .line3{
       transform: rotate(45deg) translate(-5px , -6px);
-  }
-  .profile-content {
-       padding-top: 5%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%)
   }
   #row1{
       padding-top: 5%;

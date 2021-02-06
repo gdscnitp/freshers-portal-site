@@ -240,11 +240,11 @@ def postsignup(request):
             user=authe.create_user_with_email_and_password(email,passw)
         except:
             messg="Something Went Wrong, Unable to create your account. Try Again!"
-            return render(request,"registration.html",{"messg":messg})
+            return render(request,"Registration.html",{"messg":messg})
         uid = user['localId']
         data={"name":name,"USER_TYPE":"user","device_token":"","email":email,"id":roll,"imgUrl":"https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad","branch":branch,"uid":uid,"enrollment":enroll}
         database.child("users").child(uid).set(data)
-        return render(request,"login.html")
+        return render(request,"Login.html")
     message = "Please Login Here First "
     return render(request, "Login.html", {"message": message})
 def profile(request):
@@ -374,7 +374,8 @@ def afteraAddPost(request):
                 dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
                 date.append(dat)
             comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
-            return render(request, "ProfilePage.html", {"comb_lis": comb_lis,"name":name,"branch": branch})
+            image = database.child('users').child(a).child('imgUrl').get().val()
+            return render(request, "ProfilePage.html", {"comb_lis": comb_lis,"name":name,"branch": branch,"image":image})
     message = "Please Login First"
     return render(request, "Login.html", {"message": message})
 

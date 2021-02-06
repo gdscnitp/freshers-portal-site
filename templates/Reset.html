@@ -18,9 +18,35 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
-    <div class="back">
-        <a href="/signIn/"><i class='fas fa-arrow-left' style='font-size:22px'>&nbsp;&nbsp;</i>Back</a>
-    </div>
+    <nav class="nav">
+        <div class="nav-first">
+            <img  src="{% static 'images/nitp.png' %}" width="50" height="50" class="d-inline-block align-top logo" alt="Logo">
+        <h1 class="logo">National Institue Of Technology, Patna</h1>
+        <p>An Institute of National Importance under Ministry of Education, Government of India</p>
+        </div>
+     
+          
+    
+        <ul class="nav-links">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/signIn">Login</a>
+            </li>
+    
+            <li>
+            <a href="/signUp" onClick="parent.location='reg.html'">Register</a>
+            </li>
+            
+        </ul>
+    
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
     <div class="container">
         <div class="inner">
             <h1>Reset Your Password</h1><br>
@@ -31,6 +57,34 @@
             </form>
         </div>
     </div>
+    <script>
+        const navSlide = ()=>{
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+        
+            burger.addEventListener('click', ()=>{
+                nav.classList.toggle('nav-active');
+        
+                navLinks.forEach((link, index)=>{
+        
+                if(link.style.animation){
+                    link.style.animation = '';
+                }else{
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index/7+0.3}s`;
+                }
+        
+                });
+        
+                burger.classList.toggle('toggle');
+        
+            });
+        
+        
+            }
+            navSlide();
+        
+        </script>
     {%include 'footer.html' %}
 </body>
 </html>

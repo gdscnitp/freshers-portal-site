@@ -367,7 +367,8 @@ def afteraAddPost(request):
                 dat = datetime.datetime.fromtimestamp(i).strftime('%H:%M %d-%m-%y')
                 date.append(dat)
             comb_lis = zip(lis_time, date, Descriptions, Departments, Titles, Types, Writtenbys)
-            return render(request, "ProfilePage.html", {"comb_lis": comb_lis,"name":name,"branch": branch})
+            image = database.child('users').child(a).child('imgUrl').get().val()
+            return render(request, "ProfilePage.html", {"comb_lis": comb_lis,"name":name,"branch": branch,"image":image})
     message = "Please Login First"
     return render(request, "Login.html", {"message": message})
 

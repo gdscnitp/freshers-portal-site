@@ -196,6 +196,9 @@ p{
       display: block;
       cursor: pointer;
   }
+  .tm-main-content{
+    margin-top: 13vh;
+  }
 
 }
 
@@ -222,7 +225,7 @@ body{
 }
 
 .tm-main-content { 
-  margin-top: 20vh;
+  margin-top: 35vh;
 }
 .tm-section-header2{
   text-align: left;

@@ -194,6 +194,10 @@ li{
         display: block;
         cursor: pointer;
     }
+    .column2{
+        position: absolute;
+        float:left;
+    }
   
   }
   
@@ -223,7 +227,7 @@ li{
       .nav-links{
           right: -100%;
           width: 100%;
-          top: 30vh;
+          top: 20vh;
           height: 80vh;
       } 
   
@@ -234,6 +238,10 @@ li{
           align-items: center;
           transition: 0.3s ease-in all;
       }
+      .column2{
+        position: absolute;
+        float:left;
+    }
       .login{
           margin-top: 35vh;
       }
@@ -241,6 +249,7 @@ li{
   
   }
   
+
   @keyframes navLinkFade{
       from{
           opacity: 0;
@@ -266,5 +275,8 @@ li{
   .toggle .line3{
       transform: rotate(45deg) translate(-5px , -6px);
   }
-
+  @keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
   

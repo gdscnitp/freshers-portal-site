@@ -6,11 +6,38 @@
     border: none;
     border-radius: 0;
     font-size: 15px;
-    background-image: linear-gradient(90deg,  #26324a, lightblue);;
+    background-image: linear-gradient(90deg,  #26324a, lightblue);
+
+   width: 150px;
+    margin-left:-100px;
+     background-image:
+                 linear-gradient(90deg,  #26324a, lightblue);"
 }
 .file input {
     position: absolute;
     opacity: 0;
     right: 0;
     top: 0;
+}
+
+.cont{
+   margin-top:15px;
+    height:100px;
+     width:100px;
+}
+@media screen and (max-width:500px){
+    .file {
+        position: relative;
+        overflow: hidden;
+        margin-top: 70%;
+        display: block;  
+        margin-left:20%;  
+        margin-right: auto; 
+        
+    } 
+    .cont{
+        display: block;  
+margin-left: auto;  
+margin-right: auto;  
+    }  
 }

@@ -231,6 +231,10 @@ li{
     .register{
         margin-top: 35vh;
     }
+    .text-center{
+        font-size:10px ;
+    }
+   
 }
 @keyframes navLinkFade{
     from{

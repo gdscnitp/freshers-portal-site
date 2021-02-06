@@ -45,7 +45,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         </div>
     </nav>
 
-<div class="container-fluid register">
+<div class="container-fluid register" style="font-size:small;">
     <div class="row">
         <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="Logo"/> 
@@ -53,11 +53,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         </div>
         <div class="col-md-9 register-right">
             <h1 class="heading" style="text-align:center; color: white;
-             font-family: 'Times New Roman', Times, serif;"> Registration Form</h1>
+             font-family: 'Times New Roman', Times, serif; "> Registration Form</h1>
             <form action="/postsignup/" method="POST">
           
                 {% csrf_token %}
-                <div class="col-md-6" style="color:gray;">
+                <div class="col-md-6" >
                     <div class="form-group">
                         <label for ="fname">Full Name:</label>
                         <input type="text" class="form-control input-m" name="name" placeholder="Enter name"> 
@@ -71,7 +71,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         <input type="number" class="form-control input-m" name="roll" placeholder="Enter Roll No.">
                     </div>
                 </div>
-                <div class="col-md-6" style="color: :darkslategrey;">
+                <div class="col-md-6" >
                     <div class="form-group">
                         <label for ="branch"> Branch:</label>
                         <select class="form-control" name="sel" placeholder=" Select Branch">
@@ -89,7 +89,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     </div>
                     <div class="form-group">
                         <label for="Pass"> Password: </label>
-                        <input type="password" class="form-control imput-m" name="pass" placeholder="Minimum 8 characters" />
+                        <input type="password" class="form-control imput-m" name="pass" placeholder=
+                        "Minimum 8 characters" />
                     </div>
                     
                 </div>

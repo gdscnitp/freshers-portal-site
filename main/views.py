@@ -66,7 +66,11 @@ def search(request):
     return render(request, "search.html")
 def searchusers(request):
     value = request.POST.get('search')
+    if value =="":
+        return render(request, "search.html")
     title = request.POST['category']
+    if title =="":
+        return render(request, "search.html")
     if value is None or title is None:
         print(value ,"Value",title)
         return render(request, "search.html")
@@ -397,10 +401,11 @@ def gotoedit(request):
     image = database.child('users').child(uid).child('imgUrl').get().val()
     name = database.child('users').child(uid).child('name').get().val()
     branch = database.child('users').child(uid).child('branch').get().val()
+    email = database.child('users').child(uid).child('email').get().val()
     enrollment = database.child('users').child(uid).child('enrollment').get().val()
     if image == "":
         image = "https://firebasestorage.googleapis.com/v0/b/freshers-portal.appspot.com/o/profilepic.jpg?alt=media&token=864cf64c-a0ad-442b-8ca2-ae425baf43ad"
-    return render(request,'editprofile.html',{"image":image,"name":name,"branch":branch,"enrollment":enrollment})
+    return render(request,'editprofile.html',{"image":image,"name":name,"email":email,"branch":branch,"enrollment":enrollment})
 
 def postedit(request):
     if request.method=='POST':

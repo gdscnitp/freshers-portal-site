@@ -62,7 +62,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <div class="row" style=" background-image: linear-gradient(90deg,  #26324a, lightblue);">
             <div class="col-md-4 side">
                 {% csrf_token %}
-                    <img src="{{ image }}" alt="" style="margin-top:15px; height:100px; width:100px;" class="rounded-circle"/>
+                    <img src="{{ image }}" alt="" style="margin-top:15px; height:100px; width:100px; alignment:center;" class="rounded-circle"/>
                 <div class="file btn btn-lg btn-primary" style="width: 80px; margin-left:-100px; background-image: linear-gradient(90deg,  #26324a, lightblue);">
                     <label for="file"></label>
                     <input type="file" name="files[]" id="files">
@@ -112,41 +112,59 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         
                     </script>
                 </div>
-
-            
-                
-                
             </div>
-            <div class="col-md-4" >
-                <br><br><br><br>
-                    <h1>Profile</h1>
-                    <label for="personal details">Personal Details:</label>
-                    <br><br>
-                <!--    First Name : <input type="text" name="fname"><br>-->
-                <!--    Last Name: <input type="text" name="lname"><br>-->
-                    <label for="Name">Your Name:</label><br>
-                    <label type="text" name="dname">{{name}}<br>
-                        <br>
-                    <label for="roll">Roll: </label><br>
-                    <label type="number" name="roll">{{enrollment}}<br>
-                    </label>
 
-            </div>
-            <div class="col-md-4">
-                <br><br><br><br><br><br><br>
-                <label for="academic">Academic Details:</label>
-                    <br><br>
 
-                <!--    First Name : <input type="text" name="fname"><br>-->
-                <!--    Last Name: <input type="text" name="lname"><br>-->
-                    <label for="Name"> Course</label><br>
-                    <label type="text" name="dname">Btech<br>
-                        <br>
-                    <label for="roll">Branch: </label><br>
-                    <label type="number" name="roll">{{branch}}<br>
-                    </label>
+                <div class="col-md-4" style="font-size:16px; color: #fff;">
+                      <br><br><br><br>
+                    <div class="form-group">
+                        <label for ="fname">Name:</label>
+                        <label type="text" name="dname">{{name}}
+                    </div>
+                    <div class="form-group">
+                        <label for="enroll"> Enrollment No.:</label>
+                       <label type="text" name="dname">{{enrollment}}
+                    </div>
+                    <div class="form-group">
+                        <label for="roll"> Email:</label>
+                        <label type="text" name="dname">{{email}}
+                    </div>
+                   <div class="form-group">
+                        <label for="roll"> Branch:</label>
+                        <label type="text" name="dname">{{branch}}
+                    </div>
 
-            </div>
+                </div>
+<!--            <div class="col-md-4" >-->
+<!--                <br><br><br><br>-->
+<!--                    <h1>Profile</h1>-->
+<!--                    <label for="personal details">Personal Details:</label>-->
+<!--                    <br><br>-->
+<!--                &lt;!&ndash;    First Name : <input type="text" name="fname"><br>&ndash;&gt;-->
+<!--                &lt;!&ndash;    Last Name: <input type="text" name="lname"><br>&ndash;&gt;-->
+<!--                    <label for="Name">Your Name:</label><br>-->
+<!--                    <label type="text" name="dname">{{name}}<br>-->
+<!--                        <br>-->
+<!--                    <label for="roll">Roll: </label><br>-->
+<!--                    <label type="number" name="roll">{{enrollment}}<br>-->
+<!--                    </label>-->
+
+<!--            </div>-->
+<!--            <div class="col-md-4">-->
+<!--                <br><br><br><br><br><br><br>-->
+<!--                <label for="academic">Academic Details:</label>-->
+<!--                    <br><br>-->
+
+<!--                &lt;!&ndash;    First Name : <input type="text" name="fname"><br>&ndash;&gt;-->
+<!--                &lt;!&ndash;    Last Name: <input type="text" name="lname"><br>&ndash;&gt;-->
+<!--                    <label for="Name"> Course</label><br>-->
+<!--                    <label type="text" name="dname">Btech<br>-->
+<!--                        <br>-->
+<!--                    <label for="roll">Branch: </label><br>-->
+<!--                    <label type="number" name="roll">{{branch}}<br>-->
+<!--                    </label>-->
+
+<!--            </div>-->
 
         </div>
         <div class="text-center" style="background-image: linear-gradient(90deg,  #26324a, lightblue); margin-left: 15px;">

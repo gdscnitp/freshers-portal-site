@@ -58,8 +58,8 @@
                                 {% csrf_token %}
                                 <input type="text" placeholder="Enter Title..." aria-label="Search.." name="search"
                                         id="search">
-                                <select name="category" id="category">
-                                        <option selected disabled>Select Category</option>
+                                <select name="category" id="category" name="">
+                                        <option value="">Select Category</option>
                                         <option value="Notes">Notes</option>
                                         <option value="Question-papers">Previous Year Question Papers</option>
                                         <option value="Users">Users</option>

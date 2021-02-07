@@ -51,13 +51,13 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="Logo"/> 
             <h3>Welcome To Fresher's Portal Site</h3>
         </div>
-        <div class="col-md-9 register-right">
+        <div class="col-md-9 register-right" >
             <h1 class="heading" style="text-align:center; color: white;
              font-family: 'Times New Roman', Times, serif;"> Registration Form</h1>
             <form action="/postsignup/" method="POST">
           
                 {% csrf_token %}
-                <div class="col-md-6" style="color:gray;">
+                <div class="col-md-6" style="font-size:small;">
                     <div class="form-group">
                         <label for ="fname">Full Name:</label>
                         <input type="text" class="form-control input-m" name="name" placeholder="Enter name"> 
@@ -71,7 +71,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         <input type="number" class="form-control input-m" name="roll" placeholder="Enter Roll No.">
                     </div>
                 </div>
-                <div class="col-md-6" style="color: :darkslategrey;">
+                <div class="col-md-6"  style=" color: #333;">
                     <div class="form-group">
                         <label for ="branch"> Branch:</label>
                         <select class="form-control" name="sel" placeholder=" Select Branch">

@@ -237,6 +237,12 @@ li{
       .login{
           margin-top: 35vh;
       }
+      .btnLogin{
+       
+        width: 35%;
+        cursor: pointer;
+       
+    }
       
   
   }
